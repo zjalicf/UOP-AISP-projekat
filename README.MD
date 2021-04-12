@@ -5,13 +5,13 @@
 It features a taxi service information system written in Java.
 
 ## Features
-:comet: Google Distance Matrix API
-
-:zap: Swing
+:zap: Google Distance Matrix API
 
 :ocean: Custom Fonts & Elements
 
 :cyclone: User-defined Data Structures and Algorithms (Lists and ~~Hashmaps~~)
+
+:comet: Swing
 
 ## Authors
 - Filip Zjalic
