@@ -2,7 +2,7 @@ package enums;
 
 public enum StatusVoznje {
     KREIRANA,
-    KREIRANANACEKANJU,
+    NACEKANJU,
     DODELJENA,
     PRIHVACENA,
     ZAVRSENA,
