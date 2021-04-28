@@ -5,9 +5,7 @@
 It features a taxi service information system written in Java.
 
 ## Features
-:zap: Google Distance Matrix API
-
-:ocean: Custom Fonts & Elements
+:zap: **Google Distance Matrix API**
 
 :cyclone: User-defined Data Structures and Algorithms (Lists and ~~Hashmaps~~)
 
