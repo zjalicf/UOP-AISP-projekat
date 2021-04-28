@@ -13,8 +13,10 @@ public abstract class Korisnik {
         this.brojTelefona = brojTelefona;
         this.jmbg = jmbg;
         this.username = username;
-        this.prezime = prezime;
+        this.password = password;
     }
+
+    public Korisnik() {}
 
     protected int idKorisnika;
 

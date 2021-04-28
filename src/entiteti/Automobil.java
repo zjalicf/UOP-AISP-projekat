@@ -24,11 +24,7 @@ public class Automobil {
         this.vrstaAutomobila = vrstaAutomobila;
     }
 
-    // da li treba da se stavi konstruktor sa "" i default enums?
-
-    public Automobil() {
-        //sta ce mi ovaj prazan?
-    }
+    public Automobil () {}
 
     @Override
     public String toString() {

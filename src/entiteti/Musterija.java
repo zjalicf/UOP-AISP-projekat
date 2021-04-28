@@ -10,10 +10,12 @@ public class Musterija extends Korisnik {
         super(idKorisnika, ime, prezime, pol, adresa, brojTelefona, jmbg, username, password);
     }
 
+    public Musterija() {}
+
     @Override
     public String toString() {
         return "Musterija [id=" + idKorisnika + ", ime=" + ime + ", prezime=" + prezime + ", pol=" + pol
                 + ", adresa=" + adresa + ", brojTelefona=" + brojTelefona + ", jmbg="
-                + jmbg + ", username=" + username + ", prezime=" + prezime + "]";
+                + jmbg + ", username=" + username + ", password=" + password + "]";
     }
 }

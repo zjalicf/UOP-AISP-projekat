@@ -8,9 +8,9 @@ import enums.VrstaAutomobila;
 import java.io.*;
 import java.util.ArrayList;
 
-public class AutomobilRadSaFajlovima {
+public class AutomobilIO {
 
-    public static ArrayList<Automobil> AutomobilCitajIzFajla() {
+    public static ArrayList<Automobil> AutomobilCitanje() {
         ArrayList<Automobil> automobili = new ArrayList<Automobil>();
         try {
             File file = new File("src/txtPodaci/automobili.txt");
@@ -41,7 +41,7 @@ public class AutomobilRadSaFajlovima {
         return automobili;
     }
 
-    public static void AutomobilUpisiUFajl(ArrayList<Automobil> automobili) {
+    public static void AutomobilUpis(ArrayList<Automobil> automobili) {
         String newString = "";
         for (Automobil automobil : automobili) {
             newString += automobil.getModel() +"|"+ automobil.getProizvodjac() +"|"+
@@ -55,7 +55,7 @@ public class AutomobilRadSaFajlovima {
             writer.close();
         }
         catch(IOException e) {
-            System.out.println("Greska prilikom ucitavanja datoteke: " + e.getMessage());
+            System.out.println("Greska! Upisivanje nije moguce");
         }
     }
 }
