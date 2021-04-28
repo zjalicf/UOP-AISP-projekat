@@ -18,6 +18,8 @@ public class Dispecer extends Korisnik {
         this.brTelefonskeLinije = brTelefonskeLinije;
     }
 
+    public Dispecer() {}
+
     @Override
     public String toString() {
         return "Dispecer [id=" + idKorisnika + ", ime=" + ime + ", prezime=" + prezime + ", pol=" + pol

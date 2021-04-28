@@ -15,6 +15,10 @@
     13. ceo GUI
  */
 
+// napravio sam samo konstruktor koji je prazan i konstruktor koji zahteva sve paramtere popunjene
+// a posto sam u ovim testovima u main metodi setovao samo po jednu stvar cisto da se vidi da radi,
+// u fajl ce biti upisane null vrednosti pored te koje je setovana, pa ponovno pokretanje nece raditi!
+// OBRISITE NOVU LINIJU KOJA SE UPISE U FAJL! (voznje.txt, automobili.txt, korisnici.txt)
 package main;
 
 import entiteti.Automobil;

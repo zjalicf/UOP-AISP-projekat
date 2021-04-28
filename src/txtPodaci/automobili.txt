@@ -1,2 +1,2 @@
-2011-12-15T12:30|Bulevar Evrope 4|Zmaj Jovina 5|111111|333333|1.3|5 min|ZAVRSENA|101010|4
-null|null|null|0|0|null|null|null|0|3
+M1|P1|2016|1|NS-453-GS|1|putnicki
+M2|P2|2009|2|BG-133-XA|2|kombi
