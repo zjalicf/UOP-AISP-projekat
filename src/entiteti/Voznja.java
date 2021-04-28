@@ -8,15 +8,16 @@ public class Voznja {
     private LocalDateTime datumPorudzbine;
     private String adresaPolaska;
     private String adresaDestinacije;
-    private String idMusterije;
-    private String idVozaca;
+    private int idMusterije;
+    private int idVozaca;
     private Double predjenoKm;
     private String trajanjeVoznje;
     private StatusVoznje statusVoznje;
     private int idVoznje;
+    private int ocenaVoznje;
 
-    public Voznja(LocalDateTime datumPorudzbine, String adresaPolaska, String adresaDestinacije, String idMusterije,
-                  String idVozaca, Double predjenoKm, String trajanjeVoznje, StatusVoznje statusVoznje, int idVoznje) {
+    public Voznja(LocalDateTime datumPorudzbine, String adresaPolaska, String adresaDestinacije, int idMusterije,
+                  int idVozaca, Double predjenoKm, String trajanjeVoznje, StatusVoznje statusVoznje, int idVoznje, int ocenaVoznje) {
         this.datumPorudzbine = datumPorudzbine;
         this.adresaPolaska = adresaPolaska;
         this.adresaDestinacije = adresaDestinacije;
@@ -26,7 +27,10 @@ public class Voznja {
         this.trajanjeVoznje = trajanjeVoznje;
         this.statusVoznje = statusVoznje;
         this.idVoznje = idVoznje;
+        this.ocenaVoznje = ocenaVoznje;
     }
+
+    public Voznja() {}
 
     public LocalDateTime getDatumPorudzbine() {
         return datumPorudzbine;
@@ -52,19 +56,19 @@ public class Voznja {
         this.adresaDestinacije = adresaDestinacije;
     }
 
-    public String getIdMusterije() {
+    public int getIdMusterije() {
         return idMusterije;
     }
 
-    public void setIdMusterije(String idMusterije) {
+    public void setIdMusterije(int idMusterije) {
         this.idMusterije = idMusterije;
     }
 
-    public String getIdVozaca() {
+    public int getIdVozaca() {
         return idVozaca;
     }
 
-    public void setIdVozaca(String ideVozaca) {
+    public void setIdVozaca(int idVozaca) {
         this.idVozaca = idVozaca;
     }
 
@@ -100,18 +104,25 @@ public class Voznja {
         this.idVoznje = idVoznje;
     }
 
+    public int getOcenaVoznje() {
+        return ocenaVoznje;
+    }
+
+    public void setOcenaVoznje(int ocenaVoznje) {
+        this.ocenaVoznje = ocenaVoznje;
+    }
+
     @Override
     public String toString() {
         return "Voznja [" +
                 "datumPorudzbine=" + datumPorudzbine +
                 ", adresaPolaska='" + adresaPolaska + '\'' +
-                ", adresaDestinacije='" + adresaDestinacije + '\'' +
-                ", idMusterije='" + idMusterije + '\'' +
+                ", adresaDestinacije='" + adresaDestinacije + '\''
+                + ", idMusterije='" + idMusterije + '\'' +
                 ", idVozaca='" + idVozaca + '\'' +
                 ", predjenoKm='" + predjenoKm + '\'' +
                 ", trajanjeVoznje='" + trajanjeVoznje + '\'' +
-                ", statusVoznje=" + statusVoznje +
-                ", idVoznje=" + idVoznje +
-                ']';
+                ", statusVoznje=" + statusVoznje + ", idVoznje="
+                + idVoznje + ", ocenaVoznje=" + ocenaVoznje +  ']';
     }
 }

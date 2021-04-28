@@ -1,3 +1,3 @@
 111111|Filip|Zjalic|Muski|Bulevar Cara Lazara 5|060000001|1380888656656|filip|123456|musterija
-222222|Marko|Markovic|Muski|Bulevar oslobodjenja 11|060000002|1096748967124|marko|123456|dispecer|35000|prijem|454545
-333333|Petar|Petrovic|Muski|Zmaj Jovina 4|060000003|9501306513352|petar|123456|vozac|50000|1|123|Jovana Ducica 33
+222222|Marko|Markovic|Muski|Bulevar oslobodjenja 11|060000002|1096748967124|marko|123456|dispecer|35000.0|prijem|454545
+333333|Petar|Petrovic|Muski|Zmaj Jovina 4|060000003|9501306513352|petar|123456|50000.0|123|1|Jovana Ducica 33

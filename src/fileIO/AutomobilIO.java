@@ -44,9 +44,9 @@ public class AutomobilIO {
     public static void AutomobilUpis(ArrayList<Automobil> automobili) {
         String newString = "";
         for (Automobil automobil : automobili) {
-            newString += automobil.getModel() +"|"+ automobil.getProizvodjac() +"|"+
-                    automobil.getGodinaProizvodnje() +"|"+ automobil.getIdAutomobila() +"|"+ automobil.getRegOznaka() +
-                    "|"+ automobil.getBrojVozila()  +"|"+automobil.getVrstaAutomobila() +"\n";
+            newString += automobil.getModel() + "|" + automobil.getProizvodjac() + "|" +
+                    automobil.getGodinaProizvodnje() + "|" + automobil.getIdAutomobila() + "|" + automobil.getRegOznaka() + "|" +
+                    automobil.getBrojVozila()  + "|" +automobil.getVrstaAutomobila() + "\n";
         }
         try {
             File file = new File("src/txtPodaci/automobili.txt");

@@ -1,4 +1,4 @@
-package mapsAPI;
+package utility;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -10,7 +10,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class mapsCalc {
+public class MapsCalc {
         public static Par<String, String> proba() throws IOException {
             URL url = new URL("https://maps.googleapis.com/maps/api/distancematrix/json?units=metric&origins=" +
                     "place_id:EidWb2p2b8SRYW5za2loIGJyaWdhZGEsIE5vdmkgU2FkLCBTZXJiaWEiLiosChQKEgnZuNCGaxBbRxFhZCd4" +
