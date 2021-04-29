@@ -1,6 +1,7 @@
 package utility;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 import strukture.Par;
 
@@ -11,7 +12,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class MapsCalc {
-        public static Par<String, String> proba() throws IOException {
+        public static Par<String, String> proba() throws IOException, JSONException {
             URL url = new URL("https://maps.googleapis.com/maps/api/distancematrix/json?units=metric&origins=" +
                     "place_id:EidWb2p2b8SRYW5za2loIGJyaWdhZGEsIE5vdmkgU2FkLCBTZXJiaWEiLiosChQKEgnZuNCGaxBbRxFhZCd4" +
                     "ufM_" + "RBIUChIJVTTpPWEQW0cRKP4kN2h9bws&destinations=place_id:ChIJM_fE1mYQW0cRA3ReiVkHSTY&ke" +

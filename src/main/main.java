@@ -32,11 +32,14 @@ import fileIO.VoznjaIO;
 import strukture.Par;
 import java.io.IOException;
 import java.util.ArrayList;
+
+import org.json.JSONException;
+
 import static utility.MapsCalc.proba;
 
 public class Main {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, JSONException {
 
 //      sve postale klase koje ce biti potrebne su navedene i napravljene u utility paketu
 //      samo sam naveo nazive klasa koje ce imati metode koje ce raditi svako svoj deo
