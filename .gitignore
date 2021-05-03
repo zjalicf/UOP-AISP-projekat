@@ -1,1 +1,12 @@
 /bin/
+.classpath
+.project
+projekat.userlibraries
+model.jpg
+Model.mdj
+org.json
+projekat.iml
+projekat.oml
+README.md
+/.idea/
+/out/
