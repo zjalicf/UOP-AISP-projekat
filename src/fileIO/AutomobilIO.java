@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class AutomobilIO {
 
-    public static ArrayList<Automobil> AutomobilCitanje() {
+    public static ArrayList<Automobil> automobilCitanje() {
         ArrayList<Automobil> automobili = new ArrayList<Automobil>();
         try {
             File file = new File("src/txtPodaci/automobili.txt");
@@ -41,7 +41,7 @@ public class AutomobilIO {
         return automobili;
     }
 
-    public static void AutomobilUpis(ArrayList<Automobil> automobili) {
+    public static void automobilUpis(ArrayList<Automobil> automobili) {
         String newString = "";
         for (Automobil automobil : automobili) {
             newString += automobil.getModel() + "|" + automobil.getProizvodjac() + "|" +

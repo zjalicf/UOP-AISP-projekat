@@ -1,82 +1,25 @@
-/*
- TODO:
-    1. prijava na sistem
-    2. CRUD
-    3. prikaz voznji
-    4. dodeljivanje voznje
-    5. osvezavanje vozaca
-    6. najblizi vozac
-    7. kombinovana pretraga
-    8. prihvati/odbij voznju
-    9. zavrsi voznju
-    10. naruci voznju (za musteriju)
-    11. oceni vozaca
-    12. zavrsiti sopstvene liste
-    13. ceo GUI
- */
-
-// napravio sam samo konstruktor koji je prazan i konstruktor koji zahteva sve paramtere popunjene
-// a posto sam u ovim testovima u main metodi setovao samo po jednu stvar cisto da se vidi da radi,
-// u fajl ce biti upisane null vrednosti pored te koje je setovana, pa ponovno pokretanje nece raditi!
-// OBRISITE NOVU LINIJU KOJA SE UPISE U FAJL! (voznje.txt, automobili.txt, korisnici.txt)
 package main;
 
-import entiteti.Automobil;
 import entiteti.Korisnik;
-import entiteti.Musterija;
-import entiteti.Voznja;
-import enums.Model;
-import fileIO.AutomobilIO;
 import fileIO.KorisnikIO;
-import fileIO.VoznjaIO;
-import strukture.Par;
+import org.json.JSONException;
+import utility.Vozac.DriverHandler;
+
 import java.io.IOException;
 import java.util.ArrayList;
 
-import org.json.JSONException;
-
-import static utility.MapsCalc.proba;
-
 public class Main {
-
     public static void main(String[] args) throws IOException, JSONException {
+        ArrayList<Korisnik> sviKorisnici = KorisnikIO.korisnikCitanje();
+        System.out.println(DriverHandler.osveziVozace(sviKorisnici, "Olge Petrov 4"));
+////        System.out.println(DriverHandler.osveziVozace(sviKorisnici));
+//        System.out.println(sviKorisnici.get(0).getIme());
+////        System.out.println(sviKorisnici);
+////        Vozac tempVozac = new Vozac(3, "Jovan", "Jovanovic", Pol.Muski, "Olge Petrov 1", "061061061", "1234567891111", "jovan", "123456",
+////                10000.0, 4321, 2,
+////                "EiVMYXNsYSBHYWxhIDIsIE5vdmkgU2FkIDQwOTg0OCwgU2VyYmlhIjASLgoUChIJxXzQphUQW0cR7XRljMLDSqMQAioUChIJxXzQphUQW0cRh5IS37POvak");
+////        sviKorisnici.add(tempVozac);
+////        KorisnikIO.korisnikUpis(sviKorisnici);
 
-//      sve postale klase koje ce biti potrebne su navedene i napravljene u utility paketu
-//      samo sam naveo nazive klasa koje ce imati metode koje ce raditi svako svoj deo
-
-//      moja struktura Par koja vraca preko Google API razdaljinu u km (getKm)
-//      i vreme od adrese do adrese (getVreme)
-        Par<String, String> res = proba();
-        System.out.println(res.getKm() + " " + proba().getVreme());
-
-        //Testiranje entitea Automobila, nadam se da sam ispostovao koncepte OOP
-        ArrayList<Automobil> sviAutomobili = AutomobilIO.AutomobilCitanje(); // Ucitavanje automobila u listu koja je za sada iz java util
-        System.out.println(sviAutomobili);
-        Automobil tempAutomobil = new Automobil(); // Instanciranje objekta Automobil
-        tempAutomobil.setModel(Model.M3); // Samo sam postavio Model, mogao sam sve ali ovo je cisto da se vidi da radi
-        sviAutomobili.add(tempAutomobil);
-        System.out.println(sviAutomobili);
-
-        AutomobilIO.AutomobilUpis(sviAutomobili); // Upis u fajl
-
-        // Isto kao za automobile
-        ArrayList<Korisnik> sviKorisnici = KorisnikIO.KorisnikCitanje();
-        System.out.println(sviKorisnici);
-        Musterija tempKorisnik = new Musterija();
-        tempKorisnik.setIme("Jovan");
-        sviKorisnici.add(tempKorisnik);
-        System.out.println(sviKorisnici);
-
-        KorisnikIO.KorisnikUpis(sviKorisnici);
-
-        // Isto kao za automobile
-        ArrayList<Voznja> sveVoznje = VoznjaIO.VoznjaCitanje();
-        System.out.println(sveVoznje);
-        Voznja tempVoznja = new Voznja();
-        tempVoznja.setOcenaVoznje(3);
-        sveVoznje.add(tempVoznja);
-        System.out.println(sveVoznje);
-
-        VoznjaIO.VoznjaUpis(sveVoznje);
     }
 }

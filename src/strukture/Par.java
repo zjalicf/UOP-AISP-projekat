@@ -1,19 +1,25 @@
 package strukture;
 
 public final class Par<A, B> {
-    private final A km;
-    private final B vreme;
+    private final A vreme;
+    private final B brKarte;
 
-    public Par (A first, B second) {
-        this.km = first;
-        this.vreme = second;
+    public Par (A vreme, B brKarte) {
+        this.vreme = vreme;
+        this.brKarte = brKarte;
     }
 
-    public A getKm() {
-        return km;
-    }
-
-    public B getVreme() {
+    public A getVreme() {
         return vreme;
+    }
+
+    public B getBrKarte() {
+        return brKarte;
+    }
+
+    @Override
+    public String toString() {
+        return "Par [" + "vreme=" + vreme + ", brKarte=" + brKarte + ']';
+        //da li treba Par?
     }
 }

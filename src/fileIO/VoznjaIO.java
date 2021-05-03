@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class VoznjaIO {
 
-    public static ArrayList<Voznja> VoznjaCitanje() {
+    public static ArrayList<Voznja> voznjaCitanje() {
         ArrayList<Voznja> voznje = new ArrayList<Voznja>();
         try {
             File file = new File("src/txtPodaci/voznje.txt");
@@ -44,7 +44,7 @@ public class VoznjaIO {
         return voznje;
     }
 
-    public static void VoznjaUpis(ArrayList<Voznja> voznje) {
+    public static void voznjaUpis(ArrayList<Voznja> voznje) {
         String newString = "";
         for (Voznja voznja : voznje) {
             newString += voznja.getDatumPorudzbine() + "|" + voznja.getAdresaPolaska() + "|" +

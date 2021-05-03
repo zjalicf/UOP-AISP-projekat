@@ -4,6 +4,18 @@ import enums.Pol;
 
 public abstract class Korisnik {
 
+    public Korisnik() {
+        this.idKorisnika = 999990;
+        this.ime = "";
+        this.prezime = "";
+        this.pol = Pol.Muski;
+        this.adresa = "";
+        this.brojTelefona = "";
+        this.jmbg = "";
+        this.username = "";
+        this.password = "";
+    }
+
     public Korisnik(int idKorisnika, String ime, String prezime, Pol pol, String adresa, String brojTelefona, String jmbg, String username, String password) {
         this.idKorisnika = idKorisnika;
         this.ime = ime;
@@ -15,8 +27,6 @@ public abstract class Korisnik {
         this.username = username;
         this.password = password;
     }
-
-    public Korisnik() {}
 
     protected int idKorisnika;
 

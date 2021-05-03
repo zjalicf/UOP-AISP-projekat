@@ -18,6 +18,8 @@ public class Vozac extends Korisnik {
         this.lokacija = lokacija;
     }
 
+    public Vozac() {}
+
     public int getBrKarte() {
         return brKarte;
     }

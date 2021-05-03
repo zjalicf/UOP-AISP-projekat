@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 public class KorisnikIO {
 
-    public static ArrayList<Korisnik> KorisnikCitanje() {
+    public static ArrayList<Korisnik> korisnikCitanje() {
         ArrayList<Korisnik> korisnici = new ArrayList<Korisnik>();
         try {
             File file = new File("src/txtPodaci/korisnici.txt");
@@ -67,7 +67,7 @@ public class KorisnikIO {
         return korisnici;
     }
 
-    public static void KorisnikUpis(ArrayList<Korisnik> korisnici) {
+    public static void korisnikUpis(ArrayList<Korisnik> korisnici) {
         String newString = "";
         for (Korisnik korisnik : korisnici) {
             if (korisnik instanceof Dispecer) {
@@ -87,8 +87,8 @@ public class KorisnikIO {
                 newString += korisnik.getIdKorisnika() + "|" + korisnik.getIme() + "|" +
                         korisnik.getPrezime() + "|" + korisnik.getPol() + "|" + korisnik.getAdresa()
                         + "|" + korisnik.getBrojTelefona() + "|" + korisnik.getJmbg() + "|" + korisnik.getUsername() +
-                        "|" + korisnik.getPassword() + "|" + ((Vozac) korisnik).getPlata() + "|" + ((Vozac) korisnik).getIdAutomobila() + "|" +
-                        ((Vozac) korisnik).getBrKarte() + "|" + ((Vozac) korisnik).getLokacija() + "\n";
+                        "|" + korisnik.getPassword() + "|" + "vozac" + "|" + ((Vozac) korisnik).getPlata() + "|" + ((Vozac) korisnik).getBrKarte() + "|" +
+                        ((Vozac) korisnik).getIdAutomobila() + "|" + ((Vozac) korisnik).getLokacija() + "\n";
             }
         }
         try {
