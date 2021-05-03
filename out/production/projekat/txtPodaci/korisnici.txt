@@ -1,0 +1,7 @@
+111111|Filip|Zjalic|Muski|Bulevar Cara Lazara 5|060000001|1380888656656|filip|123456|musterija
+222222|Marko|Markovic|Muski|Bulevar oslobodjenja 11|060000002|1096748967124|marko|123456|dispecer|35000.0|prijem|454545
+300000|Petar|Petrovic|Muski|Zmaj Jovina 4|060000003|9501306513352|user|123456|vozac|50000.0|3333|1|ChIJGVGzlksQW0cROL6t_t7CcQQ
+400000|Jovan|Jovanovic|Muski|Zmaj Jovina 4|060000004|9501306513352|user|123456|vozac|50000.0|4444|2|ChIJqdF7sxMQW0cR8O2chxUGuAo
+500000|Nikola|Nikolic|Muski|Zmaj Jovina 4|060000005|9501306513352|user|123456|vozac|50000.0|5555|1|ChIJkQCcwxYQW0cRvJd64GhTO58
+600000|Filip|Filipovic|Muski|Zmaj Jovina 4|060000006|9501306513352|user|123456|vozac|50000.0|6666|2|ChIJQ7p_FkEQW0cRBgqjwitJcZg
+700000|Dejan|Dejanovic|Muski|Zmaj Jovina 4|060000007|9501306513352|user|123456|vozac|50000.0|7777|3|ChIJc0uPmiUQW0cRb6MorxepCx4
