@@ -3,6 +3,7 @@ package main;
 import entiteti.Korisnik;
 import fileIO.KorisnikIO;
 import org.json.JSONException;
+import utility.Login;
 import utility.Vozac.DriverHandler;
 
 import java.io.IOException;
@@ -10,6 +11,7 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) throws IOException, JSONException {
+        Login.login();
         ArrayList<Korisnik> sviKorisnici = KorisnikIO.korisnikCitanje();
         System.out.println(DriverHandler.osveziVozace(sviKorisnici, "Olge Petrov 4"));
 ////        System.out.println(DriverHandler.osveziVozace(sviKorisnici));

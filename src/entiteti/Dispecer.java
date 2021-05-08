@@ -6,8 +6,9 @@ import enums.Pol;
 public class Dispecer extends Korisnik {
 
     private double plata;
-    private int brTelefonskeLinije;
     private Odeljenje odeljenje;
+    private int brTelefonskeLinije;
+
 
     public Dispecer(int idKorisnika, String ime, String prezime, Pol pol, String adresa, String brojTelefona,
                     String jmbg, String username, String password, double plata, Odeljenje odeljenje,
@@ -18,7 +19,11 @@ public class Dispecer extends Korisnik {
         this.brTelefonskeLinije = brTelefonskeLinije;
     }
 
-    public Dispecer() {}
+    public Dispecer() {
+        this.plata = 0.0;
+        this.odeljenje = Odeljenje.prijem;
+        this.brTelefonskeLinije = 0;
+    }
 
     @Override
     public String toString() {

@@ -18,7 +18,12 @@ public class Vozac extends Korisnik {
         this.lokacija = lokacija;
     }
 
-    public Vozac() {}
+    public Vozac() {
+        this.plata = 0.0;
+        this.brKarte = 0;
+        this.idAutomobila = 0;
+        this.lokacija = "";
+    }
 
     public int getBrKarte() {
         return brKarte;

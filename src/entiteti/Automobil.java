@@ -24,7 +24,15 @@ public class Automobil {
         this.vrstaAutomobila = vrstaAutomobila;
     }
 
-    public Automobil () {}
+    public Automobil() {
+        this.model = Model.M1;
+        this.proizvodjac = Proizvodjac.P1;
+        this.godinaProizvodnje = 0;
+        this.idAutomobila = 0;
+        this.regOznaka = "";
+        this.brojVozila = 0;
+        this.vrstaAutomobila = VrstaAutomobila.kombi;
+    }
 
     @Override
     public String toString() {

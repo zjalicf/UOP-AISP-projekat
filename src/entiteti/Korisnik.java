@@ -5,7 +5,7 @@ import enums.Pol;
 public abstract class Korisnik {
 
     public Korisnik() {
-        this.idKorisnika = 999990;
+        this.idKorisnika = 909093;
         this.ime = "";
         this.prezime = "";
         this.pol = Pol.Muski;

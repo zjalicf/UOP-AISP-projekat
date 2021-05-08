@@ -11,13 +11,13 @@ public class Voznja {
     private int idMusterije;
     private int idVozaca;
     private Double predjenoKm;
-    private String trajanjeVoznje;
+    private int trajanjeVoznje;
     private StatusVoznje statusVoznje;
     private int idVoznje;
     private int ocenaVoznje;
 
     public Voznja(LocalDateTime datumPorudzbine, String adresaPolaska, String adresaDestinacije, int idMusterije,
-                  int idVozaca, Double predjenoKm, String trajanjeVoznje, StatusVoznje statusVoznje, int idVoznje, int ocenaVoznje) {
+                  int idVozaca, Double predjenoKm, int trajanjeVoznje, StatusVoznje statusVoznje, int idVoznje, int ocenaVoznje) {
         this.datumPorudzbine = datumPorudzbine;
         this.adresaPolaska = adresaPolaska;
         this.adresaDestinacije = adresaDestinacije;
@@ -30,7 +30,17 @@ public class Voznja {
         this.ocenaVoznje = ocenaVoznje;
     }
 
-    public Voznja() {}
+    public Voznja() {
+        this.adresaPolaska = "";
+        this.adresaDestinacije = "";
+        this.idMusterije = 0;
+        this.idVozaca = 0;
+        this.predjenoKm = 0.0;
+        this.trajanjeVoznje = 0;
+        this.statusVoznje = StatusVoznje.ODBIJENA;
+        this.idVoznje = 0;
+        this.ocenaVoznje = 0;
+    }
 
     public LocalDateTime getDatumPorudzbine() {
         return datumPorudzbine;
@@ -80,11 +90,11 @@ public class Voznja {
         this.predjenoKm = predjenoKm;
     }
 
-    public String getTrajanjeVoznje() {
+    public int getTrajanjeVoznje() {
         return trajanjeVoznje;
     }
 
-    public void setTrajanjeVoznje(String trajanjeVoznje) {
+    public void setTrajanjeVoznje(int trajanjeVoznje) {
         this.trajanjeVoznje = trajanjeVoznje;
     }
 

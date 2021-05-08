@@ -19,7 +19,6 @@ public final class Par<A, B> {
 
     @Override
     public String toString() {
-        return "Par [" + "vreme=" + vreme + ", brKarte=" + brKarte + ']';
-        //da li treba Par?
+        return "[" + "vreme=" + vreme + ", brKarte=" + brKarte + ']';
     }
 }

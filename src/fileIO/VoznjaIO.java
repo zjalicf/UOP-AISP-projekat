@@ -27,7 +27,7 @@ public class VoznjaIO {
                 int idMusterije = Integer.parseInt(value[3]);
                 int idVozaca = Integer.parseInt(value[4]);
                 Double predjenoKm = Double.parseDouble(value[5]);
-                String trajanjeVoznje = value[6];
+                int trajanjeVoznje = Integer.parseInt(value[6]);
                 StatusVoznje statusVoznje = StatusVoznje.valueOf(value[7]);
                 int idVoznje = Integer.parseInt(value[8]);
                 int ocenaVoznje = Integer.parseInt(value[9]);

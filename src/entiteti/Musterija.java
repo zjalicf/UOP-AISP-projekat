@@ -4,7 +4,6 @@ import enums.Pol;
 
 public class Musterija extends Korisnik {
 
-    // da li treba prazan konstruktor?
     public Musterija(int idKorisnika, String ime, String prezime, Pol pol, String adresa, String brojTelefona,
                      String jmbg, String username, String password) {
         super(idKorisnika, ime, prezime, pol, adresa, brojTelefona, jmbg, username, password);
