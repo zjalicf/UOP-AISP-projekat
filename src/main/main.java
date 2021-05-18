@@ -21,7 +21,7 @@ public class Main {
 ////                10000.0, 4321, 2,
 ////                "EiVMYXNsYSBHYWxhIDIsIE5vdmkgU2FkIDQwOTg0OCwgU2VyYmlhIjASLgoUChIJxXzQphUQW0cR7XRljMLDSqMQAioUChIJxXzQphUQW0cRh5IS37POvak");
 ////        sviKorisnici.add(tempVozac);
-////        KorisnikIO.korisnikUpis(sviKorisnici);
+////        KorisnikIO.korisnikUpis(sviKorisnici);s
 
     }
 }
