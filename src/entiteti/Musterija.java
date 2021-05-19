@@ -5,8 +5,8 @@ import enums.Pol;
 public class Musterija extends Korisnik {
 
     public Musterija(int idKorisnika, String ime, String prezime, Pol pol, String adresa, String brojTelefona,
-                     String jmbg, String username, String password) {
-        super(idKorisnika, ime, prezime, pol, adresa, brojTelefona, jmbg, username, password);
+                     String jmbg, String username, String password, boolean obrisan) {
+        super(idKorisnika, ime, prezime, pol, adresa, brojTelefona, jmbg, username, password, obrisan);
     }
 
     public Musterija() {}
@@ -15,6 +15,6 @@ public class Musterija extends Korisnik {
     public String toString() {
         return "Musterija [id=" + idKorisnika + ", ime=" + ime + ", prezime=" + prezime + ", pol=" + pol
                 + ", adresa=" + adresa + ", brojTelefona=" + brojTelefona + ", jmbg="
-                + jmbg + ", username=" + username + ", password=" + password + "]";
+                + jmbg + ", username=" + username + ", password=" + password + ", obrisan=" + obrisan + "]";
     }
 }

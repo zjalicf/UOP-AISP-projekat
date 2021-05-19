@@ -101,12 +101,12 @@ public class MainFrame extends JFrame implements ActionListener {
     }
 
     public static void launchLogin() {
-        MainFrame frame = new MainFrame();
-        frame.setTitle("STATIM TAXI SERVICES");
-        frame.setVisible(true);
-        frame.setBounds(10, 10, 520, 566);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setResizable(false);
+        MainFrame loginFrame = new MainFrame();
+        loginFrame.setTitle("STATIM TAXI SERVICES");
+        loginFrame.setVisible(true);
+        loginFrame.setBounds(10, 10, 520, 566);
+        loginFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        loginFrame.setResizable(false);
     }
 
     private void launchDispecerFrame(Korisnik ulogovani) {

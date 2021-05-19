@@ -1,4 +1,3 @@
-111111|Filip|Zjalic|Muski|Bulevar Cara Lazara 5|060000001|1380888656656|filip|123|musterija
-222222|Marko|Markovic|Muski|Bulevar oslobodjenja 11|060000002|1096748967124|marko|123|dispecer|35000.0|prijem|454545
-300000|Petar|Petrovic|Muski|Zmaj Jovina 4|060000003|9501306513352|user|123|vozac|50000.0|3333|1|ChIJGVGzlksQW0cROL6t_t7CcQQ
-400000|Nikola|Nikolic|Muski|Bulevar Evrope 11|061531531|1235153513515|dzoni|123|vozac|45000.0|1231|1|ChIJgwwOOUcQW0cRfFlEgooF9fQ
+111111|Filip|Zjalic|Muski|Bulevar Cara Lazara 5|060000001|1380888656656|filip|123|false|musterija
+222222|Marko|Markovic|Muski|Bulevar oslobodjenja 11|060000002|1096748967124|marko|123|false|dispecer|35000.0|prijem|454545
+400000|Nikola|Nikolic|Muski|Bulevar Evrope 11|061531531|1235153513515|dzoni|123|false|vozac|45000.0|1231|1|ChIJgwwOOUcQW0cRfFlEgooF9fQ

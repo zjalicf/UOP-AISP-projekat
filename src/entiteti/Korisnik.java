@@ -4,6 +4,17 @@ import enums.Pol;
 
 public abstract class Korisnik {
 
+    protected int idKorisnika;
+    protected String ime;
+    protected String prezime;
+    protected Pol pol;
+    protected String adresa;
+    protected String brojTelefona;
+    protected String jmbg;
+    protected String username;
+    protected String password;
+    protected boolean obrisan;
+
     public Korisnik() {
         this.idKorisnika = 909093;
         this.ime = "";
@@ -14,9 +25,11 @@ public abstract class Korisnik {
         this.jmbg = "";
         this.username = "";
         this.password = "";
+        this.obrisan = false;
     }
 
-    public Korisnik(int idKorisnika, String ime, String prezime, Pol pol, String adresa, String brojTelefona, String jmbg, String username, String password) {
+    public Korisnik(int idKorisnika, String ime, String prezime, Pol pol, String adresa, String brojTelefona, String jmbg, String username,
+                    String password, boolean obrisan) {
         this.idKorisnika = idKorisnika;
         this.ime = ime;
         this.prezime = prezime;
@@ -26,25 +39,8 @@ public abstract class Korisnik {
         this.jmbg = jmbg;
         this.username = username;
         this.password = password;
+        this.obrisan = obrisan;
     }
-
-    protected int idKorisnika;
-
-    protected String ime;
-
-    protected String prezime;
-
-    protected Pol pol;
-
-    protected String adresa;
-
-    protected String brojTelefona;
-
-    protected String jmbg;
-
-    protected String username;
-
-    protected String password;
 
     public int getIdKorisnika() {
         return idKorisnika;
@@ -116,6 +112,14 @@ public abstract class Korisnik {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public boolean isObrisan() {
+        return obrisan;
+    }
+
+    public void setObrisan(boolean obrisan) {
+        this.obrisan = obrisan;
     }
 
     @Override

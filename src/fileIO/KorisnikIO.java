@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class KorisnikIO {
 
     public static ArrayList<Korisnik> korisnikCitanje() {
-        ArrayList<Korisnik> korisnici = new ArrayList<Korisnik>();
+        ArrayList<Korisnik> korisnici = new ArrayList<>();
         try {
             File file = new File("src/txtPodaci/korisnici.txt");
             BufferedReader reader = new BufferedReader(new FileReader(file));
@@ -29,31 +29,32 @@ public class KorisnikIO {
                 String jmbg = value[6];
                 String username = value[7];
                 String password = value[8];
-                String tip = value[9];
+                boolean obrisan = Boolean.parseBoolean(value[9]);
+                String tip = value[10];
 
                 switch (tip) {
                     case "dispecer": {
-                        double plata = Double.parseDouble(value[10]);
-                        Odeljenje odeljenje = Odeljenje.valueOf(value[11]);
-                        int brTelefonskeLinije = Integer.parseInt(value[12]);
+                        double plata = Double.parseDouble(value[11]);
+                        Odeljenje odeljenje = Odeljenje.valueOf(value[12]);
+                        int brTelefonskeLinije = Integer.parseInt(value[13]);
                         Dispecer dispecer = new Dispecer(idKorisnika, ime, prezime, pol, adresa, brojTelefona, jmbg,
-                                username, password, plata, odeljenje, brTelefonskeLinije);
+                                username, password, obrisan, plata, odeljenje, brTelefonskeLinije);
                         korisnici.add(dispecer);
                         break;
                     }
                     case "vozac": {
-                        double plata = Double.parseDouble(value[10]);
-                        int brKarte = Integer.parseInt(value[11]);
-                        int idAutomobila = Integer.parseInt(value[12]);;
-                        String lokacija = value[13];
+                        double plata = Double.parseDouble(value[11]);
+                        int brKarte = Integer.parseInt(value[12]);
+                        int idAutomobila = Integer.parseInt(value[13]);;
+                        String lokacija = value[14];
                         Vozac vozac = new Vozac(idKorisnika, ime, prezime, pol, adresa, brojTelefona, jmbg,
-                                username, password, plata, brKarte, idAutomobila, lokacija);
+                                username, password, obrisan, plata, brKarte, idAutomobila, lokacija);
                         korisnici.add(vozac);
                         break;
                     }
                     case "musterija": {
                         Musterija musterija = new Musterija(idKorisnika, ime, prezime, pol, adresa, brojTelefona, jmbg
-                                , username, password);
+                                , username, password, obrisan);
                         korisnici.add(musterija);
                         break;
                     }
@@ -74,20 +75,20 @@ public class KorisnikIO {
                 newString += korisnik.getIdKorisnika() + "|" + korisnik.getIme() + "|" +
                         korisnik.getPrezime() + "|" + korisnik.getPol() + "|" + korisnik.getAdresa()
                         + "|" + korisnik.getBrojTelefona() + "|" + korisnik.getJmbg() + "|" + korisnik.getUsername() +
-                        "|" + korisnik.getPassword() + "|" + "dispecer" + "|" + ((Dispecer) korisnik).getPlata() +
+                        "|" + korisnik.getPassword() + "|" + korisnik.isObrisan() + "|" + "dispecer" + "|" + ((Dispecer) korisnik).getPlata() +
                         "|" + ((Dispecer) korisnik).getOdeljenje() + "|" + ((Dispecer) korisnik).getBrTelefonskeLinije() + "\n";
             }
             else if (korisnik instanceof Musterija) {
                 newString += korisnik.getIdKorisnika() + "|" + korisnik.getIme() + "|" +
                         korisnik.getPrezime() + "|" + korisnik.getPol() + "|" + korisnik.getAdresa()
                         + "|" + korisnik.getBrojTelefona() + "|" + korisnik.getJmbg() + "|" + korisnik.getUsername() +
-                        "|" + korisnik.getPassword() + "|" + "musterija" + "\n";
+                        "|" + korisnik.getPassword() + "|" + korisnik.isObrisan() + "|" + "musterija" + "\n";
             }
             else {
                 newString += korisnik.getIdKorisnika() + "|" + korisnik.getIme() + "|" +
                         korisnik.getPrezime() + "|" + korisnik.getPol() + "|" + korisnik.getAdresa()
                         + "|" + korisnik.getBrojTelefona() + "|" + korisnik.getJmbg() + "|" + korisnik.getUsername() +
-                        "|" + korisnik.getPassword() + "|" + "vozac" + "|" + ((Vozac) korisnik).getPlata() + "|" + ((Vozac) korisnik).getBrKarte() + "|" +
+                        "|" + korisnik.getPassword() + "|" + korisnik.isObrisan() + "|" + "vozac" + "|" + ((Vozac) korisnik).getPlata() + "|" + ((Vozac) korisnik).getBrKarte() + "|" +
                         ((Vozac) korisnik).getIdAutomobila() + "|" + ((Vozac) korisnik).getLokacija() + "\n";
             }
         }

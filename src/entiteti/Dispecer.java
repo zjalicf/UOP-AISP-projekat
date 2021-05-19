@@ -11,9 +11,9 @@ public class Dispecer extends Korisnik {
 
 
     public Dispecer(int idKorisnika, String ime, String prezime, Pol pol, String adresa, String brojTelefona,
-                    String jmbg, String username, String password, double plata, Odeljenje odeljenje,
+                    String jmbg, String username, String password, boolean obrisan, double plata, Odeljenje odeljenje,
                     int brTelefonskeLinije) {
-        super(idKorisnika, ime, prezime, pol, adresa, brojTelefona, jmbg, username, password);
+        super(idKorisnika, ime, prezime, pol, adresa, brojTelefona, jmbg, username, password, obrisan);
         this.plata = plata;
         this.odeljenje = odeljenje;
         this.brTelefonskeLinije = brTelefonskeLinije;
@@ -29,7 +29,7 @@ public class Dispecer extends Korisnik {
     public String toString() {
         return "Dispecer [id=" + idKorisnika + ", ime=" + ime + ", prezime=" + prezime + ", pol=" + pol
                 + ", adresa=" + adresa + ", brojTelefona=" + brojTelefona + ", jmbg="
-                + jmbg + ", username=" + username + ", password=" + password + ", plata=" + getPlata() + ", " +
+                + jmbg + ", username=" + username + ", password=" + password + ", obrisan=" + obrisan + ", plata=" + getPlata() + ", " +
                 "odeljenje=" + getOdeljenje() + ", brTelefonskeLinije=" + getBrTelefonskeLinije() + "]";
     }
 

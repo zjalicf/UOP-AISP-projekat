@@ -1,7 +1,6 @@
 package utility;
 
-import entiteti.Automobil;
-import entiteti.Korisnik;
+import entiteti.*;
 import fileIO.AutomobilIO;
 import fileIO.KorisnikIO;
 
@@ -10,8 +9,39 @@ import java.util.ArrayList;
 public class Svasta {
 
     static ArrayList<Korisnik> sviKorisnici = KorisnikIO.korisnikCitanje();
+
     public static ArrayList<Korisnik> getKorisnici() {
         return sviKorisnici;
+    }
+
+    public static ArrayList<Musterija> getMusterije() {
+        ArrayList<Musterija> sveMusterije = new ArrayList<>();
+        for(Korisnik korisnik : getKorisnici()) {
+            if(korisnik instanceof Musterija) {
+                sveMusterije.add((Musterija) korisnik);
+            }
+        }
+        return sveMusterije;
+    }
+
+    public static ArrayList<Dispecer> getDispeceri() {
+        ArrayList<Dispecer> sviDispeceri = new ArrayList<>();
+        for(Korisnik korisnik : getKorisnici()) {
+            if(korisnik instanceof Dispecer) {
+                sviDispeceri.add((Dispecer) korisnik);
+            }
+        }
+        return sviDispeceri;
+    }
+
+    public static ArrayList<Vozac> getVozaci() {
+        ArrayList<Vozac> sviVozaci = new ArrayList<>();
+        for(Korisnik korisnik : getKorisnici()) {
+            if(korisnik instanceof Vozac) {
+                sviVozaci.add((Vozac) korisnik);
+            }
+        }
+        return sviVozaci;
     }
 
     public static ArrayList<String> getIdSvihAutomobila() {

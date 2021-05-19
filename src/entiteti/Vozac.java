@@ -10,8 +10,8 @@ public class Vozac extends Korisnik {
     private String lokacija;
 
     public Vozac(int idKorisnika, String ime, String prezime, Pol pol, String adresa, String brojTelefona,
-                 String jmbg, String username, String password, double plata, int brKarte, int idAutomobila, String lokacija) {
-        super(idKorisnika, ime, prezime, pol, adresa, brojTelefona, jmbg, username, password);
+                 String jmbg, String username, String password, boolean obrisan, double plata, int brKarte, int idAutomobila, String lokacija) {
+        super(idKorisnika, ime, prezime, pol, adresa, brojTelefona, jmbg, username, password, obrisan);
         this.plata = plata;
         this.brKarte = brKarte;
         this.idAutomobila = idAutomobila;
@@ -61,7 +61,7 @@ public class Vozac extends Korisnik {
     public String toString() {
         return "Vozac [id=" + idKorisnika + ", ime=" + ime + ", prezime=" + prezime + ", pol=" + pol
                 + ", adresa=" + adresa + ", brojTelefona=" + brojTelefona + ", jmbg="
-                + jmbg + ", username=" + username + ", password=" + password + ", plata=" + getPlata() + ", idAutomobila=" + getIdAutomobila() +
+                + jmbg + ", username=" + username + ", password=" + password + ", obrisan=" + obrisan + ", plata=" + getPlata() + ", idAutomobila=" + getIdAutomobila() +
                 ", brKarte=" + getBrKarte() + ", lokacija=" + getLokacija() + "]";
     }
 

@@ -53,7 +53,7 @@ import java.awt.event.ActionListener;
 
 public class DispecerFrame extends JFrame implements ActionListener {
     Container container = getContentPane();
-    private JButton musterijeButton = new JButton("Musterije");
+    private JButton vozaciButton = new JButton("Vozaci");
     private JButton dispeceriButton = new JButton("Dispeceri");
     private JButton potvrdaVoznjeButton = new JButton("Narucene voznje");
     private JLabel slika = new JLabel(new ImageIcon("src/img/person.jpg"));
@@ -71,7 +71,7 @@ public class DispecerFrame extends JFrame implements ActionListener {
     }
 
     public void setLocationAndSize() {
-        musterijeButton.setBounds(15,15,130,28);
+        vozaciButton.setBounds(15,15,130,28);
         dispeceriButton.setBounds(15,60,130,28);
         potvrdaVoznjeButton.setBounds(15,105,130,28);
         slika.setBounds(166, 32, 150,125);
@@ -79,7 +79,7 @@ public class DispecerFrame extends JFrame implements ActionListener {
     }
 
     public void addComponentsToContainer() {
-        container.add(musterijeButton);
+        container.add(vozaciButton);
         container.add(dispeceriButton);
         container.add(potvrdaVoznjeButton);
         container.add(slika);
@@ -87,7 +87,7 @@ public class DispecerFrame extends JFrame implements ActionListener {
     }
 
     public void addActionEvent() {
-        musterijeButton.addActionListener(this);
+        vozaciButton.addActionListener(this);
         dispeceriButton.addActionListener(this);
         potvrdaVoznjeButton.addActionListener(this);
         odjavaButton.addActionListener(this);
@@ -95,10 +95,10 @@ public class DispecerFrame extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == musterijeButton) {
-            launchListaMusterijaFrame();
+        if (e.getSource() == vozaciButton) {
+            launchListaKorisnikaFrame(0);
         } else if (e.getSource() == dispeceriButton){
-//            launchListaDispeceraFrame();
+            launchListaKorisnikaFrame(1);
         } else if (e.getSource() == potvrdaVoznjeButton) {
 //            launchListaVoznjiFrame();
         } else if (e.getSource() == odjavaButton){
@@ -107,19 +107,11 @@ public class DispecerFrame extends JFrame implements ActionListener {
         }
     }
 
-    private void launchListaMusterijaFrame() {
-        ListaMusterijaFrame musterijaFrame = new ListaMusterijaFrame();
-        musterijaFrame.setVisible(true);
-        musterijaFrame.setBounds(10, 10, 1100, 200);
-//        musterijaFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        musterijaFrame.setResizable(false);
+    private void launchListaKorisnikaFrame(int tip) {
+        ListaKorisnikaFrame listaKorisnikaFrame = new ListaKorisnikaFrame(tip);
+        listaKorisnikaFrame.setVisible(true);
+        listaKorisnikaFrame.setBounds(20, 20, 1050, 500);
+//        listaKorisnikaFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        listaKorisnikaFrame.setResizable(false);
     }
-
-//        private void launchListaDispeceraFrame() {
-//        ListaDiscpeceraFrame dispecerFrame = new ListaDispeceraFrame();
-//        ListaDiscpeceraFrame.setVisible(true);
-//        ListaDiscpeceraFrame.setBounds(10, 10, 540, 550);
-////        DiscpecerFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        ListaDiscpeceraFrame.setResizable(false);
-//    }
 }
