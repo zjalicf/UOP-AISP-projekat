@@ -9,7 +9,7 @@ public class Vozac extends Korisnik {
     private int idAutomobila;
     private String lokacija;
 
-    public Vozac(int idKorisnika, String ime, String prezime, Pol pol, String adresa, String brojTelefona,
+    public Vozac(String idKorisnika, String ime, String prezime, Pol pol, String adresa, String brojTelefona,
                  String jmbg, String username, String password, boolean obrisan, double plata, int brKarte, int idAutomobila, String lokacija) {
         super(idKorisnika, ime, prezime, pol, adresa, brojTelefona, jmbg, username, password, obrisan);
         this.plata = plata;

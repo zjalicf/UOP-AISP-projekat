@@ -16,7 +16,7 @@ import java.awt.event.ActionListener;
 
 public class MainFrame extends JFrame implements ActionListener {
     Container container = getContentPane();
-    JLabel logo = new JLabel(new ImageIcon("src/img/logotemp.gif"));
+    JLabel logo = new JLabel(new ImageIcon("src/img/logo.gif"));
     JLabel userLabel = new JLabel("USERNAME");
     JLabel passwordLabel = new JLabel("PASSWORD");
     JTextField usernameField = new JTextField();
@@ -121,7 +121,7 @@ public class MainFrame extends JFrame implements ActionListener {
     }
 
     private void launchMusterijaFrame(Korisnik ulogovani) {
-        MusterijaFrame musterijaFrame = new MusterijaFrame();
+        MusterijaFrame musterijaFrame = new MusterijaFrame(ulogovani);
         musterijaFrame.setVisible(true);
         musterijaFrame.setTitle("Dobrodosli, " + ulogovani.getIme() + " " + ulogovani.getPrezime());
         musterijaFrame.setBounds(10, 10, 350, 230);

@@ -1,11 +1,14 @@
 package GUI.Musterija;
 
+import entiteti.Korisnik;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class MusterijaFrame extends JFrame implements ActionListener {
+    private final Korisnik ulogovani;
     Container container = getContentPane();
     private JButton sveVoznjeButton= new JButton("Moje voznje");
     private JButton naruciVoznjuButton = new JButton("Naruci voznju");
@@ -13,7 +16,8 @@ public class MusterijaFrame extends JFrame implements ActionListener {
     private JButton odjavaButton = new JButton("Odjava");
     private JLabel slika = new JLabel(new ImageIcon("src/img/person.jpg"));
 
-    public MusterijaFrame() {
+    public MusterijaFrame(Korisnik ulogovani) {
+        this.ulogovani = ulogovani;
         setLayoutManager();
         setLocationAndSize();
         addComponentsToContainer();
@@ -25,11 +29,11 @@ public class MusterijaFrame extends JFrame implements ActionListener {
     }
 
     public void setLocationAndSize() {
-        sveVoznjeButton.setBounds(15,15,130,28);
-        naruciVoznjuButton.setBounds(15,60,130,28);
-        oceniButton.setBounds(15,105,130,28);
+        sveVoznjeButton.setBounds(15,15,130,24);
+        naruciVoznjuButton.setBounds(15,60,130,24);
+        oceniButton.setBounds(15,105,130,24);
         slika.setBounds(166, 32, 150,125);
-        odjavaButton.setBounds(15,150,130,28);
+        odjavaButton.setBounds(15,150,130,24);
     }
 
     public void addComponentsToContainer() {
@@ -53,8 +57,7 @@ public class MusterijaFrame extends JFrame implements ActionListener {
             JOptionPane.showMessageDialog(this,
                     "sve vzonje");
         } else if (e.getSource() == naruciVoznjuButton){
-            JOptionPane.showMessageDialog(this,
-                    "naruci");
+            launchNaruciVoznjuFrame(ulogovani);
         } else if (e.getSource() == oceniButton) {
             JOptionPane.showMessageDialog(this,
                     "ocena 5");
@@ -62,5 +65,12 @@ public class MusterijaFrame extends JFrame implements ActionListener {
             this.dispose();
             this.setVisible(false);
         }
+    }
+    private void launchNaruciVoznjuFrame(Korisnik ulogovani) {
+        NaruciVoznjuFrame naruciVoznjuFrame = new NaruciVoznjuFrame(ulogovani);
+        naruciVoznjuFrame.setVisible(true);
+        naruciVoznjuFrame.setBounds(0, 20, 396, 430);
+//        listaKorisnikaFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        naruciVoznjuFrame.setResizable(false);
     }
 }

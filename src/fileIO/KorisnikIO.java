@@ -20,7 +20,7 @@ public class KorisnikIO {
             String linija;
             while ((linija = reader.readLine()) != null) {
                 String[] value = linija.split("\\|");
-                int idKorisnika = Integer.parseInt(value[0]);
+                String idKorisnika = value[0];
                 String ime = value[1];
                 String prezime = value[2];
                 Pol pol = Pol.valueOf(value[3]);

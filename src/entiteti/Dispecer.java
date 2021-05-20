@@ -10,7 +10,7 @@ public class Dispecer extends Korisnik {
     private int brTelefonskeLinije;
 
 
-    public Dispecer(int idKorisnika, String ime, String prezime, Pol pol, String adresa, String brojTelefona,
+    public Dispecer(String idKorisnika, String ime, String prezime, Pol pol, String adresa, String brojTelefona,
                     String jmbg, String username, String password, boolean obrisan, double plata, Odeljenje odeljenje,
                     int brTelefonskeLinije) {
         super(idKorisnika, ime, prezime, pol, adresa, brojTelefona, jmbg, username, password, obrisan);

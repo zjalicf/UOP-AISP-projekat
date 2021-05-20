@@ -4,7 +4,7 @@ import enums.Pol;
 
 public abstract class Korisnik {
 
-    protected int idKorisnika;
+    protected String idKorisnika;
     protected String ime;
     protected String prezime;
     protected Pol pol;
@@ -16,7 +16,7 @@ public abstract class Korisnik {
     protected boolean obrisan;
 
     public Korisnik() {
-        this.idKorisnika = 909093;
+        this.idKorisnika = "909093";
         this.ime = "";
         this.prezime = "";
         this.pol = Pol.Muski;
@@ -28,7 +28,7 @@ public abstract class Korisnik {
         this.obrisan = false;
     }
 
-    public Korisnik(int idKorisnika, String ime, String prezime, Pol pol, String adresa, String brojTelefona, String jmbg, String username,
+    public Korisnik(String idKorisnika, String ime, String prezime, Pol pol, String adresa, String brojTelefona, String jmbg, String username,
                     String password, boolean obrisan) {
         this.idKorisnika = idKorisnika;
         this.ime = ime;
@@ -42,11 +42,11 @@ public abstract class Korisnik {
         this.obrisan = obrisan;
     }
 
-    public int getIdKorisnika() {
+    public String getIdKorisnika() {
         return idKorisnika;
     }
 
-    public void setIdKorisnika(int idKorisnika) {
+    public void setIdKorisnika(String idKorisnika) {
         this.idKorisnika = idKorisnika;
     }
 

@@ -4,7 +4,7 @@ import enums.Pol;
 
 public class Musterija extends Korisnik {
 
-    public Musterija(int idKorisnika, String ime, String prezime, Pol pol, String adresa, String brojTelefona,
+    public Musterija(String idKorisnika, String ime, String prezime, Pol pol, String adresa, String brojTelefona,
                      String jmbg, String username, String password, boolean obrisan) {
         super(idKorisnika, ime, prezime, pol, adresa, brojTelefona, jmbg, username, password, obrisan);
     }

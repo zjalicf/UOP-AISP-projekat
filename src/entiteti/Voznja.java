@@ -2,22 +2,21 @@ package entiteti;
 
 import enums.StatusVoznje;
 
-import java.time.LocalDateTime;
-
 public class Voznja {
-    private LocalDateTime datumPorudzbine;
+//    private LocalDateTime datumPorudzbine;
+    private String datumPorudzbine;
     private String adresaPolaska;
     private String adresaDestinacije;
-    private int idMusterije;
-    private int idVozaca;
+    private String idMusterije;
+    private String idVozaca;
     private Double predjenoKm;
     private int trajanjeVoznje;
     private StatusVoznje statusVoznje;
-    private int idVoznje;
+    private String idVoznje;
     private int ocenaVoznje;
 
-    public Voznja(LocalDateTime datumPorudzbine, String adresaPolaska, String adresaDestinacije, int idMusterije,
-                  int idVozaca, Double predjenoKm, int trajanjeVoznje, StatusVoznje statusVoznje, int idVoznje, int ocenaVoznje) {
+    public Voznja(String datumPorudzbine, String adresaPolaska, String adresaDestinacije, String idMusterije,
+                  String idVozaca, Double predjenoKm, int trajanjeVoznje, StatusVoznje statusVoznje, String idVoznje, int ocenaVoznje) {
         this.datumPorudzbine = datumPorudzbine;
         this.adresaPolaska = adresaPolaska;
         this.adresaDestinacije = adresaDestinacije;
@@ -33,20 +32,20 @@ public class Voznja {
     public Voznja() {
         this.adresaPolaska = "";
         this.adresaDestinacije = "";
-        this.idMusterije = 0;
-        this.idVozaca = 0;
+        this.idMusterije = "0";
+        this.idVozaca = "0";
         this.predjenoKm = 0.0;
         this.trajanjeVoznje = 0;
         this.statusVoznje = StatusVoznje.ODBIJENA;
-        this.idVoznje = 0;
+        this.idVoznje = "0";
         this.ocenaVoznje = 0;
     }
 
-    public LocalDateTime getDatumPorudzbine() {
+    public String getDatumPorudzbine() {
         return datumPorudzbine;
     }
 
-    public void setDatumPorudzbine(LocalDateTime datumPorudzbine) {
+    public void setDatumPorudzbine(String datumPorudzbine) {
         this.datumPorudzbine = datumPorudzbine;
     }
 
@@ -66,19 +65,19 @@ public class Voznja {
         this.adresaDestinacije = adresaDestinacije;
     }
 
-    public int getIdMusterije() {
+    public String getIdMusterije() {
         return idMusterije;
     }
 
-    public void setIdMusterije(int idMusterije) {
+    public void setIdMusterije(String idMusterije) {
         this.idMusterije = idMusterije;
     }
 
-    public int getIdVozaca() {
+    public String getIdVozaca() {
         return idVozaca;
     }
 
-    public void setIdVozaca(int idVozaca) {
+    public void setIdVozaca(String idVozaca) {
         this.idVozaca = idVozaca;
     }
 
@@ -106,11 +105,11 @@ public class Voznja {
         this.statusVoznje = statusVoznje;
     }
 
-    public int getIdVoznje() {
+    public String getIdVoznje() {
         return idVoznje;
     }
 
-    public void setIdVoznje(int idVoznje) {
+    public void setIdVoznje(String idVoznje) {
         this.idVoznje = idVoznje;
     }
 

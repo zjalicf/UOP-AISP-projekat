@@ -1,50 +1,4 @@
-//package GUI.Dispecer;
-//
-//import entiteti.Dispecer;
-//import net.miginfocom.swing.MigLayout;
-//
-//import javax.swing.*;
-//
-//public class MainFrameDispecer extends JFrame {
-//
-//    private JButton btnMusterije = new JButton("Musterije");
-//    private JButton btnDispeceri = new JButton("Dispeceri");
-//    private JButton btnPotvrdaVoznje = new JButton("Narucene voznje");
-//    JLabel lblOsobaLogo = new JLabel(new ImageIcon("src/img/osoba.png"));
-//
-//    public MainFrameDispecer(Dispecer dispecer) {
-//        setTitle("Meni za dispecera: " + dispecer.getIme() + " " + dispecer.getPrezime());
-//        setLocationRelativeTo(null);
-//        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-//        initGUI();
-//        initActions();
-//        pack();
-//        setLocationRelativeTo(null);
-//    }
-//
-//    public void initGUI() {
-//        MigLayout mig = new MigLayout("wrap 2", "[center]10[center][left][c]", "[center]10[center]15[center]15[center]20[center][b]");
-//        setLayout(mig);
-//        add(lblOsobaLogo, "span 1 5");
-//        add(btnMusterije);
-//        add(btnDispeceri);
-//        add(btnPotvrdaVoznje);
-//    }
-//
-//
-//    public void initActions() {
-//        btnMusterije.addActionListener(e -> JOptionPane.showMessageDialog(this,
-//                "MUSTERIJA"));
-//
-//        btnDispeceri.addActionListener(e -> JOptionPane.showMessageDialog(this,
-//                "DIS"));
-//
-//        btnPotvrdaVoznje.addActionListener(e -> JOptionPane.showMessageDialog(this,
-//                    "Voznje"));
-//    }
-//}
-//
-package GUI.Dispecer;
+package GUI.Dispecer;//vozac je 0, dispecer 1
 
 import javax.swing.*;
 import java.awt.*;
@@ -110,7 +64,7 @@ public class DispecerFrame extends JFrame implements ActionListener {
     private void launchListaKorisnikaFrame(int tip) {
         ListaKorisnikaFrame listaKorisnikaFrame = new ListaKorisnikaFrame(tip);
         listaKorisnikaFrame.setVisible(true);
-        listaKorisnikaFrame.setBounds(20, 20, 1050, 500);
+        listaKorisnikaFrame.setBounds(20, 20, 1200, 200);
 //        listaKorisnikaFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         listaKorisnikaFrame.setResizable(false);
     }

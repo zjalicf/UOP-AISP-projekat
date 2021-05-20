@@ -1,6 +1,8 @@
 package GUI.Dispecer;
 
+import entiteti.Dispecer;
 import entiteti.Korisnik;
+import entiteti.Vozac;
 import fileIO.KorisnikIO;
 import utility.Svasta;
 
@@ -11,6 +13,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+import static javax.swing.BorderFactory.createEmptyBorder;
+
 public class ListaKorisnikaFrame extends JFrame implements ActionListener {
     Container container = getContentPane();
     private JButton btnDodaj = new JButton("Dodaj novog korisnika");
@@ -18,7 +22,6 @@ public class ListaKorisnikaFrame extends JFrame implements ActionListener {
     private JButton btnIzbrisi = new JButton("Obrisi korisnika");
     private JTable tabela;
     private DefaultTableModel tabelaModel;
-    JPanel panel = new JPanel();
 
     public ListaKorisnikaFrame(int tip) {
         setLayoutManager();
@@ -33,52 +36,59 @@ public class ListaKorisnikaFrame extends JFrame implements ActionListener {
     }
 
     public void setLocationAndSize() {
-        btnIzbrisi.setBounds(15,250,111,30);
-        btnDodaj.setBounds(15,300,111,30);
-        btnIzmeni.setBounds(15,350,111,30);
-        panel.setBounds(0,0,1000,1000);
-        tabela.setBounds(0,0,1000,1000);
+        btnIzbrisi.setBounds(15,110,150,24);
+        btnDodaj.setBounds(200,110,150,24);
+        btnIzmeni.setBounds(370,110,150,24);
     }
 
     public void addComponentsToContainer() {
         container.add(btnDodaj);
         container.add(btnIzbrisi);
         container.add(btnIzmeni);
-        container.add(panel);
     }
 
     public void addActionEvent() {
         btnIzmeni.addActionListener(this);
+        btnDodaj.addActionListener(this);
         btnIzbrisi.addActionListener(this);
     }
 
     public void initGUI(int tip) {
-        String[] title = new String[] {"ID" ,"Ime", "Prezime", "Pol", "Adresa", "Broj telefona"};
         if (tip == 0) {
+            String[] title = new String[] {"ID" ,"Ime", "Prezime", "Pol", "Adresa", "Broj telefona", "Kor ime", "Plata", "Broj karte", "ID Automobila"};
             Object[][] sadrzaj = new Object[Svasta.getVozaci().size()][title.length];
 
             for(int i = 0; i < Svasta.getVozaci().size(); i++) {
-                Korisnik korisnik = Svasta.getVozaci().get(i);
-                sadrzaj[i][0] = korisnik.getIdKorisnika();
-                sadrzaj[i][1] = korisnik.getIme();
-                sadrzaj[i][2] = korisnik.getPrezime();
-                sadrzaj[i][3] = korisnik.getPol();
-                sadrzaj[i][4] = korisnik.getAdresa();
-                sadrzaj[i][5] = korisnik.getBrojTelefona();
+                Vozac vozac = Svasta.getVozaci().get(i);
+                sadrzaj[i][0] = vozac.getIdKorisnika();
+                sadrzaj[i][1] = vozac.getIme();
+                sadrzaj[i][2] = vozac.getPrezime();
+                sadrzaj[i][3] = vozac.getPol();
+                sadrzaj[i][4] = vozac.getAdresa();
+                sadrzaj[i][5] = vozac.getBrojTelefona();
+                sadrzaj[i][6] = vozac.getUsername();
+                sadrzaj[i][7] = vozac.getPlata();
+                sadrzaj[i][8] = vozac.getBrKarte();
+                sadrzaj[i][9] = vozac.getIdAutomobila();
             }
             createTable(title, sadrzaj);
 
         } else if (tip == 1) {
+            String[] title = new String[] {"ID" ,"Ime", "Prezime", "Pol", "Adresa", "Broj telefona", "Kor ime", "Plata", "Odeljenje", "Broj linije"};
             Object[][] sadrzaj = new Object[Svasta.getDispeceri().size()][title.length];
 
             for(int i = 0; i < Svasta.getDispeceri().size(); i++) {
-                Korisnik korisnik = Svasta.getDispeceri().get(i);
-                sadrzaj[i][0] = korisnik.getIdKorisnika();
-                sadrzaj[i][1] = korisnik.getIme();
-                sadrzaj[i][2] = korisnik.getPrezime();
-                sadrzaj[i][3] = korisnik.getPol();
-                sadrzaj[i][4] = korisnik.getAdresa();
-                sadrzaj[i][5] = korisnik.getBrojTelefona();
+                Dispecer dispecer = Svasta.getDispeceri().get(i);
+                sadrzaj[i][0] = dispecer.getIdKorisnika();
+                sadrzaj[i][1] = dispecer.getIme();
+                sadrzaj[i][2] = dispecer.getPrezime();
+                sadrzaj[i][3] = dispecer.getPol();
+                sadrzaj[i][4] = dispecer.getAdresa();
+                sadrzaj[i][5] = dispecer.getBrojTelefona();
+                sadrzaj[i][6] = dispecer.getUsername();
+                sadrzaj[i][7] = dispecer.getPlata();
+                sadrzaj[i][8] = dispecer.getOdeljenje();
+                sadrzaj[i][9] = dispecer.getBrTelefonskeLinije();
             }
             createTable(title, sadrzaj);
         }
@@ -88,20 +98,20 @@ public class ListaKorisnikaFrame extends JFrame implements ActionListener {
         tabelaModel = new DefaultTableModel(sadrzaj, title);
         tabela = new JTable(tabelaModel);
         JScrollPane scrollPane = new JScrollPane(tabela);
-        scrollPane.setSize(1000,1000);
-        tabela.setSize(1000,1000);
+        scrollPane.setBorder(createEmptyBorder());
         tabela.setRowSelectionAllowed(true);
         tabela.setColumnSelectionAllowed(false);
         tabela.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         tabela.setDefaultEditor(Object.class, null);
         tabela.getTableHeader().setReorderingAllowed(false);
-        panel.add(scrollPane);
+        scrollPane.setBounds(0,0,1100,100);
+        container.add(scrollPane);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        int red = tabela.getSelectedRow();
         if (e.getSource() == btnIzbrisi) {
-            int red = tabela.getSelectedRow();
             if(red == -1) {
                 JOptionPane.showMessageDialog(null, "Morate odabrati red u tabeli.", "Greska", JOptionPane.WARNING_MESSAGE);
             }else {
@@ -112,7 +122,7 @@ public class ListaKorisnikaFrame extends JFrame implements ActionListener {
                         " - Potvrda brisanja", JOptionPane.YES_NO_OPTION);
                 if(izbor == JOptionPane.YES_OPTION) {
                     for (Korisnik korisnik: korisnici) {
-                        if (korisnik.getIdKorisnika() == Integer.parseInt(korisnikId)) {
+                        if (korisnik.getIdKorisnika().equals(korisnikId)) {
                             korisnik.setObrisan(true);
                             KorisnikIO.korisnikUpis(korisnici);
                         }
@@ -131,7 +141,18 @@ public class ListaKorisnikaFrame extends JFrame implements ActionListener {
 //
 //
 //            }
+        } else if (e.getSource() == btnDodaj) {
+            launchDodajKorisnikaFrame();
+            //ovde nekako treba add row
         }
+    }
+
+    private void launchDodajKorisnikaFrame() {
+        DodajKorisnikaFrame dodajKorisnika = new DodajKorisnikaFrame();
+        dodajKorisnika.setVisible(true);
+        dodajKorisnika.setBounds(20, 20, 250, 300);
+//        listaKorisnikaFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        dodajKorisnika.setResizable(false);
     }
 }
 

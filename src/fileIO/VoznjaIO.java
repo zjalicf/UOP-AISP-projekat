@@ -4,8 +4,6 @@ import entiteti.Voznja;
 import enums.StatusVoznje;
 
 import java.io.*;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class VoznjaIO {
@@ -18,18 +16,18 @@ public class VoznjaIO {
             String linija;
             while ((linija = reader.readLine()) != null) {
                 String[] value = linija.split("\\|");
-                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
-                String tempStr = value[0];
-                LocalDateTime datumPorudzbine = LocalDateTime.parse(tempStr, formatter);
-                formatter.format(datumPorudzbine);
+//                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
+                String datumPorudzbine = value[0];
+//                LocalDateTime datumPorudzbine = LocalDateTime.parse(tempStr, formatter);
+//                formatter.format(datumPorudzbine);
                 String adresaPolaska = value[1];
                 String adresaDestinacije = value[2];
-                int idMusterije = Integer.parseInt(value[3]);
-                int idVozaca = Integer.parseInt(value[4]);
+                String idMusterije = value[3];
+                String idVozaca = value[4];
                 Double predjenoKm = Double.parseDouble(value[5]);
                 int trajanjeVoznje = Integer.parseInt(value[6]);
                 StatusVoznje statusVoznje = StatusVoznje.valueOf(value[7]);
-                int idVoznje = Integer.parseInt(value[8]);
+                String idVoznje = value[8];
                 int ocenaVoznje = Integer.parseInt(value[9]);
 
                 Voznja voznja = new Voznja(datumPorudzbine, adresaPolaska, adresaDestinacije, idMusterije, idVozaca, predjenoKm, trajanjeVoznje,
