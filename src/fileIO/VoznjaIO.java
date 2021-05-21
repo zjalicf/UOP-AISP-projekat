@@ -29,9 +29,10 @@ public class VoznjaIO {
                 StatusVoznje statusVoznje = StatusVoznje.valueOf(value[7]);
                 String idVoznje = value[8];
                 int ocenaVoznje = Integer.parseInt(value[9]);
+                boolean obrisan = Boolean.parseBoolean(value[10]);
 
                 Voznja voznja = new Voznja(datumPorudzbine, adresaPolaska, adresaDestinacije, idMusterije, idVozaca, predjenoKm, trajanjeVoznje,
-                        statusVoznje, idVoznje, ocenaVoznje);
+                        statusVoznje, idVoznje, ocenaVoznje, obrisan);
                 voznje.add(voznja);
             }
             reader.close();
@@ -48,7 +49,7 @@ public class VoznjaIO {
             newString += voznja.getDatumPorudzbine() + "|" + voznja.getAdresaPolaska() + "|" +
                     voznja.getAdresaDestinacije() +"|"+ voznja.getIdMusterije() + "|" + voznja.getIdVozaca() +
                     "|" + voznja.getPredjenoKm() + "|" + voznja.getTrajanjeVoznje()+ "|" + voznja.getStatusVoznje()  + "|" +voznja.getIdVoznje() +
-                    "|" + voznja.getOcenaVoznje() + "\n";
+                    "|" + voznja.getOcenaVoznje() + "|" + voznja.isObrisan() + "\n";
         }
         try {
             File file = new File("src/txtPodaci/voznje.txt");

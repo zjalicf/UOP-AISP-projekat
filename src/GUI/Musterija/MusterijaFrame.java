@@ -1,5 +1,6 @@
 package GUI.Musterija;
 
+import GUI.FrameLauncher;
 import entiteti.Korisnik;
 
 import javax.swing.*;
@@ -54,10 +55,9 @@ public class MusterijaFrame extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == sveVoznjeButton) {
-            JOptionPane.showMessageDialog(this,
-                    "sve vzonje");
+            FrameLauncher.launchListaVoznjiMusterijaFrame();
         } else if (e.getSource() == naruciVoznjuButton){
-            launchNaruciVoznjuFrame(ulogovani);
+            FrameLauncher.launchNaruciVoznjuFrame(ulogovani);
         } else if (e.getSource() == oceniButton) {
             JOptionPane.showMessageDialog(this,
                     "ocena 5");
@@ -65,12 +65,5 @@ public class MusterijaFrame extends JFrame implements ActionListener {
             this.dispose();
             this.setVisible(false);
         }
-    }
-    private void launchNaruciVoznjuFrame(Korisnik ulogovani) {
-        NaruciVoznjuFrame naruciVoznjuFrame = new NaruciVoznjuFrame(ulogovani);
-        naruciVoznjuFrame.setVisible(true);
-        naruciVoznjuFrame.setBounds(0, 20, 396, 430);
-//        listaKorisnikaFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        naruciVoznjuFrame.setResizable(false);
     }
 }

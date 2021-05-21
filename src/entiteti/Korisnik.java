@@ -125,7 +125,7 @@ public abstract class Korisnik {
     @Override
     public String toString() {
         return "Korisnik [id=" + idKorisnika + ", ime=" + ime + ", prezime=" + prezime + ", pol=" + pol + ", adresa=" +
-                adresa + ", brojTelefona=" + brojTelefona + ", jmbg=" + jmbg + ", username=" + username + ", password" +
-                "=" + password + "]";
+                adresa + ", brojTelefona=" + brojTelefona + ", jmbg=" + jmbg + ", username=" + username + ", password=" + password + ", obrisan=" +
+                obrisan + "]";
     }
 }

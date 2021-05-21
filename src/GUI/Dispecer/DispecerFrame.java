@@ -1,5 +1,7 @@
 package GUI.Dispecer;//vozac je 0, dispecer 1
 
+import GUI.FrameLauncher;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -50,22 +52,14 @@ public class DispecerFrame extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == vozaciButton) {
-            launchListaKorisnikaFrame(0);
+            FrameLauncher.launchListaKorisnikaFrame(0);
         } else if (e.getSource() == dispeceriButton){
-            launchListaKorisnikaFrame(1);
+            FrameLauncher.launchListaKorisnikaFrame(1);
         } else if (e.getSource() == potvrdaVoznjeButton) {
-//            launchListaVoznjiFrame();
+            FrameLauncher.launchListaVoznjiDispecerFrame();
         } else if (e.getSource() == odjavaButton){
             this.dispose();
             this.setVisible(false);
         }
-    }
-
-    private void launchListaKorisnikaFrame(int tip) {
-        ListaKorisnikaFrame listaKorisnikaFrame = new ListaKorisnikaFrame(tip);
-        listaKorisnikaFrame.setVisible(true);
-        listaKorisnikaFrame.setBounds(20, 20, 1200, 200);
-//        listaKorisnikaFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        listaKorisnikaFrame.setResizable(false);
     }
 }

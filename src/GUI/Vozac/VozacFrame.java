@@ -1,5 +1,8 @@
 package GUI.Vozac;
 
+import GUI.FrameLauncher;
+import entiteti.Korisnik;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -10,8 +13,10 @@ public class VozacFrame extends JFrame implements ActionListener {
     private JButton dodeljeneVoznjeButton= new JButton("Moje voznje");
     private JButton odjavaButton = new JButton("Odjava");
     private JLabel slika = new JLabel(new ImageIcon("src/img/person.jpg"));
+    private Korisnik ulogovani;
 
-    public VozacFrame() {
+    public VozacFrame(Korisnik ulogovani) {
+        this.ulogovani = ulogovani;
         setLayoutManager();
         setLocationAndSize();
         addComponentsToContainer();
@@ -42,8 +47,7 @@ public class VozacFrame extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == dodeljeneVoznjeButton) {
-            JOptionPane.showMessageDialog(this,
-                    "DODELJENE");
+            FrameLauncher.launchListaVoznjiVozacFrame(ulogovani);
         } else if (e.getSource() == odjavaButton){
             this.dispose();
             this.setVisible(false);

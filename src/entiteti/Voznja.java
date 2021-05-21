@@ -14,9 +14,11 @@ public class Voznja {
     private StatusVoznje statusVoznje;
     private String idVoznje;
     private int ocenaVoznje;
+    private boolean obrisan;
 
     public Voznja(String datumPorudzbine, String adresaPolaska, String adresaDestinacije, String idMusterije,
-                  String idVozaca, Double predjenoKm, int trajanjeVoznje, StatusVoznje statusVoznje, String idVoznje, int ocenaVoznje) {
+                  String idVozaca, Double predjenoKm, int trajanjeVoznje, StatusVoznje statusVoznje, String idVoznje, int ocenaVoznje,
+                  boolean obrisan) {
         this.datumPorudzbine = datumPorudzbine;
         this.adresaPolaska = adresaPolaska;
         this.adresaDestinacije = adresaDestinacije;
@@ -27,6 +29,7 @@ public class Voznja {
         this.statusVoznje = statusVoznje;
         this.idVoznje = idVoznje;
         this.ocenaVoznje = ocenaVoznje;
+        this.obrisan = obrisan;
     }
 
     public Voznja() {
@@ -39,6 +42,7 @@ public class Voznja {
         this.statusVoznje = StatusVoznje.ODBIJENA;
         this.idVoznje = "0";
         this.ocenaVoznje = 0;
+        this.obrisan = false;
     }
 
     public String getDatumPorudzbine() {
@@ -121,6 +125,14 @@ public class Voznja {
         this.ocenaVoznje = ocenaVoznje;
     }
 
+    public boolean isObrisan() {
+        return obrisan;
+    }
+
+    public void setObrisan(boolean obrisan) {
+        this.obrisan = obrisan;
+    }
+
     @Override
     public String toString() {
         return "Voznja [" +
@@ -132,6 +144,6 @@ public class Voznja {
                 ", predjenoKm='" + predjenoKm + '\'' +
                 ", trajanjeVoznje='" + trajanjeVoznje + '\'' +
                 ", statusVoznje=" + statusVoznje + ", idVoznje="
-                + idVoznje + ", ocenaVoznje=" + ocenaVoznje +  ']';
+                + idVoznje + ", ocenaVoznje=" + ocenaVoznje +  ", obrisan=" + obrisan + ']';
     }
 }

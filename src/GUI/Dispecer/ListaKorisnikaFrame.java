@@ -1,5 +1,6 @@
 package GUI.Dispecer;
 
+import GUI.FrameLauncher;
 import entiteti.Dispecer;
 import entiteti.Korisnik;
 import entiteti.Vozac;
@@ -118,7 +119,7 @@ public class ListaKorisnikaFrame extends JFrame implements ActionListener {
                 String korisnikId = tabela.getValueAt(red, 0).toString();
                 ArrayList<Korisnik> korisnici = Svasta.getKorisnici();
                 int izbor = JOptionPane.showConfirmDialog(null,
-                        "Da li ste sigurni da zelite da obrisete servisera?",
+                        "Da li ste sigurni da zelite da obrisete korisnika?",
                         " - Potvrda brisanja", JOptionPane.YES_NO_OPTION);
                 if(izbor == JOptionPane.YES_OPTION) {
                     for (Korisnik korisnik: korisnici) {
@@ -142,17 +143,10 @@ public class ListaKorisnikaFrame extends JFrame implements ActionListener {
 //
 //            }
         } else if (e.getSource() == btnDodaj) {
-            launchDodajKorisnikaFrame();
-            //ovde nekako treba add row
+            FrameLauncher.launchDodajKorisnikaFrame();
+//            DefaultTableModel dtm = (DefaultTableModel)tabela.getModel();
+//            dtm.addRow();
         }
-    }
-
-    private void launchDodajKorisnikaFrame() {
-        DodajKorisnikaFrame dodajKorisnika = new DodajKorisnikaFrame();
-        dodajKorisnika.setVisible(true);
-        dodajKorisnika.setBounds(20, 20, 250, 300);
-//        listaKorisnikaFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        dodajKorisnika.setResizable(false);
     }
 }
 

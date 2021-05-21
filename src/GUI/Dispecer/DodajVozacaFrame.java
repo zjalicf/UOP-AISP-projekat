@@ -54,29 +54,29 @@ public class DodajVozacaFrame extends JFrame implements ActionListener {
     }
 
     public void setLocationAndSize() {
-                  idLabel.setBounds(5,5,100,20);
-                 imeLabel.setBounds(5,30,100,20);
-             prezimeLabel.setBounds(5,55,100,20);
-                 polLabel.setBounds(5,80,100,20);
-              adresaLabel.setBounds(5,105,100,20);
+        idLabel.setBounds(5,5,100,20);
+        imeLabel.setBounds(5,30,100,20);
+        prezimeLabel.setBounds(5,55,100,20);
+        polLabel.setBounds(5,80,100,20);
+        adresaLabel.setBounds(5,105,100,20);
         brojTelefonaLabel.setBounds(5,130,100,20);
-                jmbgLabel.setBounds(5,155,100,20);
-            usernameLabel.setBounds(5,180,100,20);
-            passwordLabel.setBounds(5,205,100,20);
-               plataLabel.setBounds(5,230,100,20);
-             brKarteLabel.setBounds(5,255,100,20);
+        jmbgLabel.setBounds(5,155,100,20);
+        usernameLabel.setBounds(5,180,100,20);
+        passwordLabel.setBounds(5,205,100,20);
+        plataLabel.setBounds(5,230,100,20);
+        brKarteLabel.setBounds(5,255,100,20);
         idAutomobilaLabel.setBounds(5,280,100,20);
-                  idField.setBounds(110,5,100,20);
-                 imeField.setBounds(110,30,100,20);
-             prezimeField.setBounds(110,55,100,20);
-                    polCb.setBounds(110,80,100,20);
-              adresaField.setBounds(110,105,100,20);
+        idField.setBounds(110,5,100,20);
+        imeField.setBounds(110,30,100,20);
+        prezimeField.setBounds(110,55,100,20);
+        polCb.setBounds(110,80,100,20);
+        adresaField.setBounds(110,105,100,20);
         brojTelefonaField.setBounds(110,130,100,20);
-                jmbgField.setBounds(110,155,100,20);
-            usernameField.setBounds(110,180,100,20);
-            passwordField.setBounds(110,205,100,20);
-               plataField.setBounds(110,230,100,20);
-             brKarteField.setBounds(110,255,100,20);
+        jmbgField.setBounds(110,155,100,20);
+        usernameField.setBounds(110,180,100,20);
+        passwordField.setBounds(110,205,100,20);
+        plataField.setBounds(110,230,100,20);
+        brKarteField.setBounds(110,255,100,20);
         idAutomobilaField.setBounds(110,280,100,20);
 
         confirmButton.setBounds(5,310,100,24);

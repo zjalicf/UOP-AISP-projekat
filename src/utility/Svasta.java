@@ -3,6 +3,7 @@ package utility;
 import entiteti.*;
 import fileIO.AutomobilIO;
 import fileIO.KorisnikIO;
+import fileIO.VoznjaIO;
 
 import java.util.ArrayList;
 
@@ -44,6 +45,7 @@ public class Svasta {
         return sviVozaci;
     }
 
+
     public static ArrayList<String> getIdSvihAutomobila() {
         ArrayList<String> automobiliId = new ArrayList<>();
         ArrayList<Automobil> sviAutomobili = AutomobilIO.automobilCitanje();
@@ -51,6 +53,10 @@ public class Svasta {
             automobiliId.add(automobil.getIdAutomobila() + "");
         }
         return automobiliId;
+    }
+
+    public static ArrayList<Voznja> getVoznje() {
+        return VoznjaIO.voznjaCitanje();
     }
 
     public static ArrayList<String> getIdSvihKorisnika() {

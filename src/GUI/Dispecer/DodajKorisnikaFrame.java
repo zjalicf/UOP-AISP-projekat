@@ -1,5 +1,7 @@
 package GUI.Dispecer;
 
+import GUI.FrameLauncher;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -43,28 +45,12 @@ public class DodajKorisnikaFrame extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == dodajVozacaButton) {
-            launchDodajVozacaFrame();
+            FrameLauncher.launchDodajVozacaFrame();
         } else if (e.getSource() == dodajDispeceraButton){
-            launchDodajDispeceraFrame();
+            FrameLauncher.launchDodajDispeceraFrame();
         } else if (e.getSource() == nazadButton) {
             this.dispose();
             this.setVisible(false);
         }
-    }
-
-    private void launchDodajDispeceraFrame() {
-//        DodajDispeceraFrame dodajDispeceraFrame = new DodajDispeceraFrame();
-//        dodajDispeceraFrame.setVisible(true);
-//        dodajDispeceraFrame.setBounds(20, 20, 280, 400);
-////        listaKorisnikaFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        dodajDispeceraFrame.setResizable(false);
-    }
-
-    private void launchDodajVozacaFrame() {
-        DodajVozacaFrame dodajVozacaFrame = new DodajVozacaFrame();
-        dodajVozacaFrame.setVisible(true);
-        dodajVozacaFrame.setBounds(20, 20, 250, 416);
-//        listaKorisnikaFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        dodajVozacaFrame.setResizable(false);
     }
 }

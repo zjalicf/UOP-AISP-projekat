@@ -5,4 +5,3 @@
 555555|Marko|Markovic|Muski|Bulevar oslobodjenja 144|065000005|1096748967124|marko|123|false|dispecer|39000.0|prijem|125612
 666666|Nikola|Nikolic|Muski|Bulevar Evrope 11|066000006|1235153513515|nikola|123|false|vozac|45000.0|1231|1|ChIJgwwOOUcQW0cRfFlEgooF9fQ
 777777|Stefan|Stefanovic|Muski|Teodora Mandica 10|067000007|9937586285582|stefan|123|false|vozac|55000.0|1011|2|ChIJgwwOOUcQW0cRfFlEgooF9fQ
-15|asf|asf|Muski|saf|safsaf|asf|sf|fas|false|vozac|3.7|1245|124|ChIJgwwOOUcQW0cRfFlEgooF9fQ

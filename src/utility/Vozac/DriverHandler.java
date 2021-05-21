@@ -13,7 +13,7 @@ import java.net.URL;
 import java.util.ArrayList;
 
 public class DriverHandler {
-    public static ArrayList<Par<Integer, Integer>> osveziVozace(ArrayList<Korisnik> vozaci, String unesenaAdresa) throws JSONException,
+    public static Par<Integer, Integer> osveziVozace(ArrayList<Korisnik> vozaci, String unesenaAdresa) throws JSONException,
             IOException {
         String apiKey = "AIzaSyAP1ILAhEyPnYCXt4EDQfnlTr-Dm5riBnw";
         ArrayList<String> adrese = new ArrayList<>();
@@ -30,7 +30,23 @@ public class DriverHandler {
                 izracunajVreme(apiKey, korisnikAdresa, osvezeniVozaci, vozac);
             }
         }
-        return osvezeniVozaci;
+        int random = (int )(Math.random() * osvezeniVozaci.size());
+        return osvezeniVozaci.get(random);
+    }
+
+    private static void ucitajAdrese(ArrayList<String> adrese) {
+        try {
+            File file = new File("src/txtPodaci/adrese.txt");
+            BufferedReader reader = new BufferedReader(new FileReader(file));
+            String adresa;
+            while ((adresa = reader.readLine()) != null) {
+                adrese.add(adresa);
+            }
+            reader.close();
+
+        }catch(IOException e) {
+            System.out.println("Greska! Nije moguce procitati sadrzaj fajla");
+        }
     }
 
     private static void dodeliRandomAdrese(ArrayList<Korisnik> vozaci, ArrayList<String> adrese) {
@@ -56,21 +72,6 @@ public class DriverHandler {
         JSONArray results = obj.getJSONArray("results");
 
         return results.getJSONObject(0).getString("place_id");
-    }
-
-    private static void ucitajAdrese(ArrayList<String> adrese) {
-        try {
-            File file = new File("src/txtPodaci/adrese.txt");
-            BufferedReader reader = new BufferedReader(new FileReader(file));
-            String adresa;
-            while ((adresa = reader.readLine()) != null) {
-                adrese.add(adresa);
-            }
-            reader.close();
-
-        }catch(IOException e) {
-            System.out.println("Greska! Nije moguce procitati sadrzaj fajla");
-        }
     }
 
     //vraca (vreme, brKarte)

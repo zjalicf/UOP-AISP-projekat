@@ -64,14 +64,14 @@ public class NaruciVoznjuFrame extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == okButton) {
-            tempmet();
+            potvrdiPorudzbinu();
         } else if (e.getSource() == odjavaButton) {
             this.dispose();
             this.setVisible(false);
         }
     }
 
-    private void tempmet() {
+    private void potvrdiPorudzbinu() {
         LocalDateTime currentDateTime = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
         String datum = currentDateTime.format(formatter);
@@ -86,7 +86,7 @@ public class NaruciVoznjuFrame extends JFrame implements ActionListener {
         int ocena = 0;
 
         Voznja novaVoznja = new Voznja(datum, adresaPolaska, adresaDestinacije, idMusterije, idVozaca, predjenoKm, trajanjeVoznje, statusVoznje,
-                idVoznje, ocena);
+                idVoznje, ocena, false);
         ArrayList<Voznja> sveVoznje = VoznjaIO.voznjaCitanje();
         sveVoznje.add(novaVoznja);
         VoznjaIO.voznjaUpis(sveVoznje);

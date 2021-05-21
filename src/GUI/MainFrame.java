@@ -1,8 +1,5 @@
 package GUI;
 
-import GUI.Dispecer.DispecerFrame;
-import GUI.Musterija.MusterijaFrame;
-import GUI.Vozac.VozacFrame;
 import entiteti.Dispecer;
 import entiteti.Korisnik;
 import entiteti.Musterija;
@@ -77,13 +74,13 @@ public class MainFrame extends JFrame implements ActionListener {
             }
             else {
                 if (ulogovani instanceof Dispecer) {
-                    launchDispecerFrame(ulogovani);
+                    FrameLauncher.launchDispecerFrame(ulogovani);
                 }
                 else if(ulogovani instanceof Musterija) {
-                    launchMusterijaFrame(ulogovani);
+                    FrameLauncher.launchMusterijaFrame(ulogovani);
                 }
                 else if(ulogovani instanceof Vozac) {
-                    launchVozacFrame(ulogovani);
+                    FrameLauncher.launchVozacFrame(ulogovani);
                 }
             }
         }
@@ -98,44 +95,6 @@ public class MainFrame extends JFrame implements ActionListener {
             this.dispose();
             this.setVisible(false);
         }
-    }
-
-    public static void launchLogin() {
-        MainFrame loginFrame = new MainFrame();
-        loginFrame.setTitle("STATIM TAXI SERVICES");
-        loginFrame.setVisible(true);
-        loginFrame.setBounds(10, 10, 520, 566);
-        loginFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        loginFrame.setResizable(false);
-    }
-
-    private void launchDispecerFrame(Korisnik ulogovani) {
-        DispecerFrame dispecerFrame = new DispecerFrame();
-        dispecerFrame.setVisible(true);
-        dispecerFrame.setTitle("Dobrodosli, " + ulogovani.getIme() + " " + ulogovani.getPrezime());
-        dispecerFrame.setBounds(10, 10, 350, 230);
-//        dispecerFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        dispecerFrame.setResizable(false);
-//        LoginFrame.this.dispose();
-//        LoginFrame.this.setVisible(false);
-    }
-
-    private void launchMusterijaFrame(Korisnik ulogovani) {
-        MusterijaFrame musterijaFrame = new MusterijaFrame(ulogovani);
-        musterijaFrame.setVisible(true);
-        musterijaFrame.setTitle("Dobrodosli, " + ulogovani.getIme() + " " + ulogovani.getPrezime());
-        musterijaFrame.setBounds(10, 10, 350, 230);
-//        musterijaFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        musterijaFrame.setResizable(false);
-    }
-
-    private void launchVozacFrame(Korisnik ulogovani) {
-        VozacFrame vozacFrame = new VozacFrame();
-        vozacFrame.setVisible(true);
-        vozacFrame.setTitle("Dobrodosli, " + ulogovani.getIme() + " " + ulogovani.getPrezime());
-        vozacFrame.setBounds(10, 10, 350, 230);
-//        vozacFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        vozacFrame.setResizable(false);
     }
 
     public Korisnik login(String username, String password) {
