@@ -23,7 +23,7 @@ public class AutomobilIO {
                 String proizvodjac_ = value[1];
                 Proizvodjac proizvodjac = Proizvodjac.valueOf(proizvodjac_);
                 int godinaProizvodnje = Integer.parseInt(value[2]);
-                int idAutomobila = Integer.parseInt(value[3]);
+                String idAutomobila = value[3];
                 String regOznaka = value[4];
                 int brojVozila = Integer.parseInt(value[5]);
                 String vrstaAutomobila_ = value[6];

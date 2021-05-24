@@ -45,7 +45,7 @@ public class KorisnikIO {
                     case "vozac": {
                         double plata = Double.parseDouble(value[11]);
                         int brKarte = Integer.parseInt(value[12]);
-                        int idAutomobila = Integer.parseInt(value[13]);;
+                        String idAutomobila = value[13];;
                         String lokacija = value[14];
                         Vozac vozac = new Vozac(idKorisnika, ime, prezime, pol, adresa, brojTelefona, jmbg,
                                 username, password, obrisan, plata, brKarte, idAutomobila, lokacija);

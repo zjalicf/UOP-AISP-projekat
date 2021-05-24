@@ -36,11 +36,11 @@ public class FrameLauncher {
     }
 
     public static void launchDodajDispeceraFrame() {
-//        DodajDispeceraFrame dodajDispeceraFrame = new DodajDispeceraFrame();
-//        dodajDispeceraFrame.setVisible(true);
-//        dodajDispeceraFrame.setBounds(20, 20, 280, 400);
-////        listaKorisnikaFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        dodajDispeceraFrame.setResizable(false);
+        DodajDispeceraFrame dodajDispeceraFrame = new DodajDispeceraFrame();
+        dodajDispeceraFrame.setVisible(true);
+        dodajDispeceraFrame.setBounds(20, 20, 280, 400);
+//        listaKorisnikaFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        dodajDispeceraFrame.setResizable(false);
     }
 
     public static void launchDodajVozacaFrame() {
@@ -51,12 +51,14 @@ public class FrameLauncher {
         dodajVozacaFrame.setResizable(false);
     }
 
-    public static void launchDodajKorisnikaFrame() {
-        DodajKorisnikaFrame dodajKorisnika = new DodajKorisnikaFrame();
-        dodajKorisnika.setVisible(true);
-        dodajKorisnika.setBounds(20, 20, 250, 300);
-//        listaKorisnikaFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        dodajKorisnika.setResizable(false);
+    public static void launchDodajKorisnikaFrame(int tip) {
+        if (tip == 0) {
+            launchDodajVozacaFrame();
+        } else if (tip == 1) {
+            launchDodajDispeceraFrame();
+        } else {
+            System.out.println("fatal error");
+        }
     }
 
     public static void launchNaruciVoznjuFrame(Korisnik ulogovani) {
@@ -113,6 +115,7 @@ public class FrameLauncher {
 //        listaVoznjiMusterijaFrame.setResizable(false);
         System.out.println("AISP");
     }
+
     public static void launchZavrsiVoznjuFrame(String voznjaId) {
         ZavrsiVoznjuFrame listaVoznjiMusterijaFrame = new ZavrsiVoznjuFrame(voznjaId);
         listaVoznjiMusterijaFrame.setVisible(true);
@@ -120,4 +123,21 @@ public class FrameLauncher {
 //        listaKorisnikaFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         listaVoznjiMusterijaFrame.setResizable(false);
     }
+
+    public static void launchIzmeniDispeceraFrame(String korisnikId) {
+        IzmeniDispeceraFrame izmeniDispeceraFrame = new IzmeniDispeceraFrame(korisnikId);
+        izmeniDispeceraFrame.setVisible(true);
+        izmeniDispeceraFrame.setBounds(20, 20, 250, 500);
+//        listaKorisnikaFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        izmeniDispeceraFrame.setResizable(false);
+    }
+
+    public static void launchIzmeniVozacaFrame(String korisnikId) {
+        IzmeniVozacaFrame izmeniVozacaFrame = new IzmeniVozacaFrame(korisnikId);
+        izmeniVozacaFrame .setVisible(true);
+        izmeniVozacaFrame .setBounds(20, 20, 250, 500);
+//        listaKorisnikaFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        izmeniVozacaFrame .setResizable(false);
+    }
+
 }

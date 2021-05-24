@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import static javax.swing.BorderFactory.createEmptyBorder;
 
 public class ListaKorisnikaFrame extends JFrame implements ActionListener {
+    private int tip;
     Container container = getContentPane();
     private JButton btnDodaj = new JButton("Dodaj novog korisnika");
     private JButton btnIzmeni = new JButton("Izmeni korisnika");
@@ -25,6 +26,7 @@ public class ListaKorisnikaFrame extends JFrame implements ActionListener {
     private DefaultTableModel tabelaModel;
 
     public ListaKorisnikaFrame(int tip) {
+        this.tip = tip;
         setLayoutManager();
         initGUI(tip);
         setLocationAndSize();
@@ -133,17 +135,20 @@ public class ListaKorisnikaFrame extends JFrame implements ActionListener {
                 }
             }
         } else if (e.getSource() == btnIzmeni) {
-//            int red = tabela.getSelectedRow();
-//            if(red == -1) {
-//                JOptionPane.showMessageDialog(null, "Morate odabrati red u tabeli.", "Greska", JOptionPane.WARNING_MESSAGE);
-//            }else {
-//                String korisnikId = tabela.getValueAt(red, 0).toString();
-//                ArrayList<Korisnik> korisnici = Svasta.getKorisnici();
-//
-//
-//            }
+            if(red == -1) {
+                JOptionPane.showMessageDialog(null, "Morate odabrati red u tabeli.", "Greska", JOptionPane.WARNING_MESSAGE);
+            }else {
+                String korisnikId = tabela.getValueAt(red, 0).toString();
+                for (Korisnik korisnik: Svasta.getKorisnici()) {
+                    if (korisnikId.equals(korisnik.getIdKorisnika()) && korisnik instanceof Dispecer) {
+                        FrameLauncher.launchIzmeniDispeceraFrame(korisnikId);
+                    } else if (korisnikId.equals(korisnik.getIdKorisnika()) && korisnik instanceof Vozac) {
+                        FrameLauncher.launchIzmeniVozacaFrame(korisnikId);
+                    }
+                }
+            }
         } else if (e.getSource() == btnDodaj) {
-            FrameLauncher.launchDodajKorisnikaFrame();
+            FrameLauncher.launchDodajKorisnikaFrame(tip);
 //            DefaultTableModel dtm = (DefaultTableModel)tabela.getModel();
 //            dtm.addRow();
         }

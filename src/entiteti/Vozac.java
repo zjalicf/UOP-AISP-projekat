@@ -6,11 +6,11 @@ public class Vozac extends Korisnik {
 
     private double plata;
     private int brKarte;
-    private int idAutomobila;
+    private String idAutomobila;
     private String lokacija;
 
     public Vozac(String idKorisnika, String ime, String prezime, Pol pol, String adresa, String brojTelefona,
-                 String jmbg, String username, String password, boolean obrisan, double plata, int brKarte, int idAutomobila, String lokacija) {
+                 String jmbg, String username, String password, boolean obrisan, double plata, int brKarte, String idAutomobila, String lokacija) {
         super(idKorisnika, ime, prezime, pol, adresa, brojTelefona, jmbg, username, password, obrisan);
         this.plata = plata;
         this.brKarte = brKarte;
@@ -21,7 +21,7 @@ public class Vozac extends Korisnik {
     public Vozac() {
         this.plata = 0.0;
         this.brKarte = 0;
-        this.idAutomobila = 0;
+        this.idAutomobila = "0";
         this.lokacija = "";
     }
 
@@ -41,11 +41,11 @@ public class Vozac extends Korisnik {
         this.plata = plata;
     }
 
-    public int getIdAutomobila() {
+    public String getIdAutomobila() {
         return idAutomobila;
     }
 
-    public void setIdAutomobila(int idAutomobila) {
+    public void setIdAutomobila(String idAutomobila) {
         this.idAutomobila = idAutomobila;
     }
 

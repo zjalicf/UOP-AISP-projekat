@@ -1,4 +1,4 @@
-package utility.Vozac;
+package utility;
 
 import entiteti.Korisnik;
 import entiteti.Vozac;

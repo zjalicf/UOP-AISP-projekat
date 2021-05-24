@@ -8,7 +8,7 @@ import fileIO.KorisnikIO;
 import fileIO.VoznjaIO;
 import org.json.JSONException;
 import utility.Svasta;
-import utility.Vozac.DriverHandler;
+import utility.DriverHandler;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
