@@ -4,7 +4,7 @@ import entiteti.Korisnik;
 import entiteti.Vozac;
 import enums.Pol;
 import fileIO.KorisnikIO;
-import utility.Svasta;
+import utility.GetUtility;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,7 +13,6 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class DodajVozacaFrame extends JFrame implements ActionListener {
-
     Container container = getContentPane();
     private final JButton confirmButton = new JButton("Potvrdi");
     private final JButton cancelButton = new JButton("Odustani");
@@ -40,7 +39,7 @@ public class DodajVozacaFrame extends JFrame implements ActionListener {
     private final JLabel brKarteLabel = new JLabel("Broj karte: ");
     private final JTextField brKarteField = new JTextField(20);
     private final JLabel idAutomobilaLabel = new JLabel("ID automobila: ");
-    private final JTextField idAutomobilaField = new JTextField(20);
+    private JComboBox<String> idAutomobilaCb = new JComboBox<>(GetUtility.getIdSvihAutomobila().toArray(new String[GetUtility.getIdSvihAutomobila().size()]));
 
     public DodajVozacaFrame () {
         setLayoutManager();
@@ -77,7 +76,7 @@ public class DodajVozacaFrame extends JFrame implements ActionListener {
         passwordField.setBounds(110,205,100,20);
         plataField.setBounds(110,230,100,20);
         brKarteField.setBounds(110,255,100,20);
-        idAutomobilaField.setBounds(110,280,100,20);
+        idAutomobilaCb.setBounds(110,280,100,20);
 
         confirmButton.setBounds(5,310,100,24);
         cancelButton.setBounds(110,310,100,24);
@@ -109,7 +108,7 @@ public class DodajVozacaFrame extends JFrame implements ActionListener {
         container.add(brKarteLabel);
         container.add(brKarteField);
         container.add(idAutomobilaLabel);
-        container.add(idAutomobilaField);
+        container.add(idAutomobilaCb);
     }
 
     public void addActionEvent() {
@@ -120,16 +119,13 @@ public class DodajVozacaFrame extends JFrame implements ActionListener {
     public boolean provera() {
         boolean correct = true;
         String output = "Nastale greske pri unosu:\n";
-        ArrayList<String> idList = Svasta.getIdSvihKorisnika();
-        System.out.println(idList);
-        ArrayList<String> idCars = Svasta.getIdSvihAutomobila();
 
         if (this.idField.getText().trim().equals("")) {
             output = output + ", Unesite id\n";
             correct = false;
         }
 
-        if (idList.contains(this.idField.getText().trim()) || this.idField.getText().trim().length() != 6 || this.idField.getText().trim().matches(
+        if (GetUtility.getIdSvihKorisnika().contains(this.idField.getText().trim()) || this.idField.getText().trim().length() != 6 || this.idField.getText().trim().matches(
                 ".*[a-zA-Z]+.*")) {
             output = output + ", Korisnik sa takvim ID vec postoji\n";
             correct = false;
@@ -213,16 +209,6 @@ public class DodajVozacaFrame extends JFrame implements ActionListener {
             correct = false;
         }
 
-        if (this.idAutomobilaField.getText().trim().equals("")) {
-            output = output + ", Unesite ID automobila\n";
-            correct = false;
-        }
-
-        if (!idCars.contains(this.idAutomobilaField.getText().trim())) {
-            output = output + ", Ne postoji automobil sa takvim ID\n";
-            correct = false;
-        }
-
         if (!correct) {
             JOptionPane.showMessageDialog(null, output, "Pogresno uneti podaci", JOptionPane.WARNING_MESSAGE);
         }
@@ -244,7 +230,7 @@ public class DodajVozacaFrame extends JFrame implements ActionListener {
                 String password = this.passwordField.getText().trim();
                 double plata = Double.parseDouble(this.plataField.getText().trim());
                 int brKarte = Integer.parseInt(this.brKarteField.getText().trim());
-                String idAutomobila = this.idAutomobilaField.getText().trim();
+                String idAutomobila = (String) this.idAutomobilaCb.getSelectedItem();
                 String lokacija = "ChIJgwwOOUcQW0cRfFlEgooF9fQ";
 
                 Vozac novi = new Vozac(id, ime, prezime, pol, adresa, telefon, jmbg, username, password, false, plata, brKarte, idAutomobila,
@@ -261,6 +247,3 @@ public class DodajVozacaFrame extends JFrame implements ActionListener {
         }
     }
 }
-
-
-

@@ -1,11 +1,10 @@
 package GUI.Dispecer;
 
 import entiteti.Dispecer;
-import entiteti.Korisnik;
 import enums.Odeljenje;
 import enums.Pol;
 import fileIO.KorisnikIO;
-import utility.Svasta;
+import utility.GetUtility;
 
 import javax.swing.*;
 import java.awt.*;
@@ -56,21 +55,21 @@ public class IzmeniDispeceraFrame extends JFrame implements ActionListener {
     }
 
     public void fill() {
-        for (Korisnik korisnik: Svasta.getKorisnici()) {
-            if (korisnikId.equals(korisnik.getIdKorisnika()) && korisnik instanceof Dispecer) {
-                idField.setText(korisnik.getIdKorisnika());
+        for (Dispecer dispecer: GetUtility.getDispeceri()) {
+            if (korisnikId.equals(dispecer.getIdKorisnika())) {
+                idField.setText(dispecer.getIdKorisnika());
                 idField.setEditable(false);
-                imeField.setText(korisnik.getIme());
-                prezimeField.setText(korisnik.getPrezime());
-                polCb.setSelectedItem(korisnik.getPol());
-                adresaField.setText(korisnik.getAdresa());
-                brojTelefonaField.setText(korisnik.getBrojTelefona());
-                jmbgField.setText(korisnik.getJmbg());
-                usernameField.setText(korisnik.getUsername());
-                passwordField.setText(korisnik.getPassword());
-                plataField.setText(String.valueOf(((Dispecer) korisnik).getPlata()));
-                odeljenjeField.setText(String.valueOf(((Dispecer) korisnik).getOdeljenje()));
-                brTelefonskeLinijeField.setText(String.valueOf(((Dispecer) korisnik).getBrTelefonskeLinije()));
+                imeField.setText(dispecer.getIme());
+                prezimeField.setText(dispecer.getPrezime());
+                polCb.setSelectedItem(dispecer.getPol());
+                adresaField.setText(dispecer.getAdresa());
+                brojTelefonaField.setText(dispecer.getBrojTelefona());
+                jmbgField.setText(dispecer.getJmbg());
+                usernameField.setText(dispecer.getUsername());
+                passwordField.setText(dispecer.getPassword());
+                plataField.setText(String.valueOf(dispecer.getPlata()));
+                odeljenjeField.setText(String.valueOf(dispecer.getOdeljenje()));
+                brTelefonskeLinijeField.setText(String.valueOf(dispecer.getBrTelefonskeLinije()));
             }
         }
     }
@@ -156,26 +155,23 @@ public class IzmeniDispeceraFrame extends JFrame implements ActionListener {
             Odeljenje odeljenje = Odeljenje.valueOf(this.odeljenjeField.getText().trim());
             int brTelefonskeLinije = Integer.parseInt(brTelefonskeLinijeField.getText().trim());
 
-            for(Korisnik korisnik : Svasta.getKorisnici()) {
-                if(korisnik instanceof Dispecer) {
-                    if(korisnik.getIdKorisnika().equals(id)) {
-                        Dispecer dispecer = (Dispecer) korisnik;
-                        dispecer.setIme(ime);
-                        dispecer.setPrezime(prezime);
-                        dispecer.setPol(pol);
-                        dispecer.setAdresa(adresa);
-                        dispecer.setBrojTelefona(telefon);
-                        dispecer.setJmbg(jmbg);
-                        dispecer.setUsername(username);
-                        dispecer.setPassword(password);
-                        dispecer.setObrisan(false);
-                        dispecer.setPlata(plata);
-                        dispecer.setOdeljenje(odeljenje);
-                        dispecer.setBrTelefonskeLinije(brTelefonskeLinije);
-                    }
+            for(Dispecer dispecer : GetUtility.getDispeceri()) {
+                if(dispecer.getIdKorisnika().equals(id)) {
+                    dispecer.setIme(ime);
+                    dispecer.setPrezime(prezime);
+                    dispecer.setPol(pol);
+                    dispecer.setAdresa(adresa);
+                    dispecer.setBrojTelefona(telefon);
+                    dispecer.setJmbg(jmbg);
+                    dispecer.setUsername(username);
+                    dispecer.setPassword(password);
+                    dispecer.setObrisan(false);
+                    dispecer.setPlata(plata);
+                    dispecer.setOdeljenje(odeljenje);
+                    dispecer.setBrTelefonskeLinije(brTelefonskeLinije);
                 }
             }
-            KorisnikIO.korisnikUpis(Svasta.getKorisnici());
+            KorisnikIO.korisnikUpis(GetUtility.getKorisnici());
             this.dispose();
             this.setVisible(false);
 
@@ -184,5 +180,4 @@ public class IzmeniDispeceraFrame extends JFrame implements ActionListener {
             this.setVisible(false);
         }
     }
-
 }

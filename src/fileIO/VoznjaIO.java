@@ -16,10 +16,7 @@ public class VoznjaIO {
             String linija;
             while ((linija = reader.readLine()) != null) {
                 String[] value = linija.split("\\|");
-//                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
                 String datumPorudzbine = value[0];
-//                LocalDateTime datumPorudzbine = LocalDateTime.parse(tempStr, formatter);
-//                formatter.format(datumPorudzbine);
                 String adresaPolaska = value[1];
                 String adresaDestinacije = value[2];
                 String idMusterije = value[3];

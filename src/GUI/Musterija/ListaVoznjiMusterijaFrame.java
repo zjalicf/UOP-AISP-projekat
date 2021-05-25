@@ -3,7 +3,7 @@
 //import entiteti.Voznja;
 //import enums.StatusVoznje;
 //import fileIO.VoznjaIO;
-//import utility.Svasta;
+//import utility.GetUtility;
 //
 //import javax.swing.*;
 //import javax.swing.table.DefaultTableModel;
@@ -58,10 +58,10 @@
 //
 //    public void initGUI() { // kako ovde da pokaze kad nije zavrsena i kad je zavrsena, if zavrsena == true
 //        String[] title = new String[] {"Datum" ,"Polazak", "Destinacija", "km", "Trajanje", "Status", "ID Voznje", "Ocena"};
-//        Object[][] sadrzaj = new Object[Svasta.getVoznje().size()][title.length];
+//        Object[][] sadrzaj = new Object[GetUtility.getVoznje().size()][title.length];
 //        // PROBLEM: sadrzaj pravi visak kolona jer pre provere da li je dodeljena on mesta napravi!
-//        for(int i = 0; i < Svasta.getVoznje().size(); i++) {
-//            Voznja voznja = Svasta.getVoznje().get(i);
+//        for(int i = 0; i < GetUtility.getVoznje().size(); i++) {
+//            Voznja voznja = GetUtility.getVoznje().get(i);
 //            if (voznja.getStatusVoznje() == StatusVoznje.DODELJENA) {
 //                sadrzaj[i][0] = voznja.getDatumPorudzbine();
 //                sadrzaj[i][1] = voznja.getAdresaPolaska();
@@ -98,7 +98,7 @@
 //                JOptionPane.showMessageDialog(null, "Morate odabrati red u tabeli.", "Greska", JOptionPane.WARNING_MESSAGE);
 //            }else {
 //                String voznjaId = tabela.getValueAt(red, 6).toString();
-//                ArrayList<Voznja> voznje = Svasta.getVoznje();
+//                ArrayList<Voznja> voznje = GetUtility.getVoznje();
 //                int izbor = JOptionPane.showConfirmDialog(null,
 //                        "Da li ste sigurni da zelite da prihvatite voznju?",
 //                        " - Potvrda voznje", JOptionPane.YES_NO_OPTION);
@@ -116,7 +116,7 @@
 //                JOptionPane.showMessageDialog(null, "Morate odabrati red u tabeli.", "Greska", JOptionPane.WARNING_MESSAGE);
 //            }else {
 //                String voznjaId = tabela.getValueAt(red, 6).toString();
-//                ArrayList<Voznja> voznje = Svasta.getVoznje();
+//                ArrayList<Voznja> voznje = GetUtility.getVoznje();
 //                int izbor = JOptionPane.showConfirmDialog(null,
 //                        "Da li ste sigurni da zelite da odbijete voznju?",
 //                        " - Odbijanje voznje", JOptionPane.YES_NO_OPTION);
@@ -134,7 +134,7 @@
 //                JOptionPane.showMessageDialog(null, "Morate odabrati red u tabeli.", "Greska", JOptionPane.WARNING_MESSAGE);
 //            }else {
 //                String voznjaId = tabela.getValueAt(red, 8).toString();
-//                ArrayList<Voznja> voznje = Svasta.getVoznje();
+//                ArrayList<Voznja> voznje = GetUtility.getVoznje();
 //                int izbor = JOptionPane.showConfirmDialog(null,
 //                        "Da li ste sigurni da zelite da zavrsite voznju?",
 //                        " - Potvrda voznje", JOptionPane.YES_NO_OPTION);

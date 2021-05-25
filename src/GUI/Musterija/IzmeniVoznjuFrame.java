@@ -5,7 +5,7 @@
 //import enums.Odeljenje;
 //import enums.Pol;
 //import fileIO.KorisnikIO;
-//import utility.Svasta;
+//import utility.GetUtility;
 //
 //import javax.swing.*;
 //import java.awt.*;
@@ -56,7 +56,7 @@
 //    }
 //
 //    public void fill() {
-//        for (Korisnik korisnik: Svasta.getKorisnici()) {
+//        for (Korisnik korisnik: GetUtility.getKorisnici()) {
 //            if (korisnikId.equals(korisnik.getIdKorisnika()) && korisnik instanceof Dispecer) {
 //                idField.setText(korisnik.getIdKorisnika());
 //                idField.setEditable(false);
@@ -156,7 +156,7 @@
 //            Odeljenje odeljenje = Odeljenje.valueOf(this.odeljenjeField.getText().trim());
 //            int brTelefonskeLinije = Integer.parseInt(brTelefonskeLinijeField.getText().trim());
 //
-//            for(Korisnik korisnik : Svasta.getKorisnici()) {
+//            for(Korisnik korisnik : GetUtility.getKorisnici()) {
 //                if(korisnik instanceof Dispecer) {
 //                    if(korisnik.getIdKorisnika().equals(id)) {
 //                        Dispecer dispecer = (Dispecer) korisnik;
@@ -175,7 +175,7 @@
 //                    }
 //                }
 //            }
-//            KorisnikIO.korisnikUpis(Svasta.getKorisnici());
+//            KorisnikIO.korisnikUpis(GetUtility.getKorisnici());
 //            this.dispose();
 //            this.setVisible(false);
 //

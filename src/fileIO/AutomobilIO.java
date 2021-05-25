@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class AutomobilIO {
 
     public static ArrayList<Automobil> automobilCitanje() {
-        ArrayList<Automobil> automobili = new ArrayList<Automobil>();
+        ArrayList<Automobil> automobili = new ArrayList<>();
         try {
             File file = new File("src/txtPodaci/automobili.txt");
             BufferedReader reader = new BufferedReader(new FileReader(file));

@@ -1,10 +1,11 @@
 package GUI.Dispecer;
 
-import entiteti.Korisnik;
 import entiteti.Vozac;
+import entiteti.Voznja;
 import enums.Pol;
+import enums.StatusVoznje;
 import fileIO.KorisnikIO;
-import utility.Svasta;
+import utility.GetUtility;
 
 import javax.swing.*;
 import java.awt.*;
@@ -39,7 +40,7 @@ public class IzmeniVozacaFrame extends JFrame implements ActionListener {
     private final JLabel brKarteLabel = new JLabel("Broj karte: ");
     private final JTextField brKarteField = new JTextField(20);
     private final JLabel idAutomobilaLabel = new JLabel("ID automobila: ");
-    private final JTextField idAutomobilaField = new JTextField(20);
+    private JComboBox<String> idAutomobilaCb = new JComboBox<>(GetUtility.getIdSvihAutomobila().toArray(new String[GetUtility.getIdSvihAutomobila().size()]));
 
     public IzmeniVozacaFrame(String korisnikId) {
         this.korisnikId = korisnikId;
@@ -55,21 +56,26 @@ public class IzmeniVozacaFrame extends JFrame implements ActionListener {
     }
 
     public void fill() {
-        for (Korisnik korisnik: Svasta.getKorisnici()) {
-            if (korisnikId.equals(korisnik.getIdKorisnika()) && korisnik instanceof Vozac) {
-                idField.setText(korisnik.getIdKorisnika());
+        for (Vozac vozac: GetUtility.getVozaci()) {
+            if (korisnikId.equals(vozac.getIdKorisnika())) {
+                idField.setText(vozac.getIdKorisnika());
                 idField.setEditable(false);
-                imeField.setText(korisnik.getIme());
-                prezimeField.setText(korisnik.getPrezime());
-                polCb.setSelectedItem(korisnik.getPol());
-                adresaField.setText(korisnik.getAdresa());
-                brojTelefonaField.setText(korisnik.getBrojTelefona());
-                jmbgField.setText(korisnik.getJmbg());
-                usernameField.setText(korisnik.getUsername());
-                passwordField.setText(korisnik.getPassword());
-                plataField.setText(String.valueOf(((Vozac) korisnik).getPlata()));
-                brKarteField.setText(String.valueOf(((Vozac) korisnik).getBrKarte()));
-                idAutomobilaField.setText(String.valueOf(idAutomobilaField));
+                imeField.setText(vozac.getIme());
+                prezimeField.setText(vozac.getPrezime());
+                polCb.setSelectedItem(vozac.getPol());
+                adresaField.setText(vozac.getAdresa());
+                brojTelefonaField.setText(vozac.getBrojTelefona());
+                jmbgField.setText(vozac.getJmbg());
+                usernameField.setText(vozac.getUsername());
+                passwordField.setText(vozac.getPassword());
+                plataField.setText(String.valueOf(vozac.getPlata()));
+                brKarteField.setText(String.valueOf(vozac.getBrKarte()));
+                idAutomobilaCb.setSelectedItem(vozac.getIdAutomobila());
+                for (Voznja voznja: GetUtility.getVoznje()) {
+                    if (voznja.getIdVozaca().equals(this.korisnikId) && voznja.getStatusVoznje().equals(StatusVoznje.PRIHVACENA)) {
+                        idAutomobilaCb.setEnabled(false);
+                    }
+                }
             }
         }
     }
@@ -99,7 +105,7 @@ public class IzmeniVozacaFrame extends JFrame implements ActionListener {
         passwordField.setBounds(110,205,100,20);
         plataField.setBounds(110,230,100,20);
         brKarteField.setBounds(110,255,100,20);
-        idAutomobilaField.setBounds(110,280,100,20);
+        idAutomobilaCb.setBounds(110,280,100,20);
 
         confirmButton.setBounds(5,310,100,24);
         cancelButton.setBounds(110,310,100,24);
@@ -131,7 +137,7 @@ public class IzmeniVozacaFrame extends JFrame implements ActionListener {
         container.add(brKarteLabel);
         container.add(brKarteField);
         container.add(idAutomobilaLabel);
-        container.add(idAutomobilaField);
+        container.add(idAutomobilaCb);
     }
 
     public void addActionEvent() {
@@ -139,26 +145,123 @@ public class IzmeniVozacaFrame extends JFrame implements ActionListener {
         cancelButton.addActionListener(this);
     }
 
+    public boolean provera() {
+        boolean correct = true;
+        String output = "Nastale greske pri unosu:\n";
+
+        if (this.idField.getText().trim().equals("")) {
+            output = output + ", Unesite id\n";
+            correct = false;
+        }
+
+        if (GetUtility.getIdSvihKorisnika().contains(this.idField.getText().trim()) || this.idField.getText().trim().length() != 6 || this.idField.getText().trim().matches(
+                ".*[a-zA-Z]+.*")) {
+            output = output + ", Korisnik sa takvim ID vec postoji\n";
+            correct = false;
+        }
+
+        if (this.imeField.getText().trim().equals("")) {
+            output = output + ", Unesite ime\n";
+            correct = false;
+        }
+
+        if (this.imeField.getText().trim().matches(".*\\d.*")) {
+            output = output + ", Ime ne sme da sadrzi brojeve\n";
+            correct = false;
+        }
+
+        if (this.prezimeField.getText().trim().equals("")) {
+            output = output + ", Unesite prezime\n";
+            correct = false;
+        }
+
+        if (this.prezimeField.getText().trim().matches(".*\\d.*")) {
+            output = output + ", Prezime ne sme da sadrzi brojeve\n";
+            correct = false;
+        }
+
+        if (this.adresaField.getText().trim().equals("")) {
+            output = output + ", Unesite adresu\n";
+            correct = false;
+        }
+
+        if (this.brojTelefonaField.getText().trim().matches(".*[a-zA-Z]+.*")) {
+            output = output + ", Broj telefona ne sme da sadrzi slova\n";
+            correct = false;
+        }
+
+        if (this.jmbgField.getText().trim().equals("")) {
+            output = output + ", Unesite jmbg\n";
+            correct = false;
+        }
+        if (this.jmbgField.getText().trim().matches(".*[a-zA-Z]+.*") || this.jmbgField.getText().trim().length() != 13) {
+            output = output + ", JMBG mora imati 13 cifara i ne sme da sadrzi slova\n";
+            correct = false;
+        }
+
+        if (this.usernameField.getText().trim().equals("")) {
+            output = output + ", Unesite korisnicko ime\n";
+            correct = false;
+        }
+
+        if (this.passwordField.getText().trim().equals("")) {
+            output = output + ", Unesite sifru\n";
+            correct = false;
+        }
+
+        if (this.plataField.getText().trim().equals("")) {
+            output = output + ", Unesite platu\n";
+            correct = false;
+        }
+
+        try {
+            Double.parseDouble(this.plataField.getText().trim());
+        } catch (NumberFormatException exception) {
+            output = output + ", Plata mora imati jednu decimalu!\n";
+            correct = false;
+        }
+
+        if (this.brKarteField.getText().trim().equals("")) {
+            output = output + ", Unesite broj karte\n";
+            correct = false;
+        }
+
+        if (this.brKarteField.getText().trim().matches(".*[a-zA-Z]+.*") && this.brKarteField.getText().trim().length() != 4) {
+            output = output + ", Broj karte mora imati 4 cifre i ne sme da sadrzi slova\n";
+            correct = false;
+        }
+
+        try {
+            Integer.parseInt(this.brKarteField.getText().trim());
+        } catch (NumberFormatException exception) {
+            output = output + ", Broj karte mora biti ceo broj\n";
+            correct = false;
+        }
+        if (!correct) {
+            JOptionPane.showMessageDialog(null, output, "Pogresno uneti podaci", JOptionPane.WARNING_MESSAGE);
+        }
+        return correct;
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == confirmButton) {
-            String id = this.idField.getText().trim();
-            String ime = this.imeField.getText().trim();
-            String prezime = this.prezimeField.getText().trim();
-            Pol pol = (Pol) this.polCb.getSelectedItem();
-            String adresa = this.adresaField.getText().trim();
-            String telefon = this.brojTelefonaField.getText().trim();
-            String jmbg = this.jmbgField.getText().trim();
-            String username = this.usernameField.getText().trim();
-            String password = this.passwordField.getText().trim();
-            double plata = Double.parseDouble(this.plataField.getText().trim());
-            int brKarte = Integer.parseInt(this.brKarteField.getText().trim());
-            String idAutomobila = idAutomobilaField.getText().trim();
+            if (provera()) {
+                String id = this.idField.getText().trim();
+                String ime = this.imeField.getText().trim();
+                String prezime = this.prezimeField.getText().trim();
+                Pol pol = (Pol) this.polCb.getSelectedItem();
+                String adresa = this.adresaField.getText().trim();
+                String telefon = this.brojTelefonaField.getText().trim();
+                String jmbg = this.jmbgField.getText().trim();
+                String username = this.usernameField.getText().trim();
+                String password = this.passwordField.getText().trim();
+                double plata = Double.parseDouble(this.plataField.getText().trim());
+                int brKarte = Integer.parseInt(this.brKarteField.getText().trim());
+                String idAutomobila = (String) this.idAutomobilaCb.getSelectedItem();
 
-            for(Korisnik korisnik : Svasta.getKorisnici()) {
-                if(korisnik instanceof Vozac) {
-                    if(korisnik.getIdKorisnika().equals(id)) {
-                        Vozac vozac = (Vozac) korisnik;
+                for(Vozac vozac : GetUtility.getVozaci()) {
+                    if(vozac.getIdKorisnika().equals(id)) {
                         vozac.setIme(ime);
                         vozac.setPrezime(prezime);
                         vozac.setPol(pol);
@@ -173,11 +276,10 @@ public class IzmeniVozacaFrame extends JFrame implements ActionListener {
                         vozac.setIdAutomobila(idAutomobila);
                     }
                 }
+                KorisnikIO.korisnikUpis(GetUtility.getKorisnici());
+                this.dispose();
+                this.setVisible(false);
             }
-            KorisnikIO.korisnikUpis(Svasta.getKorisnici());
-            this.dispose();
-            this.setVisible(false);
-
         } else if (e.getSource() == cancelButton) {
             this.dispose();
             this.setVisible(false);

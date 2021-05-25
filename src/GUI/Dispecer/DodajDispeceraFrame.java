@@ -5,7 +5,7 @@ import entiteti.Korisnik;
 import enums.Odeljenje;
 import enums.Pol;
 import fileIO.KorisnikIO;
-import utility.Svasta;
+import utility.GetUtility;
 
 import javax.swing.*;
 import java.awt.*;
@@ -55,15 +55,13 @@ public class DodajDispeceraFrame extends JFrame implements ActionListener {
     public boolean provera() {
         boolean correct = true;
         String output = "Nastale greske pri unosu:\n";
-        ArrayList<String> idList = Svasta.getIdSvihKorisnika();
-        ArrayList<String> idCars = Svasta.getIdSvihAutomobila();
 
         if (this.idField.getText().trim().equals("")) {
             output = output + ", Unesite id\n";
             correct = false;
         }
-
-        if (idList.contains(this.idField.getText().trim()) || this.idField.getText().trim().length() != 6 || this.idField.getText().trim().matches(
+// mozda treba ArrayList<String> idList = GetUtility.getIdSvihKorisnika(); i idList.getIdsvih...
+        if (GetUtility.getIdSvihKorisnika().contains(this.idField.getText().trim()) || this.idField.getText().trim().length() != 6 || this.idField.getText().trim().matches(
                 ".*[a-zA-Z]+.*")) {
             output = output + ", Korisnik sa takvim ID vec postoji\n";
             correct = false;
@@ -226,7 +224,7 @@ public class DodajDispeceraFrame extends JFrame implements ActionListener {
                 double plata = Double.parseDouble(this.plataField.getText().trim());
                 Odeljenje odeljenje = (Odeljenje) this.odeljenjeCb.getSelectedItem();
                 int brTelefonskeLinije = Integer.parseInt(brTelefonskeLinijeField.getText().trim());
-                if (Svasta.getIdSvihKorisnika().contains(id)) {
+                if (GetUtility.getIdSvihKorisnika().contains(id)) {
                     JOptionPane.showMessageDialog(null, "Korisnik sa tim ID vec postoji!", "Greska pri pravljenju korisnika", 2);
                 } else {
                     Dispecer novi = new Dispecer(id, ime, prezime, pol, adresa, telefon, jmbg, username, password, false, plata, odeljenje, brTelefonskeLinije);

@@ -5,7 +5,7 @@ import entiteti.Korisnik;
 import entiteti.Voznja;
 import enums.StatusVoznje;
 import fileIO.VoznjaIO;
-import utility.Svasta;
+import utility.GetUtility;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -61,15 +61,15 @@ public class ListaVoznjiVozacFrame extends JFrame implements ActionListener {
     public void initGUI(Korisnik ulogovani) { // kako ovde da pokaze kad nije zavrsena i kad je zavrsena, if zavrsena == true
         String[] title = new String[] {"Datum" ,"Polazak", "Destinacija", "km", "Trajanje", "Status", "ID Voznje", "Ocena"};
         int brojVoznji = 0;
-        for (Voznja voznja: Svasta.getVoznje()) {
+        for (Voznja voznja: GetUtility.getVoznje()) {
             if (voznja.getIdVozaca().equals(ulogovani.getIdKorisnika())) {
                 brojVoznji++;
             }
         }
         int brojac = 0;
         Object[][] sadrzajFilter = new Object[brojVoznji][title.length];
-        for(int i = 0; i < Svasta.getVoznje().size(); i++) {
-            Voznja voznja = Svasta.getVoznje().get(i);
+        for(int i = 0; i < GetUtility.getVoznje().size(); i++) {
+            Voznja voznja = GetUtility.getVoznje().get(i);
 
             if (ulogovani.getIdKorisnika().equals(voznja.getIdVozaca())) {
                 sadrzajFilter[brojac][0] = voznja.getDatumPorudzbine();
@@ -108,7 +108,7 @@ public class ListaVoznjiVozacFrame extends JFrame implements ActionListener {
                 JOptionPane.showMessageDialog(null, "Morate odabrati red u tabeli.", "Greska", JOptionPane.WARNING_MESSAGE);
             }else {
                 String voznjaId = tabela.getValueAt(red, 6).toString();
-                ArrayList<Voznja> voznje = Svasta.getVoznje();
+                ArrayList<Voznja> voznje = GetUtility.getVoznje();
                 int izbor = JOptionPane.showConfirmDialog(null,
                         "Da li ste sigurni da zelite da prihvatite voznju?",
                         " - Potvrda voznje", JOptionPane.YES_NO_OPTION);
@@ -126,7 +126,7 @@ public class ListaVoznjiVozacFrame extends JFrame implements ActionListener {
                 JOptionPane.showMessageDialog(null, "Morate odabrati red u tabeli.", "Greska", JOptionPane.WARNING_MESSAGE);
             }else {
                 String voznjaId = tabela.getValueAt(red, 6).toString();
-                ArrayList<Voznja> voznje = Svasta.getVoznje();
+                ArrayList<Voznja> voznje = GetUtility.getVoznje();
                 int izbor = JOptionPane.showConfirmDialog(null,
                         "Da li ste sigurni da zelite da odbijete voznju?",
                         " - Odbijanje voznje", JOptionPane.YES_NO_OPTION);
@@ -142,15 +142,20 @@ public class ListaVoznjiVozacFrame extends JFrame implements ActionListener {
         } else if (e.getSource() == zavrsiButton) {
             if(red == -1) {
                 JOptionPane.showMessageDialog(null, "Morate odabrati red u tabeli.", "Greska", JOptionPane.WARNING_MESSAGE);
-            }else {
+            } else if (tabela.getValueAt(red, 5).toString().equals(String.valueOf(StatusVoznje.PRIHVACENA))){
                 String voznjaId = tabela.getValueAt(red, 6).toString();
-                ArrayList<Voznja> voznje = Svasta.getVoznje();
                 int izbor = JOptionPane.showConfirmDialog(null,
                         "Da li ste sigurni da zelite da zavrsite voznju?",
                         " - Potvrda voznje", JOptionPane.YES_NO_OPTION);
                 if(izbor == JOptionPane.YES_OPTION) {
                     FrameLauncher.launchZavrsiVoznjuFrame(voznjaId);
                 }
+            } else if (tabela.getValueAt(red, 5).toString().equals(String.valueOf(StatusVoznje.ZAVRSENA))){
+                JOptionPane.showMessageDialog(null, "Vec ste zavrsili ovu voznju", "Greska",
+                        JOptionPane.WARNING_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(null, "Voznja se moze zavrsiti samo ako je prethodno PRIHVACENA", "Greska",
+                        JOptionPane.WARNING_MESSAGE);
             }
         }
         else if (e.getSource() == nazad) {

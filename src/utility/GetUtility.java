@@ -7,7 +7,7 @@ import fileIO.VoznjaIO;
 
 import java.util.ArrayList;
 
-public class Svasta {
+public class GetUtility {
 
     static ArrayList<Korisnik> sviKorisnici = KorisnikIO.korisnikCitanje();
 
