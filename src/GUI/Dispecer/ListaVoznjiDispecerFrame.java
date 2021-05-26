@@ -99,29 +99,28 @@ public class ListaVoznjiDispecerFrame extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         int red = tabela.getSelectedRow();
         if (e.getSource() == btnIzbrisi) {
-            if(red == -1) {
+            if (red == -1) {
                 JOptionPane.showMessageDialog(null, "Morate odabrati red u tabeli.", "Greska", JOptionPane.WARNING_MESSAGE);
-            }else {
+            } else {
                 String voznjaId = tabela.getValueAt(red, 8).toString();
                 String status = tabela.getValueAt(red, 7).toString();
                 ArrayList<Voznja> voznje = GetUtility.getVoznje();
                 int izbor = JOptionPane.showConfirmDialog(null,
                         "Da li ste sigurni da zelite da obrisete voznju?",
                         " - Potvrda brisanja", JOptionPane.YES_NO_OPTION);
-                if(izbor == JOptionPane.YES_OPTION) {
+                if (izbor == JOptionPane.YES_OPTION) {
                     if (status.equals(String.valueOf(StatusVoznje.ODBIJENA)) || status.equals(String.valueOf(StatusVoznje.ZAVRSENA))) {
-                        for (Voznja voznja: voznje) {
+                        for (Voznja voznja : voznje) {
                             if (voznja.getIdVoznje().equals(voznjaId)) {
                                 voznja.setObrisan(true);
                                 VoznjaIO.voznjaUpis(voznje);
                             }
                         }
-                        DefaultTableModel dtm = (DefaultTableModel)tabela.getModel();
+                        DefaultTableModel dtm = (DefaultTableModel) tabela.getModel();
                         dtm.removeRow(red);
-                    }
-                    else {
+                    } else {
                         JOptionPane.showMessageDialog(null, "Morate odabrati red u tabeli.", "Greska",
-                        JOptionPane.WARNING_MESSAGE);
+                                JOptionPane.WARNING_MESSAGE);
                     }
                 }
             }
@@ -134,44 +133,57 @@ public class ListaVoznjiDispecerFrame extends JFrame implements ActionListener {
 //                ArrayList<Korisnik> korisnici = GetUtility.getKorisnici();
 //
         } else if (e.getSource() == dodeliButton) {
-            if(red == -1) {
-                JOptionPane.showMessageDialog(null, "Voznja se moze obrisati samo ako je ZAVRSENA ili ODBIJENA", "Greska",
+            if (red == -1) {
+                JOptionPane.showMessageDialog(null, "Morate izabrati red", "Greska",
                         JOptionPane.WARNING_MESSAGE);
-            }else {
+            } else {
                 String voznjaId = tabela.getValueAt(red, 8).toString();
+                String statusVoznje = tabela.getValueAt(red, 7).toString();
                 ArrayList<Voznja> voznje = GetUtility.getVoznje();
                 String imeVozaca = "";
                 String prezimeVozaca = "";
                 String idVozaca = "";
+                String idAutomobilaVozaca = "";
 
                 try {
                     int brKarteDodeljenog = DriverHandler.osveziVozace(GetUtility.getKorisnici(), "Olge Petrov 4").getBrKarte();
-                    for (Vozac vozac: GetUtility.getVozaci()) {
+                    for (Vozac vozac : GetUtility.getVozaci()) {
                         if (brKarteDodeljenog == vozac.getBrKarte()) {
                             imeVozaca = vozac.getIme();
                             prezimeVozaca = vozac.getPrezime();
                             idVozaca = vozac.getIdKorisnika();
+                            idAutomobilaVozaca = vozac.getIdAutomobila();
                         }
                     }
                 } catch (JSONException | IOException jsonException) {
                     jsonException.printStackTrace();
                 }
-                int izbor = JOptionPane.showConfirmDialog(null, "Dodeliti voznju vozacu " + imeVozaca + " " + prezimeVozaca +
-                                "?", " - Potvrdi akciju", JOptionPane.YES_NO_OPTION);
-                if(izbor == JOptionPane.YES_OPTION) {
-                    for (Voznja voznja: voznje) {
-                        if (voznja.getIdVoznje().equals(voznjaId)) {
-                            voznja.setStatusVoznje(StatusVoznje.DODELJENA);
-                            voznja.setIdVozaca(idVozaca);
-                            VoznjaIO.voznjaUpis(voznje);
+
+                if (idAutomobilaVozaca.equals("0")) {
+                    String output = "Dodeljivanje voznje vozacu " + imeVozaca + " ID [" + idVozaca + "]" + " neuspesno. \nERR: Vozac nema dodeljen " +
+                            "auto";
+                    JOptionPane.showMessageDialog(null, output, "Greska",
+                            JOptionPane.WARNING_MESSAGE);
+                } else if (!statusVoznje.equals(String.valueOf(StatusVoznje.PRIHVACENA))) {
+                    String output = "Dodeljivanje voznje vozacu " + imeVozaca + " ID [" + idVozaca + "]" + " neuspesno. \nERR: Voznja je zavrsena";
+                    JOptionPane.showMessageDialog(null, output, "Greska", JOptionPane.WARNING_MESSAGE);
+                } else {
+                    int izbor = JOptionPane.showConfirmDialog(null, "Dodeliti voznju vozacu " + imeVozaca + " " + prezimeVozaca +
+                            "?", " - Potvrdi akciju", JOptionPane.YES_NO_OPTION);
+                    if (izbor == JOptionPane.YES_OPTION) {
+                        for (Voznja voznja : voznje) {
+                            if (voznja.getIdVoznje().equals(voznjaId)) {
+                                voznja.setStatusVoznje(StatusVoznje.DODELJENA);
+                                voznja.setIdVozaca(idVozaca);
+                                VoznjaIO.voznjaUpis(voznje);
+                            }
                         }
+                    } else if (e.getSource() == nazad) {
+                        this.dispose();
+                        this.setVisible(false);
                     }
                 }
             }
-
-        } else if (e.getSource() == nazad) {
-            this.dispose();
-            this.setVisible(false);
         }
     }
 }
