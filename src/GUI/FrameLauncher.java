@@ -30,7 +30,7 @@ public class FrameLauncher {
     public static void launchListaKorisnikaFrame(int tip) {
         ListaKorisnikaFrame listaKorisnikaFrame = new ListaKorisnikaFrame(tip);
         listaKorisnikaFrame.setVisible(true);
-        listaKorisnikaFrame.setBounds(20, 20, 1200, 200);
+        listaKorisnikaFrame.setBounds(20, 20, 1114, 184);
 //        listaKorisnikaFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         listaKorisnikaFrame.setResizable(false);
     }
@@ -38,7 +38,7 @@ public class FrameLauncher {
     public static void launchDodajDispeceraFrame() {
         DodajDispeceraFrame dodajDispeceraFrame = new DodajDispeceraFrame();
         dodajDispeceraFrame.setVisible(true);
-        dodajDispeceraFrame.setBounds(20, 20, 280, 400);
+        dodajDispeceraFrame.setBounds(20, 20, 234, 384);
 //        listaKorisnikaFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         dodajDispeceraFrame.setResizable(false);
     }
@@ -46,7 +46,7 @@ public class FrameLauncher {
     public static void launchDodajVozacaFrame() {
         DodajVozacaFrame dodajVozacaFrame = new DodajVozacaFrame();
         dodajVozacaFrame.setVisible(true);
-        dodajVozacaFrame.setBounds(20, 20, 250, 416);
+        dodajVozacaFrame.setBounds(20, 20, 234, 384);
 //        listaKorisnikaFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         dodajVozacaFrame.setResizable(false);
     }
@@ -127,7 +127,7 @@ public class FrameLauncher {
     public static void launchIzmeniDispeceraFrame(String korisnikId) {
         IzmeniDispeceraFrame izmeniDispeceraFrame = new IzmeniDispeceraFrame(korisnikId);
         izmeniDispeceraFrame.setVisible(true);
-        izmeniDispeceraFrame.setBounds(20, 20, 250, 500);
+        izmeniDispeceraFrame.setBounds(20, 20, 234, 384);
 //        listaKorisnikaFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         izmeniDispeceraFrame.setResizable(false);
     }
@@ -135,7 +135,7 @@ public class FrameLauncher {
     public static void launchIzmeniVozacaFrame(String korisnikId) {
         IzmeniVozacaFrame izmeniVozacaFrame = new IzmeniVozacaFrame(korisnikId);
         izmeniVozacaFrame .setVisible(true);
-        izmeniVozacaFrame .setBounds(20, 20, 250, 500);
+        izmeniVozacaFrame .setBounds(20, 20, 234, 384);
 //        listaKorisnikaFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         izmeniVozacaFrame .setResizable(false);
     }

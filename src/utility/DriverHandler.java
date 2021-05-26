@@ -92,6 +92,6 @@ public class DriverHandler {
         String time = elements.getJSONObject(0).getJSONObject("duration").getString("text");
         int timeFixed = Integer.parseInt(time.replaceAll("([a-z])", "").trim());
         Par<Integer, Integer> nesto = new Par<>(timeFixed, vozac.getBrKarte());
-        osvezeniVozaci.add(nesto); //automatski
+        osvezeniVozaci.add(nesto);
     }
 }

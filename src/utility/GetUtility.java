@@ -15,15 +15,15 @@ public class GetUtility {
         return sviKorisnici;
     }
 
-    public static ArrayList<Musterija> getMusterije() {
-        ArrayList<Musterija> sveMusterije = new ArrayList<>();
-        for(Korisnik korisnik : getKorisnici()) {
-            if(korisnik instanceof Musterija) {
-                sveMusterije.add((Musterija) korisnik);
-            }
-        }
-        return sveMusterije;
-    }
+//    public static ArrayList<Musterija> getMusterije() {
+//        ArrayList<Musterija> sveMusterije = new ArrayList<>();
+//        for(Korisnik korisnik : getKorisnici()) {
+//            if(korisnik instanceof Musterija) {
+//                sveMusterije.add((Musterija) korisnik);
+//            }
+//        }
+//        return sveMusterije;
+//    }
 
     public static ArrayList<Dispecer> getDispeceri() {
         ArrayList<Dispecer> sviDispeceri = new ArrayList<>();

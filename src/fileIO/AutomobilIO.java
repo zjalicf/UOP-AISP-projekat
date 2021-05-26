@@ -36,26 +36,26 @@ public class AutomobilIO {
             reader.close();
 
         }catch(IOException e) {
-            System.out.println("Greska! Nije moguce procitati sadrzaj fajla");
+            System.out.println("Greska! Citanje nije moguce");
         }
         return automobili;
     }
 
-    public static void automobilUpis(ArrayList<Automobil> automobili) {
-        String newString = "";
-        for (Automobil automobil : automobili) {
-            newString += automobil.getModel() + "|" + automobil.getProizvodjac() + "|" +
-                    automobil.getGodinaProizvodnje() + "|" + automobil.getIdAutomobila() + "|" + automobil.getRegOznaka() + "|" +
-                    automobil.getBrojVozila()  + "|" +automobil.getVrstaAutomobila() + "\n";
-        }
-        try {
-            File file = new File("src/txtPodaci/automobili.txt");
-            BufferedWriter writer = new BufferedWriter(new FileWriter(file));
-            writer.write(newString);
-            writer.close();
-        }
-        catch(IOException e) {
-            System.out.println("Greska! Upisivanje nije moguce");
-        }
-    }
+//    public static void automobilUpis(ArrayList<Automobil> automobili) {
+//        String newString = "";
+//        for (Automobil automobil : automobili) {
+//            newString += automobil.getModel() + "|" + automobil.getProizvodjac() + "|" +
+//                    automobil.getGodinaProizvodnje() + "|" + automobil.getIdAutomobila() + "|" + automobil.getRegOznaka() + "|" +
+//                    automobil.getBrojVozila()  + "|" +automobil.getVrstaAutomobila() + "\n";
+//        }
+//        try {
+//            File file = new File("src/txtPodaci/automobili.txt");
+//            BufferedWriter writer = new BufferedWriter(new FileWriter(file));
+//            writer.write(newString);
+//            writer.close();
+//        }
+//        catch(IOException e) {
+//            System.out.println("Greska! Upisivanje nije moguce");
+//        }
+//    }
 }

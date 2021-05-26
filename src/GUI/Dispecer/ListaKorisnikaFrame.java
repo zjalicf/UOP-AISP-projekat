@@ -19,9 +19,10 @@ import static javax.swing.BorderFactory.createEmptyBorder;
 public class ListaKorisnikaFrame extends JFrame implements ActionListener {
     private int tip;
     Container container = getContentPane();
-    private JButton btnDodaj = new JButton("Dodaj novog korisnika");
-    private JButton btnIzmeni = new JButton("Izmeni korisnika");
-    private JButton btnIzbrisi = new JButton("Obrisi korisnika");
+    private JButton dodajButton = new JButton("Dodaj korisnika");
+    private JButton izmeniButton = new JButton("Izmeni korisnika");
+    private JButton izbrisiButton = new JButton("Obrisi korisnika");
+    private JButton nazadButton = new JButton("Nazad");
     private JTable tabela;
     private DefaultTableModel tabelaModel;
 
@@ -39,21 +40,24 @@ public class ListaKorisnikaFrame extends JFrame implements ActionListener {
     }
 
     public void setLocationAndSize() {
-        btnIzbrisi.setBounds(15,110,150,24);
-        btnDodaj.setBounds(200,110,150,24);
-        btnIzmeni.setBounds(370,110,150,24);
+        izbrisiButton.setBounds(10,110,130,24);
+        dodajButton.setBounds(150,110,130,24);
+        izmeniButton.setBounds(300,110,130,24);
+        nazadButton.setBounds(450,110,130,24);
     }
 
     public void addComponentsToContainer() {
-        container.add(btnDodaj);
-        container.add(btnIzbrisi);
-        container.add(btnIzmeni);
+        container.add(dodajButton);
+        container.add(izbrisiButton);
+        container.add(izmeniButton);
+        container.add(nazadButton);
     }
 
     public void addActionEvent() {
-        btnIzmeni.addActionListener(this);
-        btnDodaj.addActionListener(this);
-        btnIzbrisi.addActionListener(this);
+        izmeniButton.addActionListener(this);
+        dodajButton.addActionListener(this);
+        izbrisiButton.addActionListener(this);
+        nazadButton.addActionListener(this);
     }
 
     public void initGUI(int tip) {
@@ -114,10 +118,10 @@ public class ListaKorisnikaFrame extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         int red = tabela.getSelectedRow();
-        if (e.getSource() == btnIzbrisi) {
+        if (e.getSource() == izbrisiButton) {
             if(red == -1) {
                 JOptionPane.showMessageDialog(null, "Morate odabrati red u tabeli.", "Greska", JOptionPane.WARNING_MESSAGE);
-            }else {
+            } else {
                 String korisnikId = tabela.getValueAt(red, 0).toString();
                 ArrayList<Korisnik> korisnici = GetUtility.getKorisnici();
                 int izbor = JOptionPane.showConfirmDialog(null,
@@ -134,10 +138,10 @@ public class ListaKorisnikaFrame extends JFrame implements ActionListener {
                     dtm.removeRow(red);
                 }
             }
-        } else if (e.getSource() == btnIzmeni) {
+        } else if (e.getSource() == izmeniButton) {
             if(red == -1) {
                 JOptionPane.showMessageDialog(null, "Morate odabrati red u tabeli.", "Greska", JOptionPane.WARNING_MESSAGE);
-            }else {
+            } else {
                 String korisnikId = tabela.getValueAt(red, 0).toString();
                 for (Korisnik korisnik: GetUtility.getKorisnici()) {
                     if (korisnikId.equals(korisnik.getIdKorisnika()) && korisnik instanceof Dispecer) {
@@ -147,10 +151,13 @@ public class ListaKorisnikaFrame extends JFrame implements ActionListener {
                     }
                 }
             }
-        } else if (e.getSource() == btnDodaj) {
+        } else if (e.getSource() == dodajButton) {
             FrameLauncher.launchDodajKorisnikaFrame(tip);
 //            DefaultTableModel dtm = (DefaultTableModel)tabela.getModel();
 //            dtm.addRow();
+        } else if (e.getSource() == nazadButton) {
+            this.dispose();
+            this.setVisible(false);
         }
     }
 }

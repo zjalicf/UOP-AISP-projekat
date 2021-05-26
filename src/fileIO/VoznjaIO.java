@@ -35,7 +35,7 @@ public class VoznjaIO {
             reader.close();
 
         }catch(IOException e) {
-            System.out.println("Greska! Nije moguce procitati sadrzaj fajla");
+            System.out.println("Greska! Citanje nije moguce");
         }
         return voznje;
     }

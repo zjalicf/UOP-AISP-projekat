@@ -20,10 +20,10 @@ import static javax.swing.BorderFactory.createEmptyBorder;
 
 public class ListaVoznjiDispecerFrame extends JFrame implements ActionListener {
     Container container = getContentPane();
-    private JButton btnIzmeni = new JButton("Izmeni voznju");
-    private JButton btnIzbrisi = new JButton("Obrisi voznju");
+    private JButton izmeniButton = new JButton("Izmeni voznju");
+    private JButton izbrisiButton = new JButton("Obrisi voznju");
     private JButton dodeliButton = new JButton("Dodeli vozaca");
-    private JButton nazad = new JButton("Nazad");
+    private JButton nazadButton = new JButton("Nazad");
     private JTable tabela;
     private DefaultTableModel tabelaModel;
 
@@ -40,24 +40,24 @@ public class ListaVoznjiDispecerFrame extends JFrame implements ActionListener {
     }
 
     public void setLocationAndSize() {
-        btnIzbrisi.setBounds(15,110,150,24);
-        btnIzmeni.setBounds(200,110,150,24);
+        izbrisiButton.setBounds(15,110,150,24);
+        izmeniButton.setBounds(200,110,150,24);
         dodeliButton.setBounds(200,140,150,24);
-        nazad.setBounds(200,180,110,24);
+        nazadButton.setBounds(200,180,110,24);
     }
 
     public void addComponentsToContainer() {
-        container.add(btnIzbrisi);
-        container.add(btnIzmeni);
-        container.add(nazad);
+        container.add(izbrisiButton);
+        container.add(izmeniButton);
+        container.add(nazadButton);
         container.add(dodeliButton);
     }
 
     public void addActionEvent() {
-        btnIzmeni.addActionListener(this);
-        btnIzbrisi.addActionListener(this);
+        izmeniButton.addActionListener(this);
+        izbrisiButton.addActionListener(this);
         dodeliButton.addActionListener(this);
-        nazad.addActionListener(this);
+        nazadButton.addActionListener(this);
     }
     
     public void initGUI() {
@@ -98,7 +98,7 @@ public class ListaVoznjiDispecerFrame extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         int red = tabela.getSelectedRow();
-        if (e.getSource() == btnIzbrisi) {
+        if (e.getSource() == izbrisiButton) {
             if (red == -1) {
                 JOptionPane.showMessageDialog(null, "Morate odabrati red u tabeli.", "Greska", JOptionPane.WARNING_MESSAGE);
             } else {
@@ -124,7 +124,7 @@ public class ListaVoznjiDispecerFrame extends JFrame implements ActionListener {
                     }
                 }
             }
-        } else if (e.getSource() == btnIzmeni) {
+        } else if (e.getSource() == izmeniButton) {
 //            int red = tabela.getSelectedRow();
 //            if(red == -1) {
 //                JOptionPane.showMessageDialog(null, "Morate odabrati red u tabeli.", "Greska", JOptionPane.WARNING_MESSAGE);
@@ -178,7 +178,7 @@ public class ListaVoznjiDispecerFrame extends JFrame implements ActionListener {
                                 VoznjaIO.voznjaUpis(voznje);
                             }
                         }
-                    } else if (e.getSource() == nazad) {
+                    } else if (e.getSource() == nazadButton) {
                         this.dispose();
                         this.setVisible(false);
                     }

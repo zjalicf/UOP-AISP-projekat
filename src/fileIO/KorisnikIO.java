@@ -63,7 +63,7 @@ public class KorisnikIO {
             reader.close();
 
         }catch(IOException e) {
-            System.out.println("Greska! Nije moguce procitati sadrzaj fajla");
+            System.out.println("Greska! Citanje nije moguce");
         }
         return korisnici;
     }
@@ -84,7 +84,7 @@ public class KorisnikIO {
                         + "|" + korisnik.getBrojTelefona() + "|" + korisnik.getJmbg() + "|" + korisnik.getUsername() +
                         "|" + korisnik.getPassword() + "|" + korisnik.isObrisan() + "|" + "musterija" + "\n";
             }
-            else {
+            else if (korisnik instanceof Vozac){
                 newString += korisnik.getIdKorisnika() + "|" + korisnik.getIme() + "|" +
                         korisnik.getPrezime() + "|" + korisnik.getPol() + "|" + korisnik.getAdresa()
                         + "|" + korisnik.getBrojTelefona() + "|" + korisnik.getJmbg() + "|" + korisnik.getUsername() +
