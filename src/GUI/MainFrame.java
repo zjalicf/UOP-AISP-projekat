@@ -70,7 +70,10 @@ public class MainFrame extends JFrame implements ActionListener {
 
             if(ulogovani == null) {
                 JOptionPane.showMessageDialog(this,
-                        "Invalid Username or Password");
+                        "Pogresan username ili password");
+            } else if (ulogovani.isObrisan()){
+                JOptionPane.showMessageDialog(this,
+                        "Korisnik je obrisan");
             }
             else {
                 if (ulogovani instanceof Dispecer) {
