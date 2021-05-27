@@ -119,7 +119,7 @@ public class ListaVoznjiDispecerFrame extends JFrame implements ActionListener {
                         DefaultTableModel dtm = (DefaultTableModel) tabela.getModel();
                         dtm.removeRow(red);
                     } else {
-                        JOptionPane.showMessageDialog(null, "Morate odabrati red u tabeli.", "Greska",
+                        JOptionPane.showMessageDialog(null, "Ne mozete obrisati voznju koja nije zavrsena ili odbijena", "Greska",
                                 JOptionPane.WARNING_MESSAGE);
                     }
                 }
