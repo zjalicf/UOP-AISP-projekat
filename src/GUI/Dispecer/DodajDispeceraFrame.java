@@ -5,7 +5,6 @@ import entiteti.Korisnik;
 import enums.Odeljenje;
 import enums.Pol;
 import fileIO.KorisnikIO;
-import utility.GetUtility;
 
 import javax.swing.*;
 import java.awt.*;
@@ -61,7 +60,7 @@ public class DodajDispeceraFrame extends JFrame implements ActionListener {
             correct = false;
         }
 // mozda treba ArrayList<String> idList = GetUtility.getIdSvihKorisnika(); i idList.getIdsvih...
-        if (GetUtility.getIdSvihKorisnika().contains(this.idField.getText().trim()) || this.idField.getText().trim().length() != 6 || this.idField.getText().trim().matches(
+        if (KorisnikIO.getIdSvihKorisnika().contains(this.idField.getText().trim()) || this.idField.getText().trim().length() != 6 || this.idField.getText().trim().matches(
                 ".*[a-zA-Z]+.*")) {
             output = output + ", Korisnik sa takvim ID vec postoji\n";
             correct = false;
@@ -224,13 +223,13 @@ public class DodajDispeceraFrame extends JFrame implements ActionListener {
                 double plata = Double.parseDouble(this.plataField.getText().trim());
                 Odeljenje odeljenje = (Odeljenje) this.odeljenjeCb.getSelectedItem();
                 int brTelefonskeLinije = Integer.parseInt(brTelefonskeLinijeField.getText().trim());
-                if (GetUtility.getIdSvihKorisnika().contains(id)) {
+                if (KorisnikIO.getIdSvihKorisnika().contains(id)) {
                     JOptionPane.showMessageDialog(null, "Korisnik sa tim ID vec postoji!", "Greska pri pravljenju korisnika", 2);
                 } else {
                     Dispecer novi = new Dispecer(id, ime, prezime, pol, adresa, telefon, jmbg, username, password, false, plata, odeljenje, brTelefonskeLinije);
-                    ArrayList<Korisnik> sviKorisnici = KorisnikIO.korisnikCitanje();
+                    ArrayList<Korisnik> sviKorisnici = fileIO.KorisnikIO.korisnikCitanje();
                     sviKorisnici.add(novi);
-                    KorisnikIO.korisnikUpis(sviKorisnici);
+                    fileIO.KorisnikIO.korisnikUpis(sviKorisnici);
                     this.dispose();
                     this.setVisible(false);
                 }

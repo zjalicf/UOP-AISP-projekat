@@ -41,6 +41,15 @@ public class AutomobilIO {
         return automobili;
     }
 
+    public static ArrayList<String> getIdSvihAutomobila() {
+        ArrayList<String> automobiliId = new ArrayList<>();
+        ArrayList<Automobil> sviAutomobili = automobilCitanje();
+        for (Automobil automobil: sviAutomobili) {
+            automobiliId.add(automobil.getIdAutomobila() + "");
+        }
+        return automobiliId;
+    }
+
 //    public static void automobilUpis(ArrayList<Automobil> automobili) {
 //        String newString = "";
 //        for (Automobil automobil : automobili) {

@@ -4,7 +4,6 @@ import entiteti.Dispecer;
 import enums.Odeljenje;
 import enums.Pol;
 import fileIO.KorisnikIO;
-import utility.GetUtility;
 
 import javax.swing.*;
 import java.awt.*;
@@ -55,7 +54,7 @@ public class IzmeniDispeceraFrame extends JFrame implements ActionListener {
     }
 
     public void fill() {
-        for (Dispecer dispecer: GetUtility.getDispeceri()) {
+        for (Dispecer dispecer: KorisnikIO.getDispeceri()) {
             if (korisnikId.equals(dispecer.getIdKorisnika())) {
                 idField.setText(dispecer.getIdKorisnika());
                 idField.setEditable(false);
@@ -155,7 +154,7 @@ public class IzmeniDispeceraFrame extends JFrame implements ActionListener {
             Odeljenje odeljenje = Odeljenje.valueOf(this.odeljenjeField.getText().trim());
             int brTelefonskeLinije = Integer.parseInt(brTelefonskeLinijeField.getText().trim());
 
-            for(Dispecer dispecer : GetUtility.getDispeceri()) {
+            for(Dispecer dispecer : KorisnikIO.getDispeceri()) {
                 if(dispecer.getIdKorisnika().equals(id)) {
                     dispecer.setIme(ime);
                     dispecer.setPrezime(prezime);
@@ -171,7 +170,7 @@ public class IzmeniDispeceraFrame extends JFrame implements ActionListener {
                     dispecer.setBrTelefonskeLinije(brTelefonskeLinije);
                 }
             }
-            KorisnikIO.korisnikUpis(GetUtility.getKorisnici());
+            fileIO.KorisnikIO.korisnikUpis(KorisnikIO.getKorisnici());
             this.dispose();
             this.setVisible(false);
 

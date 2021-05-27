@@ -58,4 +58,8 @@ public class VoznjaIO {
             System.out.println("Greska! Upisivanje nije moguce");
         }
     }
+
+    public static ArrayList<Voznja> getVoznje() {
+        return VoznjaIO.voznjaCitanje();
+    }
 }

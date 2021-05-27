@@ -102,4 +102,38 @@ public class KorisnikIO {
             System.out.println("Greska! Upisivanje nije moguce");
         }
     }
+    static ArrayList<Korisnik> sviKorisnici = KorisnikIO.korisnikCitanje();
+
+    public static ArrayList<Korisnik> getKorisnici() {
+        return sviKorisnici;
+    }
+
+    public static ArrayList<Dispecer> getDispeceri() {
+        ArrayList<Dispecer> sviDispeceri = new ArrayList<>();
+        for(Korisnik korisnik : getKorisnici()) {
+            if(korisnik instanceof Dispecer) {
+                sviDispeceri.add((Dispecer) korisnik);
+            }
+        }
+        return sviDispeceri;
+    }
+
+    public static ArrayList<Vozac> getVozaci() {
+        ArrayList<Vozac> sviVozaci = new ArrayList<>();
+        for(Korisnik korisnik : getKorisnici()) {
+            if(korisnik instanceof Vozac) {
+                sviVozaci.add((Vozac) korisnik);
+            }
+        }
+        return sviVozaci;
+    }
+
+    public static ArrayList<String> getIdSvihKorisnika() {
+        ArrayList<String> IdSvihKorisnika = new ArrayList<String>();
+        ArrayList<Korisnik> sviKorisnici = KorisnikIO.korisnikCitanje();
+        for(Korisnik korisnik : sviKorisnici) {
+            IdSvihKorisnika.add((String.valueOf(korisnik.getIdKorisnika())));
+        }
+        return IdSvihKorisnika;
+    }
 }

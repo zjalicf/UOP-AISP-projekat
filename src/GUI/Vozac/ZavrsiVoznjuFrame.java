@@ -3,7 +3,7 @@ package GUI.Vozac;
 import entiteti.Voznja;
 import enums.StatusVoznje;
 import fileIO.VoznjaIO;
-import utility.GetUtility;
+import utility.KorisnikIO;
 
 import javax.swing.*;
 import java.awt.*;
@@ -59,7 +59,7 @@ public class ZavrsiVoznjuFrame extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == potvrdiButton) {
-            ArrayList<Voznja> voznje = GetUtility.getVoznje();
+            ArrayList<Voznja> voznje = KorisnikIO.getVoznje();
             for (Voznja voznja: voznje) {
                 if (voznja.getIdVoznje().equals(voznjaId)) {
                     voznja.setStatusVoznje(StatusVoznje.ZAVRSENA);

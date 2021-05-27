@@ -3,8 +3,8 @@ package GUI.Dispecer;
 import entiteti.Korisnik;
 import entiteti.Vozac;
 import enums.Pol;
+import fileIO.AutomobilIO;
 import fileIO.KorisnikIO;
-import utility.GetUtility;
 
 import javax.swing.*;
 import java.awt.*;
@@ -39,7 +39,7 @@ public class DodajVozacaFrame extends JFrame implements ActionListener {
     private final JLabel brKarteLabel = new JLabel("Broj karte: ");
     private final JTextField brKarteField = new JTextField(20);
     private final JLabel idAutomobilaLabel = new JLabel("ID automobila: ");
-    private JComboBox<String> idAutomobilaCb = new JComboBox<>(GetUtility.getIdSvihAutomobila().toArray(new String[GetUtility.getIdSvihAutomobila().size()]));
+    private JComboBox<String> idAutomobilaCb = new JComboBox<>(AutomobilIO.getIdSvihAutomobila().toArray(new String[AutomobilIO.getIdSvihAutomobila().size()]));
 
     public DodajVozacaFrame () {
         setLayoutManager();
@@ -125,7 +125,7 @@ public class DodajVozacaFrame extends JFrame implements ActionListener {
             correct = false;
         }
 
-        if (GetUtility.getIdSvihKorisnika().contains(this.idField.getText().trim()) || this.idField.getText().trim().length() != 6 || this.idField.getText().trim().matches(
+        if (KorisnikIO.getIdSvihKorisnika().contains(this.idField.getText().trim()) || this.idField.getText().trim().length() != 6 || this.idField.getText().trim().matches(
                 ".*[a-zA-Z]+.*")) {
             output = output + ", Korisnik sa takvim ID vec postoji\n";
             correct = false;
@@ -235,9 +235,9 @@ public class DodajVozacaFrame extends JFrame implements ActionListener {
 
                 Vozac novi = new Vozac(id, ime, prezime, pol, adresa, telefon, jmbg, username, password, false, plata, brKarte, idAutomobila,
                         lokacija);
-                ArrayList<Korisnik> sviKorisnici = KorisnikIO.korisnikCitanje();
+                ArrayList<Korisnik> sviKorisnici = fileIO.KorisnikIO.korisnikCitanje();
                 sviKorisnici.add(novi);
-                KorisnikIO.korisnikUpis(sviKorisnici);
+                fileIO.KorisnikIO.korisnikUpis(sviKorisnici);
                 this.dispose();
                 this.setVisible(false);
             }

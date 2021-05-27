@@ -3,7 +3,6 @@ package entiteti;
 import enums.StatusVoznje;
 
 public class Voznja {
-//    private LocalDateTime datumPorudzbine;
     private String datumPorudzbine;
     private String adresaPolaska;
     private String adresaDestinacije;
@@ -16,9 +15,8 @@ public class Voznja {
     private int ocenaVoznje;
     private boolean obrisan;
 
-    public Voznja(String datumPorudzbine, String adresaPolaska, String adresaDestinacije, String idMusterije,
-                  String idVozaca, Double predjenoKm, int trajanjeVoznje, StatusVoznje statusVoznje, String idVoznje, int ocenaVoznje,
-                  boolean obrisan) {
+    public Voznja(String datumPorudzbine, String adresaPolaska, String adresaDestinacije, String idMusterije, String idVozaca, Double predjenoKm,
+                  int trajanjeVoznje, StatusVoznje statusVoznje, String idVoznje, int ocenaVoznje, boolean obrisan) {
         this.datumPorudzbine = datumPorudzbine;
         this.adresaPolaska = adresaPolaska;
         this.adresaDestinacije = adresaDestinacije;

@@ -6,7 +6,7 @@ import enums.StatusVoznje;
 import fileIO.VoznjaIO;
 import org.json.JSONException;
 import utility.DriverHandler;
-import utility.GetUtility;
+import fileIO.KorisnikIO;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -63,10 +63,10 @@ public class ListaVoznjiDispecerFrame extends JFrame implements ActionListener {
     public void initGUI() {
         String[] title = new String[] {"Datum" ,"Polazak", "Destinacija", "ID Musterije", "ID Vozaca", "km", "Trajanje", "Status", "ID Voznje",
                 "Ocena"};
-        Object[][] sadrzaj = new Object[GetUtility.getVoznje().size()][title.length];
+        Object[][] sadrzaj = new Object[VoznjaIO.getVoznje().size()][title.length];
 
-        for(int i = 0; i < GetUtility.getVoznje().size(); i++) {
-            Voznja voznja = GetUtility.getVoznje().get(i);
+        for(int i = 0; i < VoznjaIO.getVoznje().size(); i++) {
+            Voznja voznja = VoznjaIO.getVoznje().get(i);
             sadrzaj[i][0] = voznja.getDatumPorudzbine();
             sadrzaj[i][1] = voznja.getAdresaPolaska();
             sadrzaj[i][2] = voznja.getAdresaDestinacije();
@@ -104,7 +104,7 @@ public class ListaVoznjiDispecerFrame extends JFrame implements ActionListener {
             } else {
                 String voznjaId = tabela.getValueAt(red, 8).toString();
                 String status = tabela.getValueAt(red, 7).toString();
-                ArrayList<Voznja> voznje = GetUtility.getVoznje();
+                ArrayList<Voznja> voznje = VoznjaIO.getVoznje();
                 int izbor = JOptionPane.showConfirmDialog(null,
                         "Da li ste sigurni da zelite da obrisete voznju?",
                         " - Potvrda brisanja", JOptionPane.YES_NO_OPTION);
@@ -139,15 +139,15 @@ public class ListaVoznjiDispecerFrame extends JFrame implements ActionListener {
             } else {
                 String voznjaId = tabela.getValueAt(red, 8).toString();
                 String statusVoznje = tabela.getValueAt(red, 7).toString();
-                ArrayList<Voznja> voznje = GetUtility.getVoznje();
+                ArrayList<Voznja> voznje = VoznjaIO.getVoznje();
                 String imeVozaca = "";
                 String prezimeVozaca = "";
                 String idVozaca = "";
                 String idAutomobilaVozaca = "";
 
                 try {
-                    int brKarteDodeljenog = DriverHandler.osveziVozace(GetUtility.getKorisnici(), "Olge Petrov 4").getBrKarte();
-                    for (Vozac vozac : GetUtility.getVozaci()) {
+                    int brKarteDodeljenog = DriverHandler.osveziVozace(KorisnikIO.getKorisnici(), "Olge Petrov 4").getBrKarte();
+                    for (Vozac vozac : KorisnikIO.getVozaci()) {
                         if (brKarteDodeljenog == vozac.getBrKarte()) {
                             imeVozaca = vozac.getIme();
                             prezimeVozaca = vozac.getPrezime();
@@ -164,8 +164,8 @@ public class ListaVoznjiDispecerFrame extends JFrame implements ActionListener {
                             "auto";
                     JOptionPane.showMessageDialog(null, output, "Greska",
                             JOptionPane.WARNING_MESSAGE);
-                } else if (!statusVoznje.equals(String.valueOf(StatusVoznje.PRIHVACENA))) {
-                    String output = "Dodeljivanje voznje vozacu " + imeVozaca + " ID [" + idVozaca + "]" + " neuspesno. \nERR: Voznja je zavrsena";
+                } else if (!statusVoznje.equals(String.valueOf(StatusVoznje.KREIRANA))) {
+                    String output = "Dodeljivanje voznje vozacu " + imeVozaca + " ID [" + idVozaca + "]" + " neuspesno. \nERR: Voznja je " + statusVoznje;
                     JOptionPane.showMessageDialog(null, output, "Greska", JOptionPane.WARNING_MESSAGE);
                 } else {
                     int izbor = JOptionPane.showConfirmDialog(null, "Dodeliti voznju vozacu " + imeVozaca + " " + prezimeVozaca +

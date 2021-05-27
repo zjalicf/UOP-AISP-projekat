@@ -5,7 +5,7 @@ import entiteti.Korisnik;
 import entiteti.Voznja;
 import enums.StatusVoznje;
 import fileIO.VoznjaIO;
-import utility.GetUtility;
+import utility.KorisnikIO;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -61,15 +61,15 @@ public class ListaVoznjiVozacFrame extends JFrame implements ActionListener {
     public void initGUI(Korisnik ulogovani) { // kako ovde da pokaze kad nije zavrsena i kad je zavrsena, if zavrsena == true
         String[] title = new String[] {"Datum" ,"Polazak", "Destinacija", "km", "Trajanje", "Status", "ID Voznje", "Ocena"};
         int brojVoznji = 0;
-        for (Voznja voznja: GetUtility.getVoznje()) {
+        for (Voznja voznja: KorisnikIO.getVoznje()) {
             if (voznja.getIdVozaca().equals(ulogovani.getIdKorisnika())) {
                 brojVoznji++;
             }
         }
         int brojac = 0;
         Object[][] sadrzajFilter = new Object[brojVoznji][title.length];
-        for(int i = 0; i < GetUtility.getVoznje().size(); i++) {
-            Voznja voznja = GetUtility.getVoznje().get(i);
+        for(int i = 0; i < KorisnikIO.getVoznje().size(); i++) {
+            Voznja voznja = KorisnikIO.getVoznje().get(i);
 
             if (ulogovani.getIdKorisnika().equals(voznja.getIdVozaca())) {
                 sadrzajFilter[brojac][0] = voznja.getDatumPorudzbine();
@@ -108,7 +108,7 @@ public class ListaVoznjiVozacFrame extends JFrame implements ActionListener {
                 JOptionPane.showMessageDialog(null, "Morate odabrati red u tabeli.", "Greska", JOptionPane.WARNING_MESSAGE);
             }else {
                 String voznjaId = tabela.getValueAt(red, 6).toString();
-                ArrayList<Voznja> voznje = GetUtility.getVoznje();
+                ArrayList<Voznja> voznje = KorisnikIO.getVoznje();
                 int izbor = JOptionPane.showConfirmDialog(null,
                         "Da li ste sigurni da zelite da prihvatite voznju?",
                         " - Potvrda voznje", JOptionPane.YES_NO_OPTION);
@@ -126,7 +126,7 @@ public class ListaVoznjiVozacFrame extends JFrame implements ActionListener {
                 JOptionPane.showMessageDialog(null, "Morate odabrati red u tabeli.", "Greska", JOptionPane.WARNING_MESSAGE);
             }else {
                 String voznjaId = tabela.getValueAt(red, 6).toString();
-                ArrayList<Voznja> voznje = GetUtility.getVoznje();
+                ArrayList<Voznja> voznje = KorisnikIO.getVoznje();
                 int izbor = JOptionPane.showConfirmDialog(null,
                         "Da li ste sigurni da zelite da odbijete voznju?",
                         " - Odbijanje voznje", JOptionPane.YES_NO_OPTION);

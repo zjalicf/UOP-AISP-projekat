@@ -4,7 +4,7 @@ import entiteti.Dispecer;
 import entiteti.Korisnik;
 import entiteti.Musterija;
 import entiteti.Vozac;
-import utility.GetUtility;
+import fileIO.KorisnikIO;
 
 import javax.swing.*;
 import java.awt.*;
@@ -101,7 +101,7 @@ public class MainFrame extends JFrame implements ActionListener {
     }
 
     public Korisnik login(String username, String password) {
-        for (Korisnik korisnik : GetUtility.getKorisnici()) {
+        for (Korisnik korisnik : KorisnikIO.getKorisnici()) {
             if (korisnik.getUsername().equalsIgnoreCase(username) &&
                     korisnik.getPassword().equalsIgnoreCase(password)) {
                 return korisnik;
