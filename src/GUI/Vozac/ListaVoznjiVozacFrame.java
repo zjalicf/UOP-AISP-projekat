@@ -17,10 +17,10 @@ import static javax.swing.BorderFactory.createEmptyBorder;
 
 public class ListaVoznjiVozacFrame extends JFrame implements ActionListener {
     Container container = getContentPane();
-    private JButton prihvatiButton = new JButton("Prihvati");
-    private JButton odbijButton = new JButton("Odbij");
-    private JButton zavrsiButton = new JButton("Zavrsi");
-    private JButton nazad = new JButton("Nazad");
+    private final JButton prihvatiButton = new JButton("Prihvati");
+    private final JButton odbijButton = new JButton("Odbij");
+    private final JButton zavrsiButton = new JButton("Zavrsi");
+    private final JButton nazad = new JButton("Nazad");
     private JTable tabela;
     private DefaultTableModel tabelaModel;
 
@@ -37,10 +37,10 @@ public class ListaVoznjiVozacFrame extends JFrame implements ActionListener {
     }
 
     public void setLocationAndSize() {
-        prihvatiButton.setBounds(15,110,150,24);
-        odbijButton.setBounds(15,140,150,24);
-        zavrsiButton.setBounds(15, 180, 150, 24);
-        nazad.setBounds(200,240,110,24);
+        prihvatiButton.setBounds(15,150,100,24);
+        odbijButton.setBounds(125, 150, 100, 24);
+        zavrsiButton.setBounds(235, 150, 100, 24);
+        nazad.setBounds(345,150,100,24);
     }
 
     public void addComponentsToContainer() {

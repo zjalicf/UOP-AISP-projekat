@@ -16,13 +16,13 @@ import java.util.ArrayList;
 public class NaruciVoznjuFrame extends JFrame implements ActionListener {
     private final Korisnik ulogovani;
     Container container = getContentPane();
-    private JLabel adresaPolaskaLabel = new JLabel("Unesite vasu adresu: ");
-    private JTextField adresaPolaskaField = new JTextField(20);
-    private JLabel adresaDolaskaLabel = new JLabel("Unesite destinaciju: ");
-    private JTextField adresaDolaskaField = new JTextField(20);
-    private JButton okButton = new JButton("OK");
+    private final JLabel adresaPolaskaLabel = new JLabel("Unesite vasu adresu: ");
+    private final JTextField adresaPolaskaField = new JTextField(20);
+    private final JLabel adresaDolaskaLabel = new JLabel("Unesite destinaciju: ");
+    private final JTextField adresaDolaskaField = new JTextField(20);
+    private final JButton okButton = new JButton("OK");
     JLabel orderGif = new JLabel(new ImageIcon("src/img/order.gif"));
-    private JButton odjavaButton = new JButton("Odjava");
+    private final JButton odjavaButton = new JButton("Odjava");
 
     public NaruciVoznjuFrame(Korisnik ulogovani) {
         this.ulogovani = ulogovani;

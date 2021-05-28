@@ -13,14 +13,14 @@ import java.awt.event.ActionListener;
 
 public class MainFrame extends JFrame implements ActionListener {
     Container container = getContentPane();
-    JLabel logo = new JLabel(new ImageIcon("src/img/logo.gif"));
-    JLabel userLabel = new JLabel("USERNAME");
-    JLabel passwordLabel = new JLabel("PASSWORD");
-    JTextField usernameField = new JTextField();
-    JPasswordField passwordField = new JPasswordField();
-    JButton loginButton = new JButton("LOGIN");
-    JButton cancelButton = new JButton("IZADJI");
-    JCheckBox showPassword = new JCheckBox("Show Password");
+    private final JLabel logo = new JLabel(new ImageIcon("src/img/logo.gif"));
+    private final JLabel userLabel = new JLabel("USERNAME");
+    private final JLabel passwordLabel = new JLabel("PASSWORD");
+    private final JTextField usernameField = new JTextField();
+    private final JPasswordField passwordField = new JPasswordField();
+    private final JButton loginButton = new JButton("LOGIN");
+    private final JButton cancelButton = new JButton("IZADJI");
+    private final JCheckBox showPassword = new JCheckBox("Show Password");
 
     public MainFrame() {
         setLayoutManager();

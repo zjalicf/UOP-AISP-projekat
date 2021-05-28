@@ -12,12 +12,12 @@ import java.util.ArrayList;
 
 public class ZavrsiVoznjuFrame extends JFrame implements ActionListener {
     Container container = getContentPane();
-    private JLabel predjenoKmLabel = new JLabel("Predjeno km:");
-    private JTextField predjenoKmField = new JTextField(20);
-    private JLabel trajanjeVoznjeLabel = new JLabel("Trajanje voznje:");
-    private JTextField trajanjeVoznjeField = new JTextField(20);
-    private JButton potvrdiButton = new JButton("Potvrdi");
-    private JButton nazadButton = new JButton("Nazad");
+    private final JLabel predjenoKmLabel = new JLabel("Predjeno km:");
+    private final JTextField predjenoKmField = new JTextField(20);
+    private final JLabel trajanjeVoznjeLabel = new JLabel("Trajanje voznje:");
+    private final JTextField trajanjeVoznjeField = new JTextField(20);
+    private final JButton potvrdiButton = new JButton("Potvrdi");
+    private final JButton nazadButton = new JButton("Nazad");
     private String voznjaId;
 
     public ZavrsiVoznjuFrame(String voznjaId) {
@@ -34,11 +34,11 @@ public class ZavrsiVoznjuFrame extends JFrame implements ActionListener {
 
     public void setLocationAndSize() {
         predjenoKmLabel.setBounds(10,10,100,24);
-        predjenoKmField.setBounds(120,10,100,24);
-        trajanjeVoznjeLabel.setBounds(10, 35,100,24);
-        trajanjeVoznjeField.setBounds(120,35,100,24);
-        potvrdiButton.setBounds(140,70,80,24);
-        nazadButton.setBounds(180,70,80,24);
+        predjenoKmField.setBounds(110,10,50,24);
+        trajanjeVoznjeLabel.setBounds(10, 40,100,24);
+        trajanjeVoznjeField.setBounds(110,40,50,24);
+        potvrdiButton.setBounds(40,75,80,24);
+        nazadButton.setBounds(40,105,80,24);
     }
 
     public void addComponentsToContainer() {

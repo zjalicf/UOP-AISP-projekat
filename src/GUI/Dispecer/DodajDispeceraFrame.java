@@ -59,7 +59,7 @@ public class DodajDispeceraFrame extends JFrame implements ActionListener {
             output = output + ", Unesite id\n";
             correct = false;
         }
-// mozda treba ArrayList<String> idList = GetUtility.getIdSvihKorisnika(); i idList.getIdsvih...
+
         if (KorisnikIO.getIdSvihKorisnika().contains(this.idField.getText().trim()) || this.idField.getText().trim().length() != 6 || this.idField.getText().trim().matches(
                 ".*[a-zA-Z]+.*")) {
             output = output + ", Korisnik sa takvim ID vec postoji\n";

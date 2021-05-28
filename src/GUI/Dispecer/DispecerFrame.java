@@ -1,6 +1,8 @@
 package GUI.Dispecer;//vozac je 0, dispecer 1
 
 import GUI.FrameLauncher;
+import entiteti.Korisnik;
+import enums.Pol;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,17 +11,26 @@ import java.awt.event.ActionListener;
 
 public class DispecerFrame extends JFrame implements ActionListener {
     Container container = getContentPane();
-    private JButton vozaciButton = new JButton("Vozaci");
-    private JButton dispeceriButton = new JButton("Dispeceri");
-    private JButton potvrdaVoznjeButton = new JButton("Narucene voznje");
-    private JLabel slika = new JLabel(new ImageIcon("src/img/person.jpg"));
-    private JButton odjavaButton = new JButton("Odjava");
+    private final JButton vozaciButton = new JButton("Vozaci");
+    private final JButton dispeceriButton = new JButton("Dispeceri");
+    private final JButton potvrdaVoznjeButton = new JButton("Narucene voznje");
+    private JLabel slika;
+    private final JButton odjavaButton = new JButton("Odjava");
 
-    public DispecerFrame() {
+    public DispecerFrame(Korisnik ulogovani) {
+        setSlika(ulogovani);
         setLayoutManager();
         setLocationAndSize();
         addComponentsToContainer();
         addActionEvent();
+    }
+
+    public void setSlika(Korisnik ulogovani) {
+        if (ulogovani.getPol().equals(Pol.Muski)) {
+            slika = new JLabel(new ImageIcon("src/img/muski_dispecer.png"));
+        } else if (ulogovani.getPol().equals(Pol.Zenski)) {
+            slika = new JLabel(new ImageIcon("src/img/zenski_dispecer.png"));
+        }
     }
 
     public void setLayoutManager() {

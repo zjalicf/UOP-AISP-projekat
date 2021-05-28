@@ -41,7 +41,7 @@ public class IzmeniVozacaFrame extends JFrame implements ActionListener {
     private final JLabel brKarteLabel = new JLabel("Broj karte: ");
     private final JTextField brKarteField = new JTextField(20);
     private final JLabel idAutomobilaLabel = new JLabel("ID automobila: ");
-    private JComboBox<String> idAutomobilaCb = new JComboBox<>(AutomobilIO.getIdSvihAutomobila().toArray(new String[AutomobilIO.getIdSvihAutomobila().size()]));
+    private final JComboBox<String> idAutomobilaCb = new JComboBox<>(AutomobilIO.getIdSvihAutomobila().toArray(new String[AutomobilIO.getIdSvihAutomobila().size()]));
 
     public IzmeniVozacaFrame(String korisnikId) {
         this.korisnikId = korisnikId;

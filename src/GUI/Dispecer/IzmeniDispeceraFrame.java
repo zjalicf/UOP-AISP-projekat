@@ -11,7 +11,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class IzmeniDispeceraFrame extends JFrame implements ActionListener {
-    private final String korisnikId;
+    private String korisnikId;
     Container container = getContentPane();
     private final JButton confirmButton = new JButton("Potvrdi");
     private final JButton cancelButton = new JButton("Odustani");

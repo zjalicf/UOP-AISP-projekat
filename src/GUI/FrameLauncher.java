@@ -14,7 +14,7 @@ public class FrameLauncher {
     public static void launchListaVoznjiDispecerFrame() {
         ListaVoznjiDispecerFrame listaVoznjiDispecerFrame = new ListaVoznjiDispecerFrame();
         listaVoznjiDispecerFrame.setVisible(true);
-        listaVoznjiDispecerFrame.setBounds(20, 20, 1200, 200);
+        listaVoznjiDispecerFrame.setBounds(20, 20, 1200, 184);
 //        listaKorisnikaFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         listaVoznjiDispecerFrame.setResizable(false);
     }
@@ -79,7 +79,7 @@ public class FrameLauncher {
     }
 
     public static void launchDispecerFrame(Korisnik ulogovani) {
-        DispecerFrame dispecerFrame = new DispecerFrame();
+        DispecerFrame dispecerFrame = new DispecerFrame(ulogovani);
         dispecerFrame.setVisible(true);
         dispecerFrame.setTitle("Dobrodosli, " + ulogovani.getIme() + " " + ulogovani.getPrezime());
         dispecerFrame.setBounds(10, 10, 350, 230);
@@ -113,13 +113,12 @@ public class FrameLauncher {
 //        listaVoznjiMusterijaFrame.setBounds(20, 20, 1200, 200);
 ////        listaKorisnikaFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 //        listaVoznjiMusterijaFrame.setResizable(false);
-        System.out.println("AISP");
     }
 
     public static void launchZavrsiVoznjuFrame(String voznjaId) {
         ZavrsiVoznjuFrame listaVoznjiMusterijaFrame = new ZavrsiVoznjuFrame(voznjaId);
         listaVoznjiMusterijaFrame.setVisible(true);
-        listaVoznjiMusterijaFrame.setBounds(20, 20, 1200, 200);
+        listaVoznjiMusterijaFrame.setBounds(20, 20, 185, 200);
 //        listaKorisnikaFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         listaVoznjiMusterijaFrame.setResizable(false);
     }
