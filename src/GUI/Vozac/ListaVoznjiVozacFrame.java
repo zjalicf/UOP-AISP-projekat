@@ -37,10 +37,10 @@ public class ListaVoznjiVozacFrame extends JFrame implements ActionListener {
     }
 
     public void setLocationAndSize() {
-        prihvatiButton.setBounds(15,150,100,24);
-        odbijButton.setBounds(125, 150, 100, 24);
-        zavrsiButton.setBounds(235, 150, 100, 24);
-        nazad.setBounds(345,150,100,24);
+        prihvatiButton.setBounds(10,110,100,24);
+        odbijButton.setBounds(120, 110, 100, 24);
+        zavrsiButton.setBounds(230, 110, 100, 24);
+        nazad.setBounds(340,110,100,24);
     }
 
     public void addComponentsToContainer() {
@@ -104,13 +104,13 @@ public class ListaVoznjiVozacFrame extends JFrame implements ActionListener {
         int red = tabela.getSelectedRow();
         if (e.getSource() == prihvatiButton) {
             if(red == -1) {
-                JOptionPane.showMessageDialog(null, "Morate odabrati red u tabeli.", "Greska", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Morate odabrati red u tabeli.", "STATIM", JOptionPane.WARNING_MESSAGE);
             }else {
                 String voznjaId = tabela.getValueAt(red, 6).toString();
                 ArrayList<Voznja> voznje = VoznjaIO.getVoznje();
                 int izbor = JOptionPane.showConfirmDialog(null,
                         "Da li ste sigurni da zelite da prihvatite voznju?",
-                        " - Potvrda voznje", JOptionPane.YES_NO_OPTION);
+                        "STATIM", JOptionPane.YES_NO_OPTION);
                 if(izbor == JOptionPane.YES_OPTION) {
                     for (Voznja voznja: voznje) {
                         if (voznja.getIdVoznje().equals(voznjaId)) {
@@ -127,8 +127,8 @@ public class ListaVoznjiVozacFrame extends JFrame implements ActionListener {
                 String voznjaId = tabela.getValueAt(red, 6).toString();
                 ArrayList<Voznja> voznje = VoznjaIO.getVoznje();
                 int izbor = JOptionPane.showConfirmDialog(null,
-                        "Da li ste sigurni da zelite da odbijete voznju?",
-                        " - Odbijanje voznje", JOptionPane.YES_NO_OPTION);
+                        "Da li sigurno zelite da odbijete voznju?",
+                        "STATIM", JOptionPane.YES_NO_OPTION);
                 if(izbor == JOptionPane.YES_OPTION) {
                     for (Voznja voznja: voznje) {
                         if (voznja.getIdVoznje().equals(voznjaId)) {
@@ -144,16 +144,16 @@ public class ListaVoznjiVozacFrame extends JFrame implements ActionListener {
             } else if (tabela.getValueAt(red, 5).toString().equals(String.valueOf(StatusVoznje.PRIHVACENA))){
                 String voznjaId = tabela.getValueAt(red, 6).toString();
                 int izbor = JOptionPane.showConfirmDialog(null,
-                        "Da li ste sigurni da zelite da zavrsite voznju?",
-                        " - Potvrda voznje", JOptionPane.YES_NO_OPTION);
+                        "Da li sigurno zelite da zavrsite voznju?",
+                        "STATIM", JOptionPane.YES_NO_OPTION);
                 if(izbor == JOptionPane.YES_OPTION) {
                     FrameLauncher.launchZavrsiVoznjuFrame(voznjaId);
                 }
             } else if (tabela.getValueAt(red, 5).toString().equals(String.valueOf(StatusVoznje.ZAVRSENA))){
-                JOptionPane.showMessageDialog(null, "Vec ste zavrsili ovu voznju", "Greska",
+                JOptionPane.showMessageDialog(null, "Vec ste zavrsili ovu voznju", "STATIM",
                         JOptionPane.WARNING_MESSAGE);
             } else {
-                JOptionPane.showMessageDialog(null, "Voznja se moze zavrsiti samo ako je prethodno PRIHVACENA", "Greska",
+                JOptionPane.showMessageDialog(null, "Voznja se moze zavrsiti samo ako je prethodno PRIHVACENA", "STATIM",
                         JOptionPane.WARNING_MESSAGE);
             }
         }

@@ -1,3 +1,5 @@
-22-04-2021 11:30|Bulevar Evrope 4|Zmaj Jovina 5|111111|666666|1.3|5|DODELJENA|101010|0|false
-21-05-2021 18:05|Bulevar Cara Lazara 5|Olge Petrov 4|111111|666666|5.0|5|DODELJENA|139200|4|false
-27-05-2021 17:25|Olge Petrov 44|Bulevar Cara Lazara 65|111111|777777|5.5|5|ZAVRSENA|432591|0|false
+22-04-2021 11:30|Bulevar Evrope 4|Zmaj Jovina 5|111111|555555|1.3|5|KREIRANA|101010|0|false
+21-05-2021 18:05|Bulevar Cara Lazara 5|Olge Petrov 4|111111|555555|5.0|5|DODELJENA|139200|0|false
+27-05-2021 17:25|Olge Petrov 44|Bulevar Cara Lazara 65|111111|777777|5.5|5|ODBIJENA|432591|0|false
+28-05-2021 13:47|olge petrov 12|bulevar cara lazara 14|111111|777777|4.0|4|ZAVRSENA|289913|0|false
+28-05-2021 18:47|olge petrov 3|bulevar cara lazara 34|111111|555555|5.0|5|ZAVRSENA|583217|0|false

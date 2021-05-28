@@ -3,17 +3,14 @@ package GUI.Dispecer;
 import entiteti.Vozac;
 import entiteti.Voznja;
 import enums.StatusVoznje;
-import fileIO.VoznjaIO;
-import org.json.JSONException;
-import utility.DriverHandler;
 import fileIO.KorisnikIO;
+import fileIO.VoznjaIO;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
 import java.util.ArrayList;
 
 import static javax.swing.BorderFactory.createEmptyBorder;
@@ -100,14 +97,13 @@ public class ListaVoznjiDispecerFrame extends JFrame implements ActionListener {
         int red = tabela.getSelectedRow();
         if (e.getSource() == izbrisiButton) {
             if (red == -1) {
-                JOptionPane.showMessageDialog(null, "Morate odabrati red u tabeli.", "Greska", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Morate odabrati red u tabeli", "STATIM", JOptionPane.WARNING_MESSAGE);
             } else {
                 String voznjaId = tabela.getValueAt(red, 8).toString();
                 String status = tabela.getValueAt(red, 7).toString();
                 ArrayList<Voznja> voznje = VoznjaIO.getVoznje();
                 int izbor = JOptionPane.showConfirmDialog(null,
-                        "Da li ste sigurni da zelite da obrisete voznju?",
-                        " - Potvrda brisanja", JOptionPane.YES_NO_OPTION);
+                        "Da li sigurno zelite da obrisete voznju?", "STATIM", JOptionPane.YES_NO_OPTION);
                 if (izbor == JOptionPane.YES_OPTION) {
                     if (status.equals(String.valueOf(StatusVoznje.ODBIJENA)) || status.equals(String.valueOf(StatusVoznje.ZAVRSENA))) {
                         for (Voznja voznja : voznje) {
@@ -119,57 +115,60 @@ public class ListaVoznjiDispecerFrame extends JFrame implements ActionListener {
                         DefaultTableModel dtm = (DefaultTableModel) tabela.getModel();
                         dtm.removeRow(red);
                     } else {
-                        JOptionPane.showMessageDialog(null, "Ne mozete obrisati voznju koja nije zavrsena ili odbijena", "Greska",
-                                JOptionPane.WARNING_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Ne mozete obrisati voznju koja nije zavrsena ili odbijena",
+                                "STATIM", JOptionPane.WARNING_MESSAGE);
                     }
                 }
             }
         } else if (e.getSource() == izmeniButton) {
 //            int red = tabela.getSelectedRow();
 //            if(red == -1) {
-//                JOptionPane.showMessageDialog(null, "Morate odabrati red u tabeli.", "Greska", JOptionPane.WARNING_MESSAGE);
+//                JOptionPane.showMessageDialog(null, "Morate odabrati red u tabeli.", "STATIM", JOptionPane.WARNING_MESSAGE);
 //            }else {
 //                String korisnikId = tabela.getValueAt(red, 0).toString();
 //                ArrayList<Korisnik> korisnici = GetUtility.getKorisnici();
 //
         } else if (e.getSource() == dodeliButton) {
             if (red == -1) {
-                JOptionPane.showMessageDialog(null, "Morate izabrati red", "Greska",
+                JOptionPane.showMessageDialog(null, "Morate izabrati red", "STATIM",
                         JOptionPane.WARNING_MESSAGE);
             } else {
                 String voznjaId = tabela.getValueAt(red, 8).toString();
                 String statusVoznje = tabela.getValueAt(red, 7).toString();
                 ArrayList<Voznja> voznje = VoznjaIO.getVoznje();
-                String imeVozaca = "";
-                String prezimeVozaca = "";
-                String idVozaca = "";
-                String idAutomobilaVozaca = "";
+//                String imeVozaca = "";
+//                String prezimeVozaca = "";
+//                String idVozaca = "";
+//                String idAutomobilaVozaca = "";
 
-                try {
-                    int brKarteDodeljenog = DriverHandler.osveziVozace(KorisnikIO.getKorisnici(), "Olge Petrov 4").getBrKarte();
-                    for (Vozac vozac : KorisnikIO.getVozaci()) {
-                        if (brKarteDodeljenog == vozac.getBrKarte()) {
-                            imeVozaca = vozac.getIme();
-                            prezimeVozaca = vozac.getPrezime();
-                            idVozaca = vozac.getIdKorisnika();
-                            idAutomobilaVozaca = vozac.getIdAutomobila();
-                        }
-                    }
-                } catch (JSONException | IOException jsonException) {
-                    jsonException.printStackTrace();
+//                try {
+//                    int brKarteDodeljenog = DriverHandler.osveziVozace(KorisnikIO.getKorisnici(), "Olge Petrov 4").getBrKarte();
+                ArrayList<Vozac> sviVozaci = KorisnikIO.getVozaci();
+                int random = (int) (Math.random() * 2) - 1;
+                if (random < 0) {
+                    random = random * -1;
                 }
 
+                String imeVozaca = sviVozaci.get(random).getIme();
+                String prezimeVozaca = sviVozaci.get(random).getPrezime();
+                String idVozaca = sviVozaci.get(random).getIdKorisnika();
+                String idAutomobilaVozaca = sviVozaci.get(random).getIdAutomobila();
+
+//                } catch (JSONException | IOException jsonException) {
+//                    jsonException.printStackTrace();
+//                }
+//
                 if (idAutomobilaVozaca.equals("0")) {
                     String output = "Dodeljivanje voznje vozacu " + imeVozaca + " ID [" + idVozaca + "]" + " neuspesno. \nERR: Vozac nema dodeljen " +
                             "auto";
-                    JOptionPane.showMessageDialog(null, output, "Greska",
+                    JOptionPane.showMessageDialog(null, output, "STATIM",
                             JOptionPane.WARNING_MESSAGE);
                 } else if (!statusVoznje.equals(String.valueOf(StatusVoznje.KREIRANA))) {
                     String output = "Dodeljivanje voznje vozacu " + imeVozaca + " ID [" + idVozaca + "]" + " neuspesno. \nERR: Voznja je " + statusVoznje;
-                    JOptionPane.showMessageDialog(null, output, "Greska", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(null, output, "STATIM", JOptionPane.WARNING_MESSAGE);
                 } else {
-                    int izbor = JOptionPane.showConfirmDialog(null, "Dodeliti voznju vozacu " + imeVozaca + " " + prezimeVozaca +
-                            "?", " - Potvrdi akciju", JOptionPane.YES_NO_OPTION);
+                    int izbor = JOptionPane.showConfirmDialog(null, "Dodeliti voznju vozacu " + imeVozaca + " " + prezimeVozaca
+                            + "?", "STATIM", JOptionPane.YES_NO_OPTION);
                     if (izbor == JOptionPane.YES_OPTION) {
                         for (Voznja voznja : voznje) {
                             if (voznja.getIdVoznje().equals(voznjaId)) {
@@ -178,12 +177,13 @@ public class ListaVoznjiDispecerFrame extends JFrame implements ActionListener {
                                 VoznjaIO.voznjaUpis(voznje);
                             }
                         }
-                    } else if (e.getSource() == nazadButton) {
-                        this.dispose();
-                        this.setVisible(false);
                     }
                 }
             }
+        }
+        else if (e.getSource() == nazadButton) {
+            this.dispose();
+            this.setVisible(false);
         }
     }
 }

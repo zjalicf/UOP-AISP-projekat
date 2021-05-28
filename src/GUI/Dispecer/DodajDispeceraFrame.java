@@ -51,94 +51,99 @@ public class DodajDispeceraFrame extends JFrame implements ActionListener {
     public void setLayoutManager() {
         container.setLayout(null);
     }
+
     public boolean provera() {
         boolean correct = true;
-        String output = "Nastale greske pri unosu:\n";
+        String output = "Greske:\n";
 
         if (this.idField.getText().trim().equals("")) {
-            output = output + ", Unesite id\n";
+            output = output + "Unesite ID\n";
             correct = false;
         }
 
-        if (KorisnikIO.getIdSvihKorisnika().contains(this.idField.getText().trim()) || this.idField.getText().trim().length() != 6 || this.idField.getText().trim().matches(
-                ".*[a-zA-Z]+.*")) {
-            output = output + ", Korisnik sa takvim ID vec postoji\n";
+        if (KorisnikIO.getIdSvihKorisnika().contains(this.idField.getText().trim())) {
+            output = output + "Korisnik sa takvim ID vec postoji\n";
+            correct = false;
+        }
+
+        if (this.idField.getText().trim().length() != 6 || this.idField.getText().trim().matches(".*[a-zA-Z]+.*")) {
+            output = output + "ID ne sme da sadrzi slova i mora imati tacno 6 cifara\n";
             correct = false;
         }
 
         if (this.imeField.getText().trim().equals("")) {
-            output = output + ", Unesite ime\n";
+            output = output + "Unesite ime\n";
             correct = false;
         }
 
         if (this.imeField.getText().trim().matches(".*\\d.*")) {
-            output = output + ", Ime ne sme da sadrzi brojeve\n";
+            output = output + "Ime ne sme da sadrzi brojeve\n";
             correct = false;
         }
 
         if (this.prezimeField.getText().trim().equals("")) {
-            output = output + ", Unesite prezime\n";
+            output = output + "Unesite prezime\n";
             correct = false;
         }
 
         if (this.prezimeField.getText().trim().matches(".*\\d.*")) {
-            output = output + ", Prezime ne sme da sadrzi brojeve\n";
+            output = output + "Prezime ne sme da sadrzi brojeve\n";
             correct = false;
         }
 
         if (this.adresaField.getText().trim().equals("")) {
-            output = output + ", Unesite adresu\n";
+            output = output + "Unesite adresu\n";
             correct = false;
         }
 
         if (this.brojTelefonaField.getText().trim().matches(".*[a-zA-Z]+.*")) {
-            output = output + ", Broj telefona ne sme da sadrzi slova\n";
+            output = output + "Broj telefona ne sme da sadrzi slova\n";
             correct = false;
         }
 
         if (this.jmbgField.getText().trim().equals("")) {
-            output = output + ", Unesite jmbg\n";
+            output = output + "Unesite jmbg\n";
             correct = false;
         }
         if (this.jmbgField.getText().trim().matches(".*[a-zA-Z]+.*") || this.jmbgField.getText().trim().length() != 13) {
-            output = output + ", JMBG mora imati 13 cifara i ne sme da sadrzi slova\n";
+            output = output + "JMBG mora imati 13 cifara i ne sme da sadrzi slova\n";
             correct = false;
         }
 
         if (this.usernameField.getText().trim().equals("")) {
-            output = output + ", Unesite korisnicko ime\n";
+            output = output + "Unesite korisnicko ime\n";
             correct = false;
         }
 
         if (this.passwordField.getText().trim().equals("")) {
-            output = output + ", Unesite sifru\n";
+            output = output + "Unesite sifru\n";
             correct = false;
         }
 
         if (this.plataField.getText().trim().equals("")) {
-            output = output + ", Unesite platu\n";
+            output = output + "Unesite platu\n";
             correct = false;
         }
 
         try {
             Double.parseDouble(this.plataField.getText().trim());
         } catch (NumberFormatException exception) {
-            output = output + ", Plata mora imati jednu decimalu\n";
+            output = output + "Plata mora imati jednu decimalu\n";
             correct = false;
         }
 
         if (this.brTelefonskeLinijeField.getText().trim().equals("")) {
-            output = output + ", Unesite broj linije\n";
+            output = output + "Unesite broj linije\n";
             correct = false;
         }
 
         if (this.brTelefonskeLinijeField.getText().trim().matches(".*[a-zA-Z]+.*") || this.brTelefonskeLinijeField.getText().trim().length() != 6) {
-            output = output + ", Broj linije ne sme sadrzati slova i mora imati 6 cifara\n";
+            output = output + "Broj linije ne sme sadrzati slova i mora imati 6 cifara\n";
             correct = false;
         }
 
         if (!correct) {
-            JOptionPane.showMessageDialog(null, output, "Pogresno uneti podaci", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, output, "Greske pri unosu", JOptionPane.WARNING_MESSAGE);
         }
         return correct;
     }
@@ -224,7 +229,8 @@ public class DodajDispeceraFrame extends JFrame implements ActionListener {
                 Odeljenje odeljenje = (Odeljenje) this.odeljenjeCb.getSelectedItem();
                 int brTelefonskeLinije = Integer.parseInt(brTelefonskeLinijeField.getText().trim());
                 if (KorisnikIO.getIdSvihKorisnika().contains(id)) {
-                    JOptionPane.showMessageDialog(null, "Korisnik sa tim ID vec postoji!", "Greska pri pravljenju korisnika", 2);
+                    JOptionPane.showMessageDialog(null, "Korisnik sa takvim ID vec postoji", "STATIM",
+                            JOptionPane.WARNING_MESSAGE);
                 } else {
                     Dispecer novi = new Dispecer(id, ime, prezime, pol, adresa, telefon, jmbg, username, password, false, plata, odeljenje, brTelefonskeLinije);
                     ArrayList<Korisnik> sviKorisnici = fileIO.KorisnikIO.korisnikCitanje();

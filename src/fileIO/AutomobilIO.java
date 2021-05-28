@@ -64,7 +64,7 @@ public class AutomobilIO {
 //            writer.close();
 //        }
 //        catch(IOException e) {
-//            System.out.println("Greska! Upisivanje nije moguce");
+//            System.out.println("x");
 //        }
 //    }
 }

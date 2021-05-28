@@ -22,7 +22,7 @@ public class FrameLauncher {
     public static void launchListaVoznjiVozacFrame(Korisnik ulogovani) {
         ListaVoznjiVozacFrame listaVoznjiVozacFrame = new ListaVoznjiVozacFrame(ulogovani);
         listaVoznjiVozacFrame.setVisible(true);
-        listaVoznjiVozacFrame.setBounds(20, 20, 1200, 300);
+        listaVoznjiVozacFrame.setBounds(20, 20, 1200, 184);
 //        listaKorisnikaFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         listaVoznjiVozacFrame.setResizable(false);
     }
@@ -118,7 +118,7 @@ public class FrameLauncher {
     public static void launchZavrsiVoznjuFrame(String voznjaId) {
         ZavrsiVoznjuFrame listaVoznjiMusterijaFrame = new ZavrsiVoznjuFrame(voznjaId);
         listaVoznjiMusterijaFrame.setVisible(true);
-        listaVoznjiMusterijaFrame.setBounds(20, 20, 185, 200);
+        listaVoznjiMusterijaFrame.setBounds(20, 20, 185, 180);
 //        listaKorisnikaFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         listaVoznjiMusterijaFrame.setResizable(false);
     }

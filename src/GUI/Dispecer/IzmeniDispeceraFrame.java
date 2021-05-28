@@ -104,6 +104,87 @@ public class IzmeniDispeceraFrame extends JFrame implements ActionListener {
         cancelButton.setBounds(110,310,100,24);
     }
 
+    public boolean provera() {
+        boolean correct = true;
+        String output = "Greske:\n";
+
+        if (this.imeField.getText().trim().equals("")) {
+            output = output + "Unesite ime\n";
+            correct = false;
+        }
+
+        if (this.imeField.getText().trim().matches(".*\\d.*")) {
+            output = output + "Ime ne sme da sadrzi brojeve\n";
+            correct = false;
+        }
+
+        if (this.prezimeField.getText().trim().equals("")) {
+            output = output + "Unesite prezime\n";
+            correct = false;
+        }
+
+        if (this.prezimeField.getText().trim().matches(".*\\d.*")) {
+            output = output + "Prezime ne sme da sadrzi brojeve\n";
+            correct = false;
+        }
+
+        if (this.adresaField.getText().trim().equals("")) {
+            output = output + "Unesite adresu\n";
+            correct = false;
+        }
+
+        if (this.brojTelefonaField.getText().trim().matches(".*[a-zA-Z]+.*")) {
+            output = output + "Broj telefona ne sme da sadrzi slova\n";
+            correct = false;
+        }
+
+        if (this.jmbgField.getText().trim().equals("")) {
+            output = output + "Unesite jmbg\n";
+            correct = false;
+        }
+        if (this.jmbgField.getText().trim().matches(".*[a-zA-Z]+.*") || this.jmbgField.getText().trim().length() != 13) {
+            output = output + "JMBG mora imati 13 cifara i ne sme da sadrzi slova\n";
+            correct = false;
+        }
+
+        if (this.usernameField.getText().trim().equals("")) {
+            output = output + "Unesite korisnicko ime\n";
+            correct = false;
+        }
+
+        if (this.passwordField.getText().trim().equals("")) {
+            output = output + "Unesite sifru\n";
+            correct = false;
+        }
+
+        if (this.plataField.getText().trim().equals("")) {
+            output = output + "Unesite platu\n";
+            correct = false;
+        }
+
+        try {
+            Double.parseDouble(this.plataField.getText().trim());
+        } catch (NumberFormatException exception) {
+            output = output + "Plata mora imati jednu decimalu\n";
+            correct = false;
+        }
+
+        if (this.brTelefonskeLinijeField.getText().trim().equals("")) {
+            output = output + "Unesite broj linije\n";
+            correct = false;
+        }
+
+        if (this.brTelefonskeLinijeField.getText().trim().matches(".*[a-zA-Z]+.*") || this.brTelefonskeLinijeField.getText().trim().length() != 6) {
+            output = output + "Broj linije ne sme sadrzati slova i mora imati 6 cifara\n";
+            correct = false;
+        }
+
+        if (!correct) {
+            JOptionPane.showMessageDialog(null, output, "STATIM", JOptionPane.WARNING_MESSAGE);
+        }
+        return correct;
+    }
+
     public void addComponentsToContainer() {
         container.add(confirmButton);
         container.add(cancelButton);
@@ -141,39 +222,40 @@ public class IzmeniDispeceraFrame extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == confirmButton) {
-            String id = this.idField.getText().trim();
-            String ime = this.imeField.getText().trim();
-            String prezime = this.prezimeField.getText().trim();
-            Pol pol = (Pol) this.polCb.getSelectedItem();
-            String adresa = this.adresaField.getText().trim();
-            String telefon = this.brojTelefonaField.getText().trim();
-            String jmbg = this.jmbgField.getText().trim();
-            String username = this.usernameField.getText().trim();
-            String password = this.passwordField.getText().trim();
-            double plata = Double.parseDouble(this.plataField.getText().trim());
-            Odeljenje odeljenje = Odeljenje.valueOf(this.odeljenjeField.getText().trim());
-            int brTelefonskeLinije = Integer.parseInt(brTelefonskeLinijeField.getText().trim());
+            if (provera()) {
+                String id = this.idField.getText().trim();
+                String ime = this.imeField.getText().trim();
+                String prezime = this.prezimeField.getText().trim();
+                Pol pol = (Pol) this.polCb.getSelectedItem();
+                String adresa = this.adresaField.getText().trim();
+                String telefon = this.brojTelefonaField.getText().trim();
+                String jmbg = this.jmbgField.getText().trim();
+                String username = this.usernameField.getText().trim();
+                String password = this.passwordField.getText().trim();
+                double plata = Double.parseDouble(this.plataField.getText().trim());
+                Odeljenje odeljenje = Odeljenje.valueOf(this.odeljenjeField.getText().trim());
+                int brTelefonskeLinije = Integer.parseInt(brTelefonskeLinijeField.getText().trim());
 
-            for(Dispecer dispecer : KorisnikIO.getDispeceri()) {
-                if(dispecer.getIdKorisnika().equals(id)) {
-                    dispecer.setIme(ime);
-                    dispecer.setPrezime(prezime);
-                    dispecer.setPol(pol);
-                    dispecer.setAdresa(adresa);
-                    dispecer.setBrojTelefona(telefon);
-                    dispecer.setJmbg(jmbg);
-                    dispecer.setUsername(username);
-                    dispecer.setPassword(password);
-                    dispecer.setObrisan(false);
-                    dispecer.setPlata(plata);
-                    dispecer.setOdeljenje(odeljenje);
-                    dispecer.setBrTelefonskeLinije(brTelefonskeLinije);
+                for(Dispecer dispecer : KorisnikIO.getDispeceri()) {
+                    if(dispecer.getIdKorisnika().equals(id)) {
+                        dispecer.setIme(ime);
+                        dispecer.setPrezime(prezime);
+                        dispecer.setPol(pol);
+                        dispecer.setAdresa(adresa);
+                        dispecer.setBrojTelefona(telefon);
+                        dispecer.setJmbg(jmbg);
+                        dispecer.setUsername(username);
+                        dispecer.setPassword(password);
+                        dispecer.setObrisan(false);
+                        dispecer.setPlata(plata);
+                        dispecer.setOdeljenje(odeljenje);
+                        dispecer.setBrTelefonskeLinije(brTelefonskeLinije);
+                    }
                 }
+                fileIO.KorisnikIO.korisnikUpis(KorisnikIO.getKorisnici());
+                this.dispose();
+                this.setVisible(false);
             }
-            fileIO.KorisnikIO.korisnikUpis(KorisnikIO.getKorisnici());
-            this.dispose();
-            this.setVisible(false);
-
         } else if (e.getSource() == cancelButton) {
             this.dispose();
             this.setVisible(false);

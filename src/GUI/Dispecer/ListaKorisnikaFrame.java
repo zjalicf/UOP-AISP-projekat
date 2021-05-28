@@ -63,19 +63,20 @@ public class ListaKorisnikaFrame extends JFrame implements ActionListener {
         if (tip == 0) {
             String[] title = new String[] {"ID" ,"Ime", "Prezime", "Pol", "Adresa", "Broj telefona", "Kor ime", "Plata", "Broj karte", "ID Automobila"};
             Object[][] sadrzaj = new Object[KorisnikIO.getVozaci().size()][title.length];
-
             for(int i = 0; i < KorisnikIO.getVozaci().size(); i++) {
                 Vozac vozac = KorisnikIO.getVozaci().get(i);
-                sadrzaj[i][0] = vozac.getIdKorisnika();
-                sadrzaj[i][1] = vozac.getIme();
-                sadrzaj[i][2] = vozac.getPrezime();
-                sadrzaj[i][3] = vozac.getPol();
-                sadrzaj[i][4] = vozac.getAdresa();
-                sadrzaj[i][5] = vozac.getBrojTelefona();
-                sadrzaj[i][6] = vozac.getUsername();
-                sadrzaj[i][7] = vozac.getPlata();
-                sadrzaj[i][8] = vozac.getBrKarte();
-                sadrzaj[i][9] = vozac.getIdAutomobila();
+                if (!vozac.isObrisan()) {
+                    sadrzaj[i][0] = vozac.getIdKorisnika();
+                    sadrzaj[i][1] = vozac.getIme();
+                    sadrzaj[i][2] = vozac.getPrezime();
+                    sadrzaj[i][3] = vozac.getPol();
+                    sadrzaj[i][4] = vozac.getAdresa();
+                    sadrzaj[i][5] = vozac.getBrojTelefona();
+                    sadrzaj[i][6] = vozac.getUsername();
+                    sadrzaj[i][7] = vozac.getPlata();
+                    sadrzaj[i][8] = vozac.getBrKarte();
+                    sadrzaj[i][9] = vozac.getIdAutomobila();
+                }
             }
             createTable(title, sadrzaj);
 
@@ -85,16 +86,18 @@ public class ListaKorisnikaFrame extends JFrame implements ActionListener {
 
             for(int i = 0; i < KorisnikIO.getDispeceri().size(); i++) {
                 Dispecer dispecer = KorisnikIO.getDispeceri().get(i);
-                sadrzaj[i][0] = dispecer.getIdKorisnika();
-                sadrzaj[i][1] = dispecer.getIme();
-                sadrzaj[i][2] = dispecer.getPrezime();
-                sadrzaj[i][3] = dispecer.getPol();
-                sadrzaj[i][4] = dispecer.getAdresa();
-                sadrzaj[i][5] = dispecer.getBrojTelefona();
-                sadrzaj[i][6] = dispecer.getUsername();
-                sadrzaj[i][7] = dispecer.getPlata();
-                sadrzaj[i][8] = dispecer.getOdeljenje();
-                sadrzaj[i][9] = dispecer.getBrTelefonskeLinije();
+                if (!dispecer.isObrisan()) {
+                    sadrzaj[i][0] = dispecer.getIdKorisnika();
+                    sadrzaj[i][1] = dispecer.getIme();
+                    sadrzaj[i][2] = dispecer.getPrezime();
+                    sadrzaj[i][3] = dispecer.getPol();
+                    sadrzaj[i][4] = dispecer.getAdresa();
+                    sadrzaj[i][5] = dispecer.getBrojTelefona();
+                    sadrzaj[i][6] = dispecer.getUsername();
+                    sadrzaj[i][7] = dispecer.getPlata();
+                    sadrzaj[i][8] = dispecer.getOdeljenje();
+                    sadrzaj[i][9] = dispecer.getBrTelefonskeLinije();
+                }
             }
             createTable(title, sadrzaj);
         }
@@ -119,13 +122,13 @@ public class ListaKorisnikaFrame extends JFrame implements ActionListener {
         int red = tabela.getSelectedRow();
         if (e.getSource() == izbrisiButton) {
             if(red == -1) {
-                JOptionPane.showMessageDialog(null, "Morate odabrati red u tabeli.", "Greska", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Morate odabrati red u tabeli", "STATIM", JOptionPane.WARNING_MESSAGE);
             } else {
                 String korisnikId = tabela.getValueAt(red, 0).toString();
                 ArrayList<Korisnik> korisnici = KorisnikIO.getKorisnici();
                 int izbor = JOptionPane.showConfirmDialog(null,
-                        "Da li ste sigurni da zelite da obrisete korisnika?",
-                        " - Potvrda brisanja", JOptionPane.YES_NO_OPTION);
+                        "Da li sigurno zelite da obrisete korisnika?",
+                        "STATIM", JOptionPane.YES_NO_OPTION);
                 if(izbor == JOptionPane.YES_OPTION) {
                     for (Korisnik korisnik: korisnici) {
                         if (korisnik.getIdKorisnika().equals(korisnikId)) {
@@ -139,7 +142,7 @@ public class ListaKorisnikaFrame extends JFrame implements ActionListener {
             }
         } else if (e.getSource() == izmeniButton) {
             if(red == -1) {
-                JOptionPane.showMessageDialog(null, "Morate odabrati red u tabeli.", "Greska", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Morate odabrati red u tabeli", "STATIM", JOptionPane.WARNING_MESSAGE);
             } else {
                 String korisnikId = tabela.getValueAt(red, 0).toString();
                 for (Korisnik korisnik: KorisnikIO.getKorisnici()) {
