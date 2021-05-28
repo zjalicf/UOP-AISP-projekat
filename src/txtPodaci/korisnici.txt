@@ -1,7 +1,6 @@
 111111|Filip|Zjalic|Muski|Bulevar Cara Lazara 5|061000001|1380888656656|filip|123|false|musterija
-222222|Goran|Goranovic|Muski|Karadjordjeva 1|062000002|9728650931633|goran|123|false|musterija
-333333|Jelena|Jelenovic|Zenski|Vojvode Stepe 33|063000003|3092746769004|jelena|123|false|musterija
-444444|Milana|Milanovic|Zenski|Rumenacka 100|064000004|1136116769031|milana|123|false|dispecer|35000.0|prijem|454545
-555555|Marko|Markovic|Muski|Bulevar oslobodjenja 144|065000005|1096748967124|marko|123|false|dispecer|39000.0|prijem|125612
-666666|Nikolina|Nikolic|Zenski|Bulevar Evrope 11|066000006|1235153513515|nikolina|123|false|vozac|45000.0|1231|111|ChIJgwwOOUcQW0cRfFlEgooF9fQ
+222222|Jelena|Jelenovic|Zenski|Vojvode Stepe 33|063000003|3092746769004|jelena|123|false|musterija
+333333|Milana|Milanovic|Zenski|Rumenacka 100|064000004|1136116769031|milana|123|false|dispecer|35000.0|prijem|454545
+444444|Marko|Markovic|Muski|Bulevar oslobodjenja 144|065000005|1096748967124|marko|123|false|dispecer|39000.0|reklamacije|125612
+555555|Nikolina|Nikolic|Zenski|Bulevar Evrope 11|066000006|1235153513515|nikolina|123|false|vozac|45000.0|1231|111|ChIJgwwOOUcQW0cRfFlEgooF9fQ
 777777|Stefan|Stefanovic|Muski|Teodora Mandica 10|067000007|9937586285582|stefan|123|false|vozac|55000.0|1011|111|ChIJQ4Cf-SAQW0cRgHe0PfQr-84
