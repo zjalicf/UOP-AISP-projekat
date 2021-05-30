@@ -90,7 +90,7 @@ public class NaruciVoznjuFrame extends JFrame implements ActionListener {
         ArrayList<Voznja> sveVoznje = VoznjaIO.voznjaCitanje();
         sveVoznje.add(novaVoznja);
         VoznjaIO.voznjaUpis(sveVoznje);
-        JOptionPane.showMessageDialog(null, "Uspesno ste narucili voznju!", "STATIM", JOptionPane.WARNING_MESSAGE);
+        JOptionPane.showMessageDialog(null, "Uspesno ste narucili voznju", "STATIM", JOptionPane.INFORMATION_MESSAGE);
         this.dispose();
         this.setVisible(false);
     }

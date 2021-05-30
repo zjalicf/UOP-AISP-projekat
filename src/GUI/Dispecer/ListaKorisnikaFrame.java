@@ -133,7 +133,7 @@ public class ListaKorisnikaFrame extends JFrame implements ActionListener {
                     for (Korisnik korisnik: korisnici) {
                         if (korisnik.getIdKorisnika().equals(korisnikId)) {
                             korisnik.setObrisan(true);
-                            fileIO.KorisnikIO.korisnikUpis(korisnici);
+                            KorisnikIO.korisnikUpis(korisnici);
                         }
                     }
                     DefaultTableModel dtm = (DefaultTableModel)tabela.getModel();

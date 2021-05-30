@@ -59,7 +59,9 @@ public class VoznjaIO {
         }
     }
 
+    static ArrayList<Voznja> sveVoznje = VoznjaIO.voznjaCitanje();
+
     public static ArrayList<Voznja> getVoznje() {
-        return VoznjaIO.voznjaCitanje();
+        return sveVoznje;
     }
 }

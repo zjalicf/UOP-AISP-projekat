@@ -15,12 +15,12 @@ public class MainFrame extends JFrame implements ActionListener {
     Container container = getContentPane();
     private final JLabel logo = new JLabel(new ImageIcon("src/img/logo.gif"));
     private final JLabel userLabel = new JLabel("USERNAME");
-    private final JLabel passwordLabel = new JLabel("PASSWORD");
+    private final JLabel passwordLabel = new JLabel("SIFRA");
     private final JTextField usernameField = new JTextField();
     private final JPasswordField passwordField = new JPasswordField();
     private final JButton loginButton = new JButton("LOGIN");
     private final JButton cancelButton = new JButton("IZADJI");
-    private final JCheckBox showPassword = new JCheckBox("Show Password");
+    private final JCheckBox showPassword = new JCheckBox("Prikazi lozinku");
 
     public MainFrame() {
         setLayoutManager();
@@ -70,7 +70,7 @@ public class MainFrame extends JFrame implements ActionListener {
 
             if(ulogovani == null) {
                 JOptionPane.showMessageDialog(this,
-                        "Pogresan username ili password");
+                        "Pogresan username ili sifra");
             } else if (ulogovani.isObrisan()){
                 JOptionPane.showMessageDialog(this,
                         "Korisnik je obrisan");

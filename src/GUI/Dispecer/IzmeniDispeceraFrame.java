@@ -133,6 +133,11 @@ public class IzmeniDispeceraFrame extends JFrame implements ActionListener {
             correct = false;
         }
 
+        if (this.brojTelefonaField.getText().trim().equals("")) {
+            output = output + "Unesite broj telefona\n";
+            correct = false;
+        }
+
         if (this.brojTelefonaField.getText().trim().matches(".*[a-zA-Z]+.*")) {
             output = output + "Broj telefona ne sme da sadrzi slova\n";
             correct = false;
@@ -252,9 +257,10 @@ public class IzmeniDispeceraFrame extends JFrame implements ActionListener {
                         dispecer.setBrTelefonskeLinije(brTelefonskeLinije);
                     }
                 }
-                fileIO.KorisnikIO.korisnikUpis(KorisnikIO.getKorisnici());
+                KorisnikIO.korisnikUpis(KorisnikIO.getKorisnici());
                 this.dispose();
                 this.setVisible(false);
+                JOptionPane.showMessageDialog(null, "Uspena izmena podataka", "STATIM", JOptionPane.INFORMATION_MESSAGE);
             }
         } else if (e.getSource() == cancelButton) {
             this.dispose();

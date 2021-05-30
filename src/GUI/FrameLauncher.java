@@ -71,7 +71,7 @@ public class FrameLauncher {
 
     public static void launchLoginFrame() {
         MainFrame loginFrame = new MainFrame();
-        loginFrame.setTitle("STATIM TAXI SERVICES");
+        loginFrame.setTitle("STATIM TAXI SERVIS");
         loginFrame.setVisible(true);
         loginFrame.setBounds(10, 10, 520, 566);
         loginFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -137,6 +137,14 @@ public class FrameLauncher {
         izmeniVozacaFrame .setBounds(20, 20, 234, 384);
 //        listaKorisnikaFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         izmeniVozacaFrame .setResizable(false);
+    }
+
+    public static void launchIzmeniVoznjuFrame(String voznjaId) {
+        IzmeniVoznjuFrame izmeniVoznjuFrame = new IzmeniVoznjuFrame(voznjaId);
+        izmeniVoznjuFrame.setVisible(true);
+        izmeniVoznjuFrame.setBounds(20, 20, 234, 384);
+//        listaKorisnikaFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        izmeniVoznjuFrame.setResizable(false);
     }
 
 }

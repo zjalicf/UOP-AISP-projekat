@@ -1,5 +1,6 @@
 package GUI.Dispecer;
 
+import GUI.FrameLauncher;
 import entiteti.Vozac;
 import entiteti.Voznja;
 import enums.StatusVoznje;
@@ -121,13 +122,12 @@ public class ListaVoznjiDispecerFrame extends JFrame implements ActionListener {
                 }
             }
         } else if (e.getSource() == izmeniButton) {
-//            int red = tabela.getSelectedRow();
-//            if(red == -1) {
-//                JOptionPane.showMessageDialog(null, "Morate odabrati red u tabeli.", "STATIM", JOptionPane.WARNING_MESSAGE);
-//            }else {
-//                String korisnikId = tabela.getValueAt(red, 0).toString();
-//                ArrayList<Korisnik> korisnici = GetUtility.getKorisnici();
-//
+            if(red == -1) {
+                JOptionPane.showMessageDialog(null, "Morate odabrati red u tabeli", "STATIM", JOptionPane.WARNING_MESSAGE);
+            }else {
+                String voznjaId = tabela.getValueAt(red, 8).toString();
+                FrameLauncher.launchIzmeniVoznjuFrame(voznjaId);
+            }
         } else if (e.getSource() == dodeliButton) {
             if (red == -1) {
                 JOptionPane.showMessageDialog(null, "Morate izabrati red", "STATIM",

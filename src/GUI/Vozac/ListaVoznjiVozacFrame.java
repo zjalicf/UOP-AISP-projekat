@@ -57,7 +57,7 @@ public class ListaVoznjiVozacFrame extends JFrame implements ActionListener {
         nazad.addActionListener(this);
     }
 
-    public void initGUI(Korisnik ulogovani) { // kako ovde da pokaze kad nije zavrsena i kad je zavrsena, if zavrsena == true
+    public void initGUI(Korisnik ulogovani) {
         String[] title = new String[] {"Datum" ,"Polazak", "Destinacija", "km", "Trajanje", "Status", "ID Voznje", "Ocena"};
         int brojVoznji = 0;
         for (Voznja voznja: VoznjaIO.getVoznje()) {
@@ -104,7 +104,7 @@ public class ListaVoznjiVozacFrame extends JFrame implements ActionListener {
         int red = tabela.getSelectedRow();
         if (e.getSource() == prihvatiButton) {
             if(red == -1) {
-                JOptionPane.showMessageDialog(null, "Morate odabrati red u tabeli.", "STATIM", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Morate odabrati red u tabeli", "STATIM", JOptionPane.WARNING_MESSAGE);
             }else {
                 String voznjaId = tabela.getValueAt(red, 6).toString();
                 ArrayList<Voznja> voznje = VoznjaIO.getVoznje();
@@ -122,7 +122,7 @@ public class ListaVoznjiVozacFrame extends JFrame implements ActionListener {
             }
         } else if (e.getSource() == odbijButton) {
             if(red == -1) {
-                JOptionPane.showMessageDialog(null, "Morate odabrati red u tabeli.", "Greska", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Morate odabrati red u tabeli", "Greska", JOptionPane.WARNING_MESSAGE);
             }else {
                 String voznjaId = tabela.getValueAt(red, 6).toString();
                 ArrayList<Voznja> voznje = VoznjaIO.getVoznje();
@@ -140,7 +140,7 @@ public class ListaVoznjiVozacFrame extends JFrame implements ActionListener {
             }
         } else if (e.getSource() == zavrsiButton) {
             if(red == -1) {
-                JOptionPane.showMessageDialog(null, "Morate odabrati red u tabeli.", "Greska", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Morate odabrati red u tabeli", "Greska", JOptionPane.WARNING_MESSAGE);
             } else if (tabela.getValueAt(red, 5).toString().equals(String.valueOf(StatusVoznje.PRIHVACENA))){
                 String voznjaId = tabela.getValueAt(red, 6).toString();
                 int izbor = JOptionPane.showConfirmDialog(null,

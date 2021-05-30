@@ -240,9 +240,9 @@ public class DodajVozacaFrame extends JFrame implements ActionListener {
 
                 Vozac novi = new Vozac(id, ime, prezime, pol, adresa, telefon, jmbg, username, password, false, plata, brKarte, idAutomobila,
                         lokacija);
-                ArrayList<Korisnik> sviKorisnici = fileIO.KorisnikIO.korisnikCitanje();
+                ArrayList<Korisnik> sviKorisnici = KorisnikIO.korisnikCitanje();
                 sviKorisnici.add(novi);
-                fileIO.KorisnikIO.korisnikUpis(sviKorisnici);
+                KorisnikIO.korisnikUpis(sviKorisnici);
                 this.dispose();
                 this.setVisible(false);
             }

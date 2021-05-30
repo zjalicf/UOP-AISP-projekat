@@ -143,7 +143,7 @@ public class DodajDispeceraFrame extends JFrame implements ActionListener {
         }
 
         if (!correct) {
-            JOptionPane.showMessageDialog(null, output, "Greske pri unosu", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, output, "STATIM", JOptionPane.WARNING_MESSAGE);
         }
         return correct;
     }
@@ -233,9 +233,9 @@ public class DodajDispeceraFrame extends JFrame implements ActionListener {
                             JOptionPane.WARNING_MESSAGE);
                 } else {
                     Dispecer novi = new Dispecer(id, ime, prezime, pol, adresa, telefon, jmbg, username, password, false, plata, odeljenje, brTelefonskeLinije);
-                    ArrayList<Korisnik> sviKorisnici = fileIO.KorisnikIO.korisnikCitanje();
+                    ArrayList<Korisnik> sviKorisnici = KorisnikIO.korisnikCitanje();
                     sviKorisnici.add(novi);
-                    fileIO.KorisnikIO.korisnikUpis(sviKorisnici);
+                    KorisnikIO.korisnikUpis(sviKorisnici);
                     this.dispose();
                     this.setVisible(false);
                 }
