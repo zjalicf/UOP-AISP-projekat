@@ -15,7 +15,7 @@
 //public class DriverHandler {
 //    public static Par<Integer, Integer> osveziVozace(ArrayList<Korisnik> vozaci, String unesenaAdresa) throws JSONException,
 //            IOException {
-//        String apiKey = "AIzaSyAP1ILAhEyPnYCXt4EDQfnlTr-Dm5riBnw";
+//        String apiKey = "";
 //        ArrayList<String> adrese = new ArrayList<>();
 //
 //        ucitajAdrese(adrese);
@@ -61,7 +61,7 @@
 //    private static String adressToPlaceId(String unesenaAdresa) throws IOException, JSONException {
 //        String unesenaAdresaFixed = unesenaAdresa.replace(' ', '+') + ",+Novi+Sad,+Serbia";
 //        URL url = new URL("https://maps.googleapis.com/maps/api/geocode/json?address=" + unesenaAdresaFixed +
-//                "&key=AIzaSyAP1ILAhEyPnYCXt4EDQfnlTr-Dm5riBnw");
+//                "&key=" + apiKey);
 //        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 //        conn.setRequestMethod("GET");
 //        String line, outputString = "";
