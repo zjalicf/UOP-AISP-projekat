@@ -14,7 +14,6 @@ public class MusterijaFrame extends JFrame implements ActionListener {
     Container container = getContentPane();
     private final JButton sveVoznjeButton= new JButton("Moje voznje");
     private final JButton naruciVoznjuButton = new JButton("Naruci voznju");
-    private final JButton oceniButton = new JButton("Oceni vozaca");
     private final JButton odjavaButton = new JButton("Odjava");
     private JLabel slika;
 
@@ -42,7 +41,6 @@ public class MusterijaFrame extends JFrame implements ActionListener {
     public void setLocationAndSize() {
         sveVoznjeButton.setBounds(15,15,130,24);
         naruciVoznjuButton.setBounds(15,60,130,24);
-        oceniButton.setBounds(15,105,130,24);
         slika.setBounds(166, 32, 150,125);
         odjavaButton.setBounds(15,150,130,24);
     }
@@ -50,7 +48,6 @@ public class MusterijaFrame extends JFrame implements ActionListener {
     public void addComponentsToContainer() {
         container.add(sveVoznjeButton);
         container.add(naruciVoznjuButton);
-        container.add(oceniButton);
         container.add(odjavaButton);
         container.add(slika);
     }
@@ -59,19 +56,14 @@ public class MusterijaFrame extends JFrame implements ActionListener {
         sveVoznjeButton.addActionListener(this);
         naruciVoznjuButton.addActionListener(this);
         odjavaButton.addActionListener(this);
-        oceniButton.addActionListener(this);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == sveVoznjeButton) {
-            JOptionPane.showMessageDialog(this,
-                    "Ova funkcija je za AISP");
+            FrameLauncher.launchListaVoznjiMusterijaFrame();
         } else if (e.getSource() == naruciVoznjuButton){
             FrameLauncher.launchNaruciVoznjuFrame(ulogovani);
-        } else if (e.getSource() == oceniButton) {
-            JOptionPane.showMessageDialog(this,
-                    "Ova funkcija je za AISP");
         } else if (e.getSource() == odjavaButton){
             this.dispose();
             this.setVisible(false);

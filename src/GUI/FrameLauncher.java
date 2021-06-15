@@ -1,8 +1,10 @@
 package GUI;
 
 import GUI.Dispecer.*;
+import GUI.Musterija.ListaVoznjiMusterijaFrame;
 import GUI.Musterija.MusterijaFrame;
 import GUI.Musterija.NaruciVoznjuFrame;
+import GUI.Musterija.OceniVoznjuFrame;
 import GUI.Vozac.ListaVoznjiVozacFrame;
 import GUI.Vozac.VozacFrame;
 import GUI.Vozac.ZavrsiVoznjuFrame;
@@ -108,11 +110,11 @@ public class FrameLauncher {
     }
 
     public static void launchListaVoznjiMusterijaFrame() {
-//        ListaVoznjiMusterijaFrame listaVoznjiMusterijaFrame = new ListaVoznjiMusterijaFrame();
-//        listaVoznjiMusterijaFrame.setVisible(true);
-//        listaVoznjiMusterijaFrame.setBounds(20, 20, 1200, 200);
-////        listaKorisnikaFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        listaVoznjiMusterijaFrame.setResizable(false);
+        ListaVoznjiMusterijaFrame listaVoznjiMusterijaFrame = new ListaVoznjiMusterijaFrame();
+        listaVoznjiMusterijaFrame.setVisible(true);
+        listaVoznjiMusterijaFrame.setBounds(20, 20, 1000, 200);
+//        listaKorisnikaFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        listaVoznjiMusterijaFrame.setResizable(false);
     }
 
     public static void launchZavrsiVoznjuFrame(String voznjaId) {
@@ -145,6 +147,22 @@ public class FrameLauncher {
         izmeniVoznjuFrame.setBounds(20, 20, 234, 384);
 //        listaKorisnikaFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         izmeniVoznjuFrame.setResizable(false);
+    }
+
+    public static void launchPretraziVoznje(JTable tabela) {
+        PretraziVoznjeFrame pretraziVoznjeFrame = new PretraziVoznjeFrame(tabela);
+        pretraziVoznjeFrame.setVisible(true);
+        pretraziVoznjeFrame.setBounds(20, 20, 234, 384);
+//        listaKorisnikaFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        pretraziVoznjeFrame.setResizable(false);
+    }
+
+    public static void launchOceniVoznju(String voznjaId) {
+        OceniVoznjuFrame oceniVoznjuFrame = new OceniVoznjuFrame(voznjaId);
+        oceniVoznjuFrame.setVisible(true);
+        oceniVoznjuFrame.setBounds(20, 20, 200, 200);
+//        listaKorisnikaFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        oceniVoznjuFrame.setResizable(false);
     }
 
 }

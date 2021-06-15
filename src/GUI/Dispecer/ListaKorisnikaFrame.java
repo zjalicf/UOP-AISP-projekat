@@ -113,6 +113,7 @@ public class ListaKorisnikaFrame extends JFrame implements ActionListener {
         tabela.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         tabela.setDefaultEditor(Object.class, null);
         tabela.getTableHeader().setReorderingAllowed(false);
+        tabela.setAutoCreateRowSorter(true);
         scrollPane.setBounds(0,0,1100,100);
         container.add(scrollPane);
     }

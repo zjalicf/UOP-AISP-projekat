@@ -6,12 +6,15 @@ import entiteti.Voznja;
 import enums.StatusVoznje;
 import fileIO.KorisnikIO;
 import fileIO.VoznjaIO;
+import org.json.JSONException;
+import utility.DriverHandler;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import static javax.swing.BorderFactory.createEmptyBorder;
@@ -22,6 +25,7 @@ public class ListaVoznjiDispecerFrame extends JFrame implements ActionListener {
     private final JButton izbrisiButton = new JButton("Obrisi voznju");
     private final JButton dodeliButton = new JButton("Dodeli vozaca");
     private final JButton nazadButton = new JButton("Nazad");
+    private final JButton pretraziButton = new JButton("Pretrazi");
     private JTable tabela;
     private DefaultTableModel tabelaModel;
 
@@ -42,6 +46,7 @@ public class ListaVoznjiDispecerFrame extends JFrame implements ActionListener {
         izmeniButton.setBounds(180,110,150,24);
         dodeliButton.setBounds(345,110,150,24);
         nazadButton.setBounds(510,110,110,24);
+        pretraziButton.setBounds(675,110,110,24);
     }
 
     public void addComponentsToContainer() {
@@ -49,6 +54,7 @@ public class ListaVoznjiDispecerFrame extends JFrame implements ActionListener {
         container.add(izmeniButton);
         container.add(nazadButton);
         container.add(dodeliButton);
+        container.add(pretraziButton);
     }
 
     public void addActionEvent() {
@@ -56,6 +62,7 @@ public class ListaVoznjiDispecerFrame extends JFrame implements ActionListener {
         izbrisiButton.addActionListener(this);
         dodeliButton.addActionListener(this);
         nazadButton.addActionListener(this);
+        pretraziButton.addActionListener(this);
     }
     
     public void initGUI() {
@@ -89,6 +96,7 @@ public class ListaVoznjiDispecerFrame extends JFrame implements ActionListener {
         tabela.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         tabela.setDefaultEditor(Object.class, null);
         tabela.getTableHeader().setReorderingAllowed(false);
+        tabela.setAutoCreateRowSorter(true);
         scrollPane.setBounds(0,0,1200,100);
         container.add(scrollPane);
     }
@@ -136,28 +144,25 @@ public class ListaVoznjiDispecerFrame extends JFrame implements ActionListener {
                 String voznjaId = tabela.getValueAt(red, 8).toString();
                 String statusVoznje = tabela.getValueAt(red, 7).toString();
                 ArrayList<Voznja> voznje = VoznjaIO.getVoznje();
-//                String imeVozaca = "";
-//                String prezimeVozaca = "";
-//                String idVozaca = "";
-//                String idAutomobilaVozaca = "";
+                String imeVozaca = "";
+                String prezimeVozaca = "";
+                String idVozaca = "";
+                String idAutomobilaVozaca = "";
 
-//                try {
-//                    int brKarteDodeljenog = DriverHandler.osveziVozace(KorisnikIO.getKorisnici(), "Olge Petrov 4").getBrKarte();
-                ArrayList<Vozac> sviVozaci = KorisnikIO.getVozaci();
-                int random = (int) (Math.random() * 2) - 1;
-                if (random < 0) {
-                    random = random * -1;
+                try {
+                    int brKarteDodeljenog = DriverHandler.osveziVozace(KorisnikIO.getKorisnici(), "Olge Petrov 4").getBrKarte();
+                    for (Vozac vozac : KorisnikIO.getVozaci()) {
+                        if (brKarteDodeljenog == vozac.getBrKarte()) {
+                            imeVozaca = vozac.getIme();
+                            prezimeVozaca = vozac.getPrezime();
+                            idVozaca = vozac.getIdKorisnika();
+                            idAutomobilaVozaca = vozac.getIdAutomobila();
+                        }
+                    }
+                } catch (JSONException | IOException jsonException) {
+                    jsonException.printStackTrace();
                 }
 
-                String imeVozaca = sviVozaci.get(random).getIme();
-                String prezimeVozaca = sviVozaci.get(random).getPrezime();
-                String idVozaca = sviVozaci.get(random).getIdKorisnika();
-                String idAutomobilaVozaca = sviVozaci.get(random).getIdAutomobila();
-
-//                } catch (JSONException | IOException jsonException) {
-//                    jsonException.printStackTrace();
-//                }
-//
                 if (idAutomobilaVozaca.equals("0")) {
                     String output = "Dodeljivanje voznje vozacu " + imeVozaca + " ID [" + idVozaca + "]" + " neuspesno. \nERR: Vozac nema dodeljen " +
                             "auto";
@@ -180,8 +185,9 @@ public class ListaVoznjiDispecerFrame extends JFrame implements ActionListener {
                     }
                 }
             }
-        }
-        else if (e.getSource() == nazadButton) {
+        } else if (e.getSource() == pretraziButton) {
+            FrameLauncher.launchPretraziVoznje(tabela);
+        } else if (e.getSource() == nazadButton) {
             this.dispose();
             this.setVisible(false);
         }
