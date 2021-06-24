@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="a16849ee-ca85-4d1b-8bac-9a3202963179" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekat.eml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekat.iml" beforeDir="false" afterPath="$PROJECT_DIR$/projekat.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projekat.iml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/strukture/ListNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/Dispecer/DodajVozacaFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Dispecer/DodajVozacaFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/Dispecer/IzmeniVozacaFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Dispecer/IzmeniVozacaFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/Dispecer/ListaVoznjiDispecerFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Dispecer/ListaVoznjiDispecerFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/FrameLauncher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/FrameLauncher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/Musterija/ListaVoznjiMusterijaFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Musterija/ListaVoznjiMusterijaFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/Musterija/OceniVoznjuFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Musterija/OceniVoznjuFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fileIO/AutomobilIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fileIO/AutomobilIO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/strukture/Element.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/strukture/Lista.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/strukture/Lista.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +32,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="1uAPPlUZZriDSBREkxz7AHzZyzw" />
   <component name="ProjectLevelVcsManager">
@@ -82,10 +96,23 @@
       <option name="presentableId" value="Default" />
       <updated>1624105401002</updated>
       <workItem from="1624105405435" duration="559000" />
+      <workItem from="1624455685047" duration="43000" />
+      <workItem from="1624532007084" duration="5356000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

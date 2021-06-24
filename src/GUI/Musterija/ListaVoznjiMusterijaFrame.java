@@ -95,7 +95,7 @@ public class ListaVoznjiMusterijaFrame extends JFrame implements ActionListener 
                 JOptionPane.showMessageDialog(null, "Morate odabrati red u tabeli", "STATIM", JOptionPane.WARNING_MESSAGE);
             } else {
                 String voznjaId = tabela.getValueAt(red, 6).toString();
-                FrameLauncher.launchOceniVoznju(voznjaId);
+                FrameLauncher.launchOceniVoznjuFrame(voznjaId);
             }
         }
         else if (e.getSource() == nazadButton) {

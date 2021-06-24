@@ -24,6 +24,7 @@ public class ListaVoznjiDispecerFrame extends JFrame implements ActionListener {
     private final JButton izmeniButton = new JButton("Izmeni voznju");
     private final JButton izbrisiButton = new JButton("Obrisi voznju");
     private final JButton dodeliButton = new JButton("Dodeli vozaca");
+    private final JButton izvestajiButton = new JButton("Izvestaji");
     private final JButton nazadButton = new JButton("Nazad");
     private final JButton pretraziButton = new JButton("Pretrazi");
     private JTable tabela;
@@ -45,8 +46,9 @@ public class ListaVoznjiDispecerFrame extends JFrame implements ActionListener {
         izbrisiButton.setBounds(15,110,150,24);
         izmeniButton.setBounds(180,110,150,24);
         dodeliButton.setBounds(345,110,150,24);
-        nazadButton.setBounds(510,110,110,24);
+        izvestajiButton.setBounds(510,110,110,24);
         pretraziButton.setBounds(675,110,110,24);
+        nazadButton.setBounds(840,110,110,24);
     }
 
     public void addComponentsToContainer() {
@@ -54,6 +56,7 @@ public class ListaVoznjiDispecerFrame extends JFrame implements ActionListener {
         container.add(izmeniButton);
         container.add(nazadButton);
         container.add(dodeliButton);
+        container.add(izvestajiButton);
         container.add(pretraziButton);
     }
 
@@ -62,6 +65,7 @@ public class ListaVoznjiDispecerFrame extends JFrame implements ActionListener {
         izbrisiButton.addActionListener(this);
         dodeliButton.addActionListener(this);
         nazadButton.addActionListener(this);
+        izvestajiButton.addActionListener(this);
         pretraziButton.addActionListener(this);
     }
     
@@ -186,7 +190,9 @@ public class ListaVoznjiDispecerFrame extends JFrame implements ActionListener {
                 }
             }
         } else if (e.getSource() == pretraziButton) {
-            FrameLauncher.launchPretraziVoznje(tabela);
+            FrameLauncher.launchPretraziVoznjeFrame(tabela);
+        } else if (e.getSource() == izvestajiButton) {
+            FrameLauncher.launchIzvestajiFrame();
         } else if (e.getSource() == nazadButton) {
             this.dispose();
             this.setVisible(false);

@@ -1,36 +1,73 @@
 // remove po indexu, remove last, remove object
 package strukture;
 
-public class Lista<T> {
-    private Element<T> prvi;
-    private Element<T> poslednji;
+import java.util.Iterator;
 
-public Lista() {
-}
+public class Lista<T> implements Iterable<T> {
+    private ListNode<T> head;
+    private ListNode<T> tail;
+    private int velicina;
 
-public void add(T podatak) {
-    if (prvi == null) {
-        prvi = new Element<T>(podatak);
-        poslednji = prvi;
-    } else {
-        Element<T> temp = new Element<T>(podatak);
-        poslednji.setSledeci(temp);
-        poslednji = temp;
+    public Lista() {}
+
+//    public void addFirst(T element) {
+//        ListNode<T> node = new ListNode<T>(element);
+//        if (head == null) {
+//            head = node;
+//        } else {
+//            head.setPrethodni(node);
+//            node.setSledeci(head);
+//            head = node;
+//        }
+//        velicina++;
+//    }
+    public void add(T element) {
+        ListNode<T> node = new ListNode<T>(element);
+        if(head == null) {
+            head = node;
+        } else {
+            ListNode<T> current = head;
+            while (current.getSledeci() != null) {
+                current = current.getSledeci();
+            }
+            current.setSledeci(node);
+            node.setPrethodni(current);
+        }
+        velicina++;
+    }
+
+    public T getElement(int index) {
+        if(index < 0 || index >= velicina) {
+            throw new IndexOutOfBoundsException("Indeks prevazilazi velicinu liste");
+        }
+        ListNode<T> currentNode = head;
+        int i = 0;
+        while (currentNode != null) {
+            if(index == i) {
+                return currentNode.getElement();
+            }
+            currentNode = currentNode.getSledeci();
+            i++;
+        }
+        return null;
+    }
+
+    public int getSize() { return velicina;}
+    
+    public ListNode<T> getHead(){
+        return head;
+    }
+
+    public ListNode<T> getTail(){
+        return tail;
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return new ListaIterator<T>(this);
     }
 }
 
 // Sta ako je index out of range
     // Sta ako je poslednji
-public void removeAtIndex(int index) {
-    if (index == 0) {
-        prvi = prvi.getSledeci();
-        return;
-    }
-    int brojac = 0;
-    for(Element<T> i = prvi; i != null; i = i.getSledeci()) {
-        if(brojac == index-1) {
-            i.setSledeci(i.getSledeci().getSledeci());
-        }
-    }
-}
-}
+

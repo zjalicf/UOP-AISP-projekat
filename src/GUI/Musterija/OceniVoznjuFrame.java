@@ -94,6 +94,9 @@ public class OceniVoznjuFrame extends JFrame implements ActionListener {
                 this.setVisible(false);
                 JOptionPane.showMessageDialog(null, "Uspesno ste ocenili voznju", "STATIM", JOptionPane.INFORMATION_MESSAGE);
             }
+        } else if (e.getSource() == cancelButton){
+            this.dispose();
+            this.setVisible(false);
         }
     }
 }

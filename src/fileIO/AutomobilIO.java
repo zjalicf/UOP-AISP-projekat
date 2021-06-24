@@ -4,14 +4,17 @@ import entiteti.Automobil;
 import enums.Model;
 import enums.Proizvodjac;
 import enums.VrstaAutomobila;
+import strukture.Lista;
 
-import java.io.*;
-import java.util.ArrayList;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 
 public class AutomobilIO {
 
-    public static ArrayList<Automobil> automobilCitanje() {
-        ArrayList<Automobil> automobili = new ArrayList<>();
+    public static Lista<Automobil> automobilCitanje() {
+        Lista<Automobil> automobili = new Lista<>();
         try {
             File file = new File("src/txtPodaci/automobili.txt");
             BufferedReader reader = new BufferedReader(new FileReader(file));
@@ -41,30 +44,12 @@ public class AutomobilIO {
         return automobili;
     }
 
-    public static ArrayList<String> getIdSvihAutomobila() {
-        ArrayList<String> automobiliId = new ArrayList<>();
-        ArrayList<Automobil> sviAutomobili = automobilCitanje();
+    public static Lista<String> getIdSvihAutomobila() {
+        Lista<String> automobiliId = new Lista<>();
+        Lista<Automobil> sviAutomobili = automobilCitanje();
         for (Automobil automobil: sviAutomobili) {
             automobiliId.add(automobil.getIdAutomobila() + "");
         }
         return automobiliId;
     }
-
-//    public static void automobilUpis(ArrayList<Automobil> automobili) {
-//        String newString = "";
-//        for (Automobil automobil : automobili) {
-//            newString += automobil.getModel() + "|" + automobil.getProizvodjac() + "|" +
-//                    automobil.getGodinaProizvodnje() + "|" + automobil.getIdAutomobila() + "|" + automobil.getRegOznaka() + "|" +
-//                    automobil.getBrojVozila()  + "|" +automobil.getVrstaAutomobila() + "\n";
-//        }
-//        try {
-//            File file = new File("src/txtPodaci/automobili.txt");
-//            BufferedWriter writer = new BufferedWriter(new FileWriter(file));
-//            writer.write(newString);
-//            writer.close();
-//        }
-//        catch(IOException e) {
-//            System.out.println("x");
-//        }
-//    }
 }
