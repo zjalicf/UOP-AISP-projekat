@@ -3,12 +3,12 @@ package GUI.Vozac;
 import entiteti.Voznja;
 import enums.StatusVoznje;
 import fileIO.VoznjaIO;
+import strukture.Lista;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 public class ZavrsiVoznjuFrame extends JFrame implements ActionListener {
     Container container = getContentPane();
@@ -58,7 +58,7 @@ public class ZavrsiVoznjuFrame extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == potvrdiButton) {
-            ArrayList<Voznja> voznje = VoznjaIO.getVoznje();
+            Lista<Voznja> voznje = VoznjaIO.getVoznje();
             for (Voznja voznja: voznje) {
                 if (voznja.getIdVoznje().equals(voznjaId)) {
                     voznja.setStatusVoznje(StatusVoznje.ZAVRSENA);

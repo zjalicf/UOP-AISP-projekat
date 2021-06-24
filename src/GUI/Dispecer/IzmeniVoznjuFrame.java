@@ -5,12 +5,12 @@ import entiteti.Voznja;
 import enums.StatusVoznje;
 import fileIO.KorisnikIO;
 import fileIO.VoznjaIO;
+import strukture.Lista;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 public class IzmeniVoznjuFrame extends JFrame implements ActionListener {
     private final String voznjaId;
@@ -74,7 +74,7 @@ public class IzmeniVoznjuFrame extends JFrame implements ActionListener {
     public boolean provera() {
         boolean correct = true;
         String output = "Greske:\n";
-        ArrayList<String> idVozaca = new ArrayList<>();
+        Lista<String> idVozaca = new Lista<>(2);
 
         if (this.adresaPolaskaField.getText().trim().equals("")) {
             output = output + "Unesite adresu polaska\n";
@@ -97,7 +97,7 @@ public class IzmeniVoznjuFrame extends JFrame implements ActionListener {
             }
         }
 
-        if (idVozaca.size() == 0) {
+        if (idVozaca.getSize() == 0) {
             output = output + "Ne postoji vozac sa takvim ID\n";
             correct = false;
         }
@@ -226,7 +226,7 @@ public class IzmeniVoznjuFrame extends JFrame implements ActionListener {
                         voznja.setObrisan(false);
                     }
                 }
-                ArrayList<Voznja> sve = VoznjaIO.getVoznje();
+                Lista<Voznja> sve = VoznjaIO.getVoznje();
                 VoznjaIO.voznjaUpis(sve);
                 this.dispose();
                 this.setVisible(false);

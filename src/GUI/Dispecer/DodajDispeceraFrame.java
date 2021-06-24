@@ -5,12 +5,12 @@ import entiteti.Korisnik;
 import enums.Odeljenje;
 import enums.Pol;
 import fileIO.KorisnikIO;
+import strukture.Lista;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 public class DodajDispeceraFrame extends JFrame implements ActionListener {
     Container container = getContentPane();
@@ -233,7 +233,7 @@ public class DodajDispeceraFrame extends JFrame implements ActionListener {
                             JOptionPane.WARNING_MESSAGE);
                 } else {
                     Dispecer novi = new Dispecer(id, ime, prezime, pol, adresa, telefon, jmbg, username, password, false, plata, odeljenje, brTelefonskeLinije);
-                    ArrayList<Korisnik> sviKorisnici = KorisnikIO.korisnikCitanje();
+                    Lista<Korisnik> sviKorisnici = KorisnikIO.korisnikCitanje();
                     sviKorisnici.add(novi);
                     KorisnikIO.korisnikUpis(sviKorisnici);
                     this.dispose();

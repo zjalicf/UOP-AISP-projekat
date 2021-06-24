@@ -1,12 +1,13 @@
 package GUI.Dispecer;
 
+import strukture.Lista;
+
 import javax.swing.*;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 public class PretraziVoznjeFrame extends JFrame implements ActionListener {
     private final JTable tabela;
@@ -70,7 +71,7 @@ public class PretraziVoznjeFrame extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == confirmButton) {
-            ArrayList<RowFilter<Object,Object>> filters = new ArrayList<>(2);
+            Lista<RowFilter<Object,Object>> filters = new Lista<>(2);
             filters.add(RowFilter.regexFilter(imeField.getText().trim()));
             filters.add(RowFilter.regexFilter(prezimeField.getText().trim()));
             RowFilter<Object, Object> rf = RowFilter.andFilter(filters);

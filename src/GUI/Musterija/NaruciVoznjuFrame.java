@@ -4,6 +4,7 @@ import entiteti.Korisnik;
 import entiteti.Voznja;
 import enums.StatusVoznje;
 import fileIO.VoznjaIO;
+import strukture.Lista;
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,7 +12,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 
 public class NaruciVoznjuFrame extends JFrame implements ActionListener {
     private final Korisnik ulogovani;
@@ -87,7 +87,7 @@ public class NaruciVoznjuFrame extends JFrame implements ActionListener {
 
         Voznja novaVoznja = new Voznja(datum, adresaPolaska, adresaDestinacije, idMusterije, idVozaca, predjenoKm, trajanjeVoznje, statusVoznje,
                 idVoznje, ocena, false);
-        ArrayList<Voznja> sveVoznje = VoznjaIO.voznjaCitanje();
+        Lista<Voznja> sveVoznje = VoznjaIO.voznjaCitanje();
         sveVoznje.add(novaVoznja);
         VoznjaIO.voznjaUpis(sveVoznje);
         JOptionPane.showMessageDialog(null, "Uspesno ste narucili voznju", "STATIM", JOptionPane.INFORMATION_MESSAGE);

@@ -14,7 +14,7 @@ import java.io.IOException;
 public class AutomobilIO {
 
     public static Lista<Automobil> automobilCitanje() {
-        Lista<Automobil> automobili = new Lista<>();
+        Lista<Automobil> automobili = new Lista<>(2);
         try {
             File file = new File("src/txtPodaci/automobili.txt");
             BufferedReader reader = new BufferedReader(new FileReader(file));
@@ -45,7 +45,7 @@ public class AutomobilIO {
     }
 
     public static Lista<String> getIdSvihAutomobila() {
-        Lista<String> automobiliId = new Lista<>();
+        Lista<String> automobiliId = new Lista<>(2);
         Lista<Automobil> sviAutomobili = automobilCitanje();
         for (Automobil automobil: sviAutomobili) {
             automobiliId.add(automobil.getIdAutomobila() + "");

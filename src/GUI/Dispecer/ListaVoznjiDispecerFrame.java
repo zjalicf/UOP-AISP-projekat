@@ -7,6 +7,7 @@ import enums.StatusVoznje;
 import fileIO.KorisnikIO;
 import fileIO.VoznjaIO;
 import org.json.JSONException;
+import strukture.Lista;
 import utility.DriverHandler;
 
 import javax.swing.*;
@@ -72,10 +73,10 @@ public class ListaVoznjiDispecerFrame extends JFrame implements ActionListener {
     public void initGUI() {
         String[] title = new String[] {"Datum" ,"Polazak", "Destinacija", "ID Musterije", "ID Vozaca", "km", "Trajanje", "Status", "ID Voznje",
                 "Ocena"};
-        Object[][] sadrzaj = new Object[VoznjaIO.getVoznje().size()][title.length];
+        Object[][] sadrzaj = new Object[VoznjaIO.getVoznje().getSize()][title.length];
 
-        for(int i = 0; i < VoznjaIO.getVoznje().size(); i++) {
-            Voznja voznja = VoznjaIO.getVoznje().get(i);
+        for(int i = 0; i < VoznjaIO.getVoznje().getSize(); i++) {
+            Voznja voznja = VoznjaIO.getVoznje().getElement(i);
             sadrzaj[i][0] = voznja.getDatumPorudzbine();
             sadrzaj[i][1] = voznja.getAdresaPolaska();
             sadrzaj[i][2] = voznja.getAdresaDestinacije();
@@ -114,7 +115,7 @@ public class ListaVoznjiDispecerFrame extends JFrame implements ActionListener {
             } else {
                 String voznjaId = tabela.getValueAt(red, 8).toString();
                 String status = tabela.getValueAt(red, 7).toString();
-                ArrayList<Voznja> voznje = VoznjaIO.getVoznje();
+                Lista<Voznja> voznje = VoznjaIO.getVoznje();
                 int izbor = JOptionPane.showConfirmDialog(null,
                         "Da li sigurno zelite da obrisete voznju?", "STATIM", JOptionPane.YES_NO_OPTION);
                 if (izbor == JOptionPane.YES_OPTION) {
@@ -147,7 +148,7 @@ public class ListaVoznjiDispecerFrame extends JFrame implements ActionListener {
             } else {
                 String voznjaId = tabela.getValueAt(red, 8).toString();
                 String statusVoznje = tabela.getValueAt(red, 7).toString();
-                ArrayList<Voznja> voznje = VoznjaIO.getVoznje();
+                Lista<Voznja> voznje = VoznjaIO.getVoznje();
                 String imeVozaca = "";
                 String prezimeVozaca = "";
                 String idVozaca = "";
@@ -192,7 +193,7 @@ public class ListaVoznjiDispecerFrame extends JFrame implements ActionListener {
         } else if (e.getSource() == pretraziButton) {
             FrameLauncher.launchPretraziVoznjeFrame(tabela);
         } else if (e.getSource() == izvestajiButton) {
-            FrameLauncher.launchIzvestajiFrame();
+//            FrameLauncher.launchIzvestajiFrame();
         } else if (e.getSource() == nazadButton) {
             this.dispose();
             this.setVisible(false);

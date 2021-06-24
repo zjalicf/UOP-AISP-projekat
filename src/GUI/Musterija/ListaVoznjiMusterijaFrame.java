@@ -50,9 +50,9 @@ public class ListaVoznjiMusterijaFrame extends JFrame implements ActionListener 
 
     public void initGUI() {
         String[] title = new String[] {"Datum" ,"Polazak", "Destinacija", "Ime Vozaca", "km", "Trajanje", "ID Voznje", "Ocena"};
-        Object[][] sadrzaj = new Object[VoznjaIO.getVoznje().size()][title.length];
-        for(int i = 0; i < VoznjaIO.getVoznje().size(); i++) {
-            Voznja voznja = VoznjaIO.getVoznje().get(i);
+        Object[][] sadrzaj = new Object[VoznjaIO.getVoznje().getSize()][title.length];
+        for(int i = 0; i < VoznjaIO.getVoznje().getSize(); i++) {
+            Voznja voznja = VoznjaIO.getVoznje().getElement(i);
             String idVozaca = voznja.getIdVozaca();
             String imeVozaca = "";
             for (Vozac vozac : KorisnikIO.getVozaci()) {

@@ -8,7 +8,7 @@ public class Lista<T> implements Iterable<T> {
     private ListNode<T> tail;
     private int velicina;
 
-    public Lista() {}
+    public Lista(int i) {}
 
 //    public void addFirst(T element) {
 //        ListNode<T> node = new ListNode<T>(element);
@@ -34,6 +34,23 @@ public class Lista<T> implements Iterable<T> {
             node.setPrethodni(current);
         }
         velicina++;
+    }
+
+    public int indexOf(T element){
+        int index = 0;
+        ListNode<T> current = head;
+        while(current != null){
+            if (current.getElement().equals(element)){
+                return index;
+            }
+            current = current.getSledeci();
+            index ++;
+        }
+        return -1;
+    }
+
+    public boolean contains(T element) {
+        return indexOf(element) >= 0;
     }
 
     public T getElement(int index) {

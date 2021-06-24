@@ -5,13 +5,13 @@ import entiteti.Korisnik;
 import entiteti.Voznja;
 import enums.StatusVoznje;
 import fileIO.VoznjaIO;
+import strukture.Lista;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 import static javax.swing.BorderFactory.createEmptyBorder;
 
@@ -67,8 +67,8 @@ public class ListaVoznjiVozacFrame extends JFrame implements ActionListener {
         }
         int brojac = 0;
         Object[][] sadrzajFilter = new Object[brojVoznji][title.length];
-        for(int i = 0; i < VoznjaIO.getVoznje().size(); i++) {
-            Voznja voznja = VoznjaIO.getVoznje().get(i);
+        for(int i = 0; i < VoznjaIO.getVoznje().getSize(); i++) {
+            Voznja voznja = VoznjaIO.getVoznje().getElement(i);
 
             if (ulogovani.getIdKorisnika().equals(voznja.getIdVozaca())) {
                 sadrzajFilter[brojac][0] = voznja.getDatumPorudzbine();
@@ -107,7 +107,7 @@ public class ListaVoznjiVozacFrame extends JFrame implements ActionListener {
                 JOptionPane.showMessageDialog(null, "Morate odabrati red u tabeli", "STATIM", JOptionPane.WARNING_MESSAGE);
             }else {
                 String voznjaId = tabela.getValueAt(red, 6).toString();
-                ArrayList<Voznja> voznje = VoznjaIO.getVoznje();
+                Lista<Voznja> voznje = VoznjaIO.getVoznje();
                 int izbor = JOptionPane.showConfirmDialog(null,
                         "Da li ste sigurni da zelite da prihvatite voznju?",
                         "STATIM", JOptionPane.YES_NO_OPTION);
@@ -125,7 +125,7 @@ public class ListaVoznjiVozacFrame extends JFrame implements ActionListener {
                 JOptionPane.showMessageDialog(null, "Morate odabrati red u tabeli", "Greska", JOptionPane.WARNING_MESSAGE);
             }else {
                 String voznjaId = tabela.getValueAt(red, 6).toString();
-                ArrayList<Voznja> voznje = VoznjaIO.getVoznje();
+                Lista<Voznja> voznje = VoznjaIO.getVoznje();
                 int izbor = JOptionPane.showConfirmDialog(null,
                         "Da li sigurno zelite da odbijete voznju?",
                         "STATIM", JOptionPane.YES_NO_OPTION);

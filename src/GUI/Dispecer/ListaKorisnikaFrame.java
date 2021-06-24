@@ -5,13 +5,13 @@ import entiteti.Dispecer;
 import entiteti.Korisnik;
 import entiteti.Vozac;
 import fileIO.KorisnikIO;
+import strukture.Lista;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 import static javax.swing.BorderFactory.createEmptyBorder;
 
@@ -62,9 +62,9 @@ public class ListaKorisnikaFrame extends JFrame implements ActionListener {
     public void initGUI(int tip) {
         if (tip == 0) {
             String[] title = new String[] {"ID" ,"Ime", "Prezime", "Pol", "Adresa", "Broj telefona", "Kor ime", "Plata", "Broj karte", "ID Automobila"};
-            Object[][] sadrzaj = new Object[KorisnikIO.getVozaci().size()][title.length];
-            for(int i = 0; i < KorisnikIO.getVozaci().size(); i++) {
-                Vozac vozac = KorisnikIO.getVozaci().get(i);
+            Object[][] sadrzaj = new Object[KorisnikIO.getVozaci().getSize()][title.length];
+            for(int i = 0; i < KorisnikIO.getVozaci().getSize(); i++) {
+                Vozac vozac = KorisnikIO.getVozaci().getElement(i);
                 if (!vozac.isObrisan()) {
                     sadrzaj[i][0] = vozac.getIdKorisnika();
                     sadrzaj[i][1] = vozac.getIme();
@@ -82,10 +82,10 @@ public class ListaKorisnikaFrame extends JFrame implements ActionListener {
 
         } else if (tip == 1) {
             String[] title = new String[] {"ID" ,"Ime", "Prezime", "Pol", "Adresa", "Broj telefona", "Kor ime", "Plata", "Odeljenje", "Broj linije"};
-            Object[][] sadrzaj = new Object[KorisnikIO.getDispeceri().size()][title.length];
+            Object[][] sadrzaj = new Object[KorisnikIO.getDispeceri().getSize()][title.length];
 
-            for(int i = 0; i < KorisnikIO.getDispeceri().size(); i++) {
-                Dispecer dispecer = KorisnikIO.getDispeceri().get(i);
+            for(int i = 0; i < KorisnikIO.getDispeceri().getSize(); i++) {
+                Dispecer dispecer = KorisnikIO.getDispeceri().getElement(i); //cudno
                 if (!dispecer.isObrisan()) {
                     sadrzaj[i][0] = dispecer.getIdKorisnika();
                     sadrzaj[i][1] = dispecer.getIme();
@@ -126,7 +126,7 @@ public class ListaKorisnikaFrame extends JFrame implements ActionListener {
                 JOptionPane.showMessageDialog(null, "Morate odabrati red u tabeli", "STATIM", JOptionPane.WARNING_MESSAGE);
             } else {
                 String korisnikId = tabela.getValueAt(red, 0).toString();
-                ArrayList<Korisnik> korisnici = KorisnikIO.getKorisnici();
+                Lista<Korisnik> korisnici = KorisnikIO.getKorisnici();
                 int izbor = JOptionPane.showConfirmDialog(null,
                         "Da li sigurno zelite da obrisete korisnika?",
                         "STATIM", JOptionPane.YES_NO_OPTION);
@@ -156,8 +156,6 @@ public class ListaKorisnikaFrame extends JFrame implements ActionListener {
             }
         } else if (e.getSource() == dodajButton) {
             FrameLauncher.launchDodajKorisnikaFrame(tip);
-//            DefaultTableModel dtm = (DefaultTableModel)tabela.getModel();
-//            dtm.addRow();
         } else if (e.getSource() == nazadButton) {
             this.dispose();
             this.setVisible(false);

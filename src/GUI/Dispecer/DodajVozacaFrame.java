@@ -4,12 +4,12 @@ import entiteti.Korisnik;
 import entiteti.Vozac;
 import enums.Pol;
 import fileIO.KorisnikIO;
+import strukture.Lista;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 public class DodajVozacaFrame extends JFrame implements ActionListener {
     Container container = getContentPane();
@@ -124,7 +124,6 @@ public class DodajVozacaFrame extends JFrame implements ActionListener {
             output = output + "Unesite ID\n";
             correct = false;
         }
-
         if (KorisnikIO.getIdSvihKorisnika().contains(this.idField.getText().trim())) {
             output = output + "Korisnik sa takvim ID vec postoji\n";
             correct = false;
@@ -239,7 +238,7 @@ public class DodajVozacaFrame extends JFrame implements ActionListener {
 // idAutomobila je 1
                 Vozac novi = new Vozac(id, ime, prezime, pol, adresa, telefon, jmbg, username, password, false, plata, brKarte, "1",
                         lokacija);
-                ArrayList<Korisnik> sviKorisnici = KorisnikIO.korisnikCitanje();
+                Lista<Korisnik> sviKorisnici = KorisnikIO.korisnikCitanje();
                 sviKorisnici.add(novi);
                 KorisnikIO.korisnikUpis(sviKorisnici);
                 this.dispose();

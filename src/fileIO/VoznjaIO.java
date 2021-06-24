@@ -2,14 +2,14 @@ package fileIO;
 
 import entiteti.Voznja;
 import enums.StatusVoznje;
+import strukture.Lista;
 
 import java.io.*;
-import java.util.ArrayList;
 
 public class VoznjaIO {
 
-    public static ArrayList<Voznja> voznjaCitanje() {
-        ArrayList<Voznja> voznje = new ArrayList<Voznja>();
+    public static Lista<Voznja> voznjaCitanje() {
+        Lista<Voznja> voznje = new Lista<>(0);
         try {
             File file = new File("src/txtPodaci/voznje.txt");
             BufferedReader reader = new BufferedReader(new FileReader(file));
@@ -40,7 +40,7 @@ public class VoznjaIO {
         return voznje;
     }
 
-    public static void voznjaUpis(ArrayList<Voznja> voznje) {
+    public static void voznjaUpis(Lista<Voznja> voznje) {
         String newString = "";
         for (Voznja voznja : voznje) {
             newString += voznja.getDatumPorudzbine() + "|" + voznja.getAdresaPolaska() + "|" +
@@ -59,9 +59,9 @@ public class VoznjaIO {
         }
     }
 
-    static ArrayList<Voznja> sveVoznje = VoznjaIO.voznjaCitanje();
+    static Lista<Voznja> sveVoznje = VoznjaIO.voznjaCitanje();
 
-    public static ArrayList<Voznja> getVoznje() {
+    public static Lista<Voznja> getVoznje() {
         return sveVoznje;
     }
 }

@@ -6,14 +6,14 @@ import entiteti.Musterija;
 import entiteti.Vozac;
 import enums.Odeljenje;
 import enums.Pol;
+import strukture.Lista;
 
 import java.io.*;
-import java.util.ArrayList;
 
 public class KorisnikIO {
 
-    public static ArrayList<Korisnik> korisnikCitanje() {
-        ArrayList<Korisnik> korisnici = new ArrayList<>();
+    public static Lista<Korisnik> korisnikCitanje() {
+        Lista<Korisnik> korisnici = new Lista<>(2);
         try {
             File file = new File("src/txtPodaci/korisnici.txt");
             BufferedReader reader = new BufferedReader(new FileReader(file));
@@ -68,7 +68,7 @@ public class KorisnikIO {
         return korisnici;
     }
 
-    public static void korisnikUpis(ArrayList<Korisnik> korisnici) {
+    public static void korisnikUpis(Lista<Korisnik> korisnici) {
         String newString = "";
         for (Korisnik korisnik : korisnici) {
             if (korisnik instanceof Dispecer) {
@@ -102,14 +102,14 @@ public class KorisnikIO {
             System.out.println("Greska! Upisivanje nije moguce");
         }
     }
-    static ArrayList<Korisnik> sviKorisnici = KorisnikIO.korisnikCitanje();
+    static Lista<Korisnik> sviKorisnici = KorisnikIO.korisnikCitanje();
 
-    public static ArrayList<Korisnik> getKorisnici() {
+    public static Lista<Korisnik> getKorisnici() {
         return sviKorisnici;
     }
 
-    public static ArrayList<Dispecer> getDispeceri() {
-        ArrayList<Dispecer> sviDispeceri = new ArrayList<>();
+    public static Lista<Dispecer> getDispeceri() {
+        Lista<Dispecer> sviDispeceri = new Lista<>(2);
         for(Korisnik korisnik : getKorisnici()) {
             if(korisnik instanceof Dispecer) {
                 sviDispeceri.add((Dispecer) korisnik);
@@ -118,8 +118,8 @@ public class KorisnikIO {
         return sviDispeceri;
     }
 
-    public static ArrayList<Vozac> getVozaci() {
-        ArrayList<Vozac> sviVozaci = new ArrayList<>();
+    public static Lista<Vozac> getVozaci() {
+        Lista<Vozac> sviVozaci = new Lista<>(2);
         for(Korisnik korisnik : getKorisnici()) {
             if(korisnik instanceof Vozac) {
                 sviVozaci.add((Vozac) korisnik);
@@ -128,9 +128,9 @@ public class KorisnikIO {
         return sviVozaci;
     }
 
-    public static ArrayList<String> getIdSvihKorisnika() {
-        ArrayList<String> IdSvihKorisnika = new ArrayList<String>();
-        ArrayList<Korisnik> sviKorisnici = KorisnikIO.korisnikCitanje();
+    public static Lista<String> getIdSvihKorisnika() {
+        Lista<String> IdSvihKorisnika = new Lista<>(2);
+        Lista<Korisnik> sviKorisnici = KorisnikIO.korisnikCitanje();
         for(Korisnik korisnik : sviKorisnici) {
             IdSvihKorisnika.add((String.valueOf(korisnik.getIdKorisnika())));
         }

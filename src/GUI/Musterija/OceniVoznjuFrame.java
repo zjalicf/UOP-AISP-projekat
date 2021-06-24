@@ -3,12 +3,12 @@ package GUI.Musterija;
 import entiteti.Voznja;
 import enums.StatusVoznje;
 import fileIO.VoznjaIO;
+import strukture.Lista;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 public class OceniVoznjuFrame extends JFrame implements ActionListener {
     private final String voznjaId;
@@ -88,7 +88,7 @@ public class OceniVoznjuFrame extends JFrame implements ActionListener {
                         voznja.setOcenaVoznje(ocena);
                     }
                 }
-                ArrayList<Voznja> sve = VoznjaIO.getVoznje();
+                Lista<Voznja> sve = VoznjaIO.getVoznje();
                 VoznjaIO.voznjaUpis(sve);
                 this.dispose();
                 this.setVisible(false);
