@@ -158,10 +158,25 @@ public class FrameLauncher {
         displayIzvestajFrame.setBounds(20, 20, 200, 200);
         displayIzvestajFrame.setResizable(false);
     }
+
     public static void launchGodisnjiIzvestajFrame() {
         GodisnjiIzvestajFrame godisnjiIzvestajFrame = new GodisnjiIzvestajFrame();
         godisnjiIzvestajFrame.setVisible(true);
         godisnjiIzvestajFrame.setBounds(20, 20, 200, 200);
         godisnjiIzvestajFrame.setResizable(false);
+    }
+
+    public static void launchMesecniIzvestajFrame() {
+        MesecniIzvestajFrame mesecniIzvestajFrame = new MesecniIzvestajFrame();
+        mesecniIzvestajFrame.setVisible(true);
+        mesecniIzvestajFrame.setBounds(20, 20, 200, 200);
+        mesecniIzvestajFrame.setResizable(false);
+    }
+
+    public static void launchDnevniIzvestajFrame() {
+        DnevniIzvestajFrame dnevniIzvestajFrame = new DnevniIzvestajFrame();
+        dnevniIzvestajFrame.setVisible(true);
+        dnevniIzvestajFrame.setBounds(20, 20, 200, 200);
+        dnevniIzvestajFrame.setResizable(false);
     }
 }

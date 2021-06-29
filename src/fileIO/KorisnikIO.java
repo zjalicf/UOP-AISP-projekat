@@ -109,9 +109,9 @@ public class KorisnikIO {
     }
 
     public static Lista<Dispecer> getDispeceri() {
-        Lista<Dispecer> sviDispeceri = new Lista<>(2);
+        Lista<Dispecer> sviDispeceri = new Lista<>();
         for(Korisnik korisnik : getKorisnici()) {
-            if(korisnik instanceof Dispecer) {
+            if(korisnik instanceof Dispecer && !korisnik.isObrisan()) {
                 sviDispeceri.add((Dispecer) korisnik);
             }
         }
@@ -119,9 +119,9 @@ public class KorisnikIO {
     }
 
     public static Lista<Vozac> getVozaci() {
-        Lista<Vozac> sviVozaci = new Lista<>(2);
+        Lista<Vozac> sviVozaci = new Lista<>();
         for(Korisnik korisnik : getKorisnici()) {
-            if(korisnik instanceof Vozac) {
+            if(korisnik instanceof Vozac && !korisnik.isObrisan()) {
                 sviVozaci.add((Vozac) korisnik);
             }
         }
@@ -129,10 +129,12 @@ public class KorisnikIO {
     }
 
     public static Lista<String> getIdSvihKorisnika() {
-        Lista<String> IdSvihKorisnika = new Lista<>(2);
+        Lista<String> IdSvihKorisnika = new Lista<>();
         Lista<Korisnik> sviKorisnici = KorisnikIO.korisnikCitanje();
         for(Korisnik korisnik : sviKorisnici) {
-            IdSvihKorisnika.add((String.valueOf(korisnik.getIdKorisnika())));
+            if(!korisnik.isObrisan()) {
+                IdSvihKorisnika.add((String.valueOf(korisnik.getIdKorisnika())));
+            }
         }
         return IdSvihKorisnika;
     }

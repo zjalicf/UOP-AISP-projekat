@@ -10,6 +10,8 @@ public class Lista<T> implements Iterable<T> {
 
     public Lista(int i) {}
 
+    public Lista() {}
+
 //    public void addFirst(T element) {
 //        ListNode<T> node = new ListNode<T>(element);
 //        if (head == null) {

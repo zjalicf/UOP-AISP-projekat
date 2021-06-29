@@ -55,11 +55,11 @@ public class IzvestajiFrame extends JFrame implements ActionListener {
         if (e.getSource() == godisnjiIzvestaj) {
             FrameLauncher.launchGodisnjiIzvestajFrame();
         } else if (e.getSource() == mesecniIzvestaj) {
-            //godina i mesec
+            FrameLauncher.launchMesecniIzvestajFrame();
         } else if (e.getSource() == nedeljniIzvestaj) {
             //godina, mesec i broj nedelje
         } else if (e.getSource() == dnevniIzvestaj) {
-            //datum
+            FrameLauncher.launchDnevniIzvestajFrame();
         } else if (e.getSource() == cancelButton) {
             this.dispose();
             this.setVisible(false);

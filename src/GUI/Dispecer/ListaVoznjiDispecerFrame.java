@@ -64,15 +64,34 @@ public class ListaVoznjiDispecerFrame extends JFrame implements ActionListener {
         nazadButton.addActionListener(this);
         izvestajiButton.addActionListener(this);
     }
-    
-    public void initGUI() {
+
+    private void initGUI() {
+        Lista<Voznja> voznjeZaUpis = new Lista<>();
+        for (Voznja voznja: VoznjaIO.getVoznje()) {
+            if (!voznja.isObrisan()) {
+                voznjeZaUpis.add(voznja);
+            }
+        }
+        fillTable(voznjeZaUpis);
+    }
+
+    private void fillTable(Lista<Voznja> voznjeZaUpis) {
         String[] title = new String[] {"Datum" ,"Polazak", "Destinacija", "ID Musterije", "ID Vozaca", "km", "Trajanje", "Status", "ID Voznje",
                 "Ocena"};
-        Object[][] sadrzaj = new Object[VoznjaIO.getVoznje().getSize()][title.length];
-
-        for(int i = 0; i < VoznjaIO.getVoznje().getSize(); i++) {
-            Voznja voznja = VoznjaIO.getVoznje().getElement(i);
-            DisplayIzvestajFrame.volimIntelliJ(sadrzaj, i, voznja);
+        Object[][] sadrzaj = new Object[voznjeZaUpis.getSize()][title.length];
+        for (int i = 0; i < voznjeZaUpis.getSize(); i++) {
+            for (Voznja voznja: voznjeZaUpis) {
+                sadrzaj[i][0] = voznja.getDatumPorudzbine();
+                sadrzaj[i][1] = voznja.getAdresaPolaska();
+                sadrzaj[i][2] = voznja.getAdresaDestinacije();
+                sadrzaj[i][3] = voznja.getIdMusterije();
+                sadrzaj[i][4] = voznja.getIdVozaca();
+                sadrzaj[i][5] = voznja.getPredjenoKm();
+                sadrzaj[i][6] = voznja.getTrajanjeVoznje();
+                sadrzaj[i][7] = voznja.getStatusVoznje();
+                sadrzaj[i][8] = voznja.getIdVoznje();
+                sadrzaj[i][9] = voznja.getOcenaVoznje();
+            }
         }
         createTable(title, sadrzaj);
     }

@@ -6,19 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="a16849ee-ca85-4d1b-8bac-9a3202963179" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/Dispecer/IzmeniVozacaFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Dispecer/IzmeniVozacaFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/Dispecer/DisplayIzvestajFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Dispecer/DisplayIzvestajFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/Dispecer/IzvestajiFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Dispecer/IzvestajiFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/Dispecer/ListaKorisnikaFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Dispecer/ListaKorisnikaFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/Dispecer/ListaVoznjiDispecerFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Dispecer/ListaVoznjiDispecerFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/Dispecer/PretraziVoznjeFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Dispecer/PretraziVozaceFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/Dispecer/SelectedIzvestajFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Dispecer/SelectedIzvestajFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/FrameLauncher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/FrameLauncher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/Musterija/OceniVoznjuFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Musterija/OceniVoznjuFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fileIO/KorisnikIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fileIO/KorisnikIO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fileIO/VoznjaIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fileIO/VoznjaIO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/strukture/Lista.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/strukture/Lista.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/txtPodaci/adrese.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/txtPodaci/adrese.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/txtPodaci/korisnici.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/txtPodaci/korisnici.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utility/BinarySearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utility/BinarySearch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utility/DriverHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utility/DriverHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,13 +69,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -105,6 +102,7 @@
       <workItem from="1624537455657" duration="1731000" />
       <workItem from="1624791665114" duration="3165000" />
       <workItem from="1624975519006" duration="5011000" />
+      <workItem from="1624999193756" duration="4170000" />
     </task>
     <servers />
   </component>

@@ -87,9 +87,8 @@ public class ListaKorisnikaFrame extends JFrame implements ActionListener {
         } else if (tip == 1) {
             String[] title = new String[] {"ID" ,"Ime", "Prezime", "Pol", "Adresa", "Broj telefona", "Kor ime", "Plata", "Odeljenje", "Broj linije"};
             Object[][] sadrzaj = new Object[KorisnikIO.getDispeceri().getSize()][title.length];
-
             for(int i = 0; i < KorisnikIO.getDispeceri().getSize(); i++) {
-                Dispecer dispecer = KorisnikIO.getDispeceri().getElement(i); //cudno
+                Dispecer dispecer = KorisnikIO.getDispeceri().getElement(i);
                 if (!dispecer.isObrisan()) {
                     sadrzaj[i][0] = dispecer.getIdKorisnika();
                     sadrzaj[i][1] = dispecer.getIme();
