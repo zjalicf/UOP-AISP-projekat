@@ -21,6 +21,7 @@ public class ListaKorisnikaFrame extends JFrame implements ActionListener {
     private final JButton dodajButton = new JButton("Dodaj korisnika");
     private final JButton izmeniButton = new JButton("Izmeni korisnika");
     private final JButton izbrisiButton = new JButton("Obrisi korisnika");
+    private final JButton pretraziButton = new JButton("Pretrazi");
     private final JButton nazadButton = new JButton("Nazad");
     private JTable tabela;
     private DefaultTableModel tabelaModel;
@@ -42,7 +43,8 @@ public class ListaKorisnikaFrame extends JFrame implements ActionListener {
         izbrisiButton.setBounds(10,110,130,24);
         dodajButton.setBounds(150,110,130,24);
         izmeniButton.setBounds(290,110,130,24);
-        nazadButton.setBounds(430,110,130,24);
+        pretraziButton.setBounds(430,110,130,24);
+        nazadButton.setBounds(570,110,130,24);
     }
 
     public void addComponentsToContainer() {
@@ -50,6 +52,7 @@ public class ListaKorisnikaFrame extends JFrame implements ActionListener {
         container.add(izbrisiButton);
         container.add(izmeniButton);
         container.add(nazadButton);
+        container.add(pretraziButton);
     }
 
     public void addActionEvent() {
@@ -57,6 +60,7 @@ public class ListaKorisnikaFrame extends JFrame implements ActionListener {
         dodajButton.addActionListener(this);
         izbrisiButton.addActionListener(this);
         nazadButton.addActionListener(this);
+        pretraziButton.addActionListener(this);
     }
 
     public void initGUI(int tip) {
@@ -154,6 +158,8 @@ public class ListaKorisnikaFrame extends JFrame implements ActionListener {
                     }
                 }
             }
+        } else if (e.getSource() == pretraziButton) {
+            FrameLauncher.launchPretraziVoznjeFrame(tabela);
         } else if (e.getSource() == dodajButton) {
             FrameLauncher.launchDodajKorisnikaFrame(tip);
         } else if (e.getSource() == nazadButton) {

@@ -16,7 +16,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-import java.util.ArrayList;
 
 import static javax.swing.BorderFactory.createEmptyBorder;
 
@@ -27,7 +26,6 @@ public class ListaVoznjiDispecerFrame extends JFrame implements ActionListener {
     private final JButton dodeliButton = new JButton("Dodeli vozaca");
     private final JButton izvestajiButton = new JButton("Izvestaji");
     private final JButton nazadButton = new JButton("Nazad");
-    private final JButton pretraziButton = new JButton("Pretrazi");
     private JTable tabela;
     private DefaultTableModel tabelaModel;
 
@@ -48,8 +46,7 @@ public class ListaVoznjiDispecerFrame extends JFrame implements ActionListener {
         izmeniButton.setBounds(180,110,150,24);
         dodeliButton.setBounds(345,110,150,24);
         izvestajiButton.setBounds(510,110,110,24);
-        pretraziButton.setBounds(675,110,110,24);
-        nazadButton.setBounds(840,110,110,24);
+        nazadButton.setBounds(775,110,110,24);
     }
 
     public void addComponentsToContainer() {
@@ -58,7 +55,6 @@ public class ListaVoznjiDispecerFrame extends JFrame implements ActionListener {
         container.add(nazadButton);
         container.add(dodeliButton);
         container.add(izvestajiButton);
-        container.add(pretraziButton);
     }
 
     public void addActionEvent() {
@@ -67,7 +63,6 @@ public class ListaVoznjiDispecerFrame extends JFrame implements ActionListener {
         dodeliButton.addActionListener(this);
         nazadButton.addActionListener(this);
         izvestajiButton.addActionListener(this);
-        pretraziButton.addActionListener(this);
     }
     
     public void initGUI() {
@@ -77,16 +72,7 @@ public class ListaVoznjiDispecerFrame extends JFrame implements ActionListener {
 
         for(int i = 0; i < VoznjaIO.getVoznje().getSize(); i++) {
             Voznja voznja = VoznjaIO.getVoznje().getElement(i);
-            sadrzaj[i][0] = voznja.getDatumPorudzbine();
-            sadrzaj[i][1] = voznja.getAdresaPolaska();
-            sadrzaj[i][2] = voznja.getAdresaDestinacije();
-            sadrzaj[i][3] = voznja.getIdMusterije();
-            sadrzaj[i][4] = voznja.getIdVozaca();
-            sadrzaj[i][5] = voznja.getPredjenoKm();
-            sadrzaj[i][6] = voznja.getTrajanjeVoznje();
-            sadrzaj[i][7] = voznja.getStatusVoznje();
-            sadrzaj[i][8] = voznja.getIdVoznje();
-            sadrzaj[i][9] = voznja.getOcenaVoznje();
+            DisplayIzvestajFrame.volimIntelliJ(sadrzaj, i, voznja);
         }
         createTable(title, sadrzaj);
     }
@@ -190,10 +176,8 @@ public class ListaVoznjiDispecerFrame extends JFrame implements ActionListener {
                     }
                 }
             }
-        } else if (e.getSource() == pretraziButton) {
-            FrameLauncher.launchPretraziVoznjeFrame(tabela);
         } else if (e.getSource() == izvestajiButton) {
-//            FrameLauncher.launchIzvestajiFrame();
+            FrameLauncher.launchIzvestajiFrame();
         } else if (e.getSource() == nazadButton) {
             this.dispose();
             this.setVisible(false);

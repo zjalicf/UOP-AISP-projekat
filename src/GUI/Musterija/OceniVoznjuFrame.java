@@ -32,10 +32,10 @@ public class OceniVoznjuFrame extends JFrame implements ActionListener {
 
     public void setLocationAndSize() {
         ocenaLabel.setBounds(5,5,100,20);
-        ocenaField.setBounds(110,5,100,20);
+        ocenaField.setBounds(60,5,36,20);
 
-        confirmButton.setBounds(5,130,100,24);
-        cancelButton.setBounds(110,130,100,24);
+        confirmButton.setBounds(5,50,90,24);
+        cancelButton.setBounds(5,80,90,24);
     }
 
     public void addComponentsToContainer() {

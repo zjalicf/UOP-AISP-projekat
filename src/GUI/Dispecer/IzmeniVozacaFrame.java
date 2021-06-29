@@ -1,8 +1,12 @@
 package GUI.Dispecer;
 
 import entiteti.Vozac;
+import entiteti.Voznja;
 import enums.Pol;
+import enums.StatusVoznje;
+import fileIO.AutomobilIO;
 import fileIO.KorisnikIO;
+import fileIO.VoznjaIO;
 
 import javax.swing.*;
 import java.awt.*;
@@ -37,7 +41,7 @@ public class IzmeniVozacaFrame extends JFrame implements ActionListener {
     private final JLabel brKarteLabel = new JLabel("Broj karte: ");
     private final JTextField brKarteField = new JTextField(20);
     private final JLabel idAutomobilaLabel = new JLabel("ID automobila: ");
-//    private final JComboBox<String> idAutomobilaCb = new JComboBox<>(AutomobilIO.getIdSvihAutomobila().toArray(new String[AutomobilIO.getIdSvihAutomobila().size()]));
+    private final JComboBox<Object> idAutomobilaCb = new JComboBox<Object>(AutomobilIO.getIdSvihAutomobila().toArray());
 
     public IzmeniVozacaFrame(String korisnikId) {
         this.korisnikId = korisnikId;
@@ -67,12 +71,12 @@ public class IzmeniVozacaFrame extends JFrame implements ActionListener {
                 passwordField.setText(vozac.getPassword());
                 plataField.setText(String.valueOf(vozac.getPlata()));
                 brKarteField.setText(String.valueOf(vozac.getBrKarte()));
-//                idAutomobilaCb.setSelectedItem(vozac.getIdAutomobila());
-//                for (Voznja voznja: VoznjaIO.getVoznje()) {
-//                    if (voznja.getIdVozaca().equals(this.korisnikId) && voznja.getStatusVoznje().equals(StatusVoznje.PRIHVACENA)) {
-//                        idAutomobilaCb.setEnabled(false);
-//                    }
-//                }
+                idAutomobilaCb.setSelectedItem(vozac.getIdAutomobila());
+                for (Voznja voznja: VoznjaIO.getVoznje()) {
+                    if (voznja.getIdVozaca().equals(this.korisnikId) && voznja.getStatusVoznje().equals(StatusVoznje.PRIHVACENA)) {
+                        idAutomobilaCb.setEnabled(false);
+                    }
+                }
             }
         }
     }
@@ -102,7 +106,7 @@ public class IzmeniVozacaFrame extends JFrame implements ActionListener {
         passwordField.setBounds(110,205,100,20);
         plataField.setBounds(110,230,100,20);
         brKarteField.setBounds(110,255,100,20);
-//        idAutomobilaCb.setBounds(110,280,100,20);
+        idAutomobilaCb.setBounds(110,280,100,20);
 
         confirmButton.setBounds(5,310,100,24);
         cancelButton.setBounds(110,310,100,24);
@@ -134,7 +138,7 @@ public class IzmeniVozacaFrame extends JFrame implements ActionListener {
         container.add(brKarteLabel);
         container.add(brKarteField);
         container.add(idAutomobilaLabel);
-//        container.add(idAutomobilaCb);
+        container.add(idAutomobilaCb);
     }
 
     public void addActionEvent() {
@@ -249,7 +253,7 @@ public class IzmeniVozacaFrame extends JFrame implements ActionListener {
                 String password = this.passwordField.getText().trim();
                 double plata = Double.parseDouble(this.plataField.getText().trim());
                 int brKarte = Integer.parseInt(this.brKarteField.getText().trim());
-//                String idAutomobila = (String) this.idAutomobilaCb.getSelectedItem();
+                String idAutomobila = (String) this.idAutomobilaCb.getSelectedItem();
 
                 for(Vozac vozac : KorisnikIO.getVozaci()) {
                     if(vozac.getIdKorisnika().equals(id)) {
@@ -264,7 +268,7 @@ public class IzmeniVozacaFrame extends JFrame implements ActionListener {
                         vozac.setObrisan(false);
                         vozac.setPlata(plata);
                         vozac.setBrKarte(brKarte);
-//                        vozac.setIdAutomobila(idAutomobila);
+                        vozac.setIdAutomobila(idAutomobila);
                     }
                 }
                 KorisnikIO.korisnikUpis(KorisnikIO.getKorisnici());

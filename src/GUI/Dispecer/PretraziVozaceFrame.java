@@ -9,7 +9,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class PretraziVoznjeFrame extends JFrame implements ActionListener {
+public class PretraziVozaceFrame extends JFrame implements ActionListener {
     private final JTable tabela;
     Container container = getContentPane();
     private final JButton confirmButton = new JButton("Potvrdi");
@@ -23,7 +23,7 @@ public class PretraziVoznjeFrame extends JFrame implements ActionListener {
     private final JLabel idAutomobilaLabel = new JLabel("ID automobila: ");
     private final JTextField idAutomobilaField = new JTextField(20);
 
-    public PretraziVoznjeFrame(JTable tabela) {
+    public PretraziVozaceFrame(JTable tabela) {
         this.tabela = tabela;
         setLayoutManager();
         setLocationAndSize();
@@ -43,8 +43,8 @@ public class PretraziVoznjeFrame extends JFrame implements ActionListener {
 
         imeField.setBounds(110,5,100,20);
         prezimeField.setBounds(110,30,100,20);
-        plataLabel.setBounds(110,55,100,20);
-        idAutomobilaLabel.setBounds(110,80,100,20);
+        plataField.setBounds(110,55,100,20);
+        idAutomobilaField.setBounds(110,80,100,20);
 
         confirmButton.setBounds(5,130,100,24);
         cancelButton.setBounds(110,130,100,24);
@@ -74,6 +74,8 @@ public class PretraziVoznjeFrame extends JFrame implements ActionListener {
             Lista<RowFilter<Object,Object>> filters = new Lista<>(2);
             filters.add(RowFilter.regexFilter(imeField.getText().trim()));
             filters.add(RowFilter.regexFilter(prezimeField.getText().trim()));
+            filters.add(RowFilter.regexFilter(plataField.getText().trim()));
+            filters.add(RowFilter.regexFilter(idAutomobilaField.getText().trim()));
             RowFilter<Object, Object> rf = RowFilter.andFilter(filters);
             TableRowSorter<TableModel> rowSorter = new TableRowSorter<>(tabela.getModel());
             rowSorter.setRowFilter(rf);

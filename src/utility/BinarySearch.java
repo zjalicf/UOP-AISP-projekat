@@ -14,7 +14,6 @@ public class BinarySearch {
     }
 
     public Korisnik korisnikBinarySearch(ArrayList<Korisnik> lista, int target, int low, int high) {
-
         if(low > high) {
             return null;
         }
@@ -35,7 +34,6 @@ public class BinarySearch {
     }
 
     public Automobil automobilBinarySearch(ArrayList<Automobil> lista, int target, int low, int high) {
-
         if(low > high) {
             return null;
         }
@@ -56,7 +54,6 @@ public class BinarySearch {
     }
 
     public  Voznja voznjaBinarySearch(ArrayList<Voznja> lista, int target, int low, int high) {
-
         if(low > high) {
             return null;
         }

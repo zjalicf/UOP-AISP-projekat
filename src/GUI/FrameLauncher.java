@@ -132,30 +132,36 @@ public class FrameLauncher {
     }
 
     public static void launchPretraziVoznjeFrame(JTable tabela) {
-        PretraziVoznjeFrame pretraziVoznjeFrame = new PretraziVoznjeFrame(tabela);
+        PretraziVozaceFrame pretraziVoznjeFrame = new PretraziVozaceFrame(tabela);
         pretraziVoznjeFrame.setVisible(true);
-        pretraziVoznjeFrame.setBounds(20, 20, 234, 384);
+        pretraziVoznjeFrame.setBounds(20, 20, 280, 200);
         pretraziVoznjeFrame.setResizable(false);
     }
 
     public static void launchOceniVoznjuFrame(String voznjaId) {
         OceniVoznjuFrame oceniVoznjuFrame = new OceniVoznjuFrame(voznjaId);
         oceniVoznjuFrame.setVisible(true);
-        oceniVoznjuFrame.setBounds(20, 20, 200, 200);
+        oceniVoznjuFrame.setBounds(20, 20, 100, 150);
         oceniVoznjuFrame.setResizable(false);
     }
 
-//    public static void launchIzvestajiFrame() {
-//        IzvestajiFrame izvestajiFrame = new IzvestajiFrame();
-//        izvestajiFrame.setVisible(true);
-//        izvestajiFrame.setBounds(20, 20, 200, 200);
-//        izvestajiFrame.setResizable(false);
-//    }
-//
-//    public static void launchSelectedIzvestajFrame() {
-//        SelectedIzvestajFrame selectedIzvestajFrame = new SelectedIzvestajFrame();
-//        selectedIzvestajFrame.setVisible(true);
-//        selectedIzvestajFrame.setBounds(20, 20, 200, 200);
-//        selectedIzvestajFrame.setResizable(false);
-//    }
+    public static void launchIzvestajiFrame() {
+        IzvestajiFrame izvestajiFrame = new IzvestajiFrame();
+        izvestajiFrame.setVisible(true);
+        izvestajiFrame.setBounds(20, 20, 300, 250);
+        izvestajiFrame.setResizable(false);
+    }
+
+    public static void launchDisplayIzvestajFrame(String tip, String value) {
+        DisplayIzvestajFrame displayIzvestajFrame = new DisplayIzvestajFrame(tip, value);
+        displayIzvestajFrame.setVisible(true);
+        displayIzvestajFrame.setBounds(20, 20, 200, 200);
+        displayIzvestajFrame.setResizable(false);
+    }
+    public static void launchGodisnjiIzvestajFrame() {
+        GodisnjiIzvestajFrame godisnjiIzvestajFrame = new GodisnjiIzvestajFrame();
+        godisnjiIzvestajFrame.setVisible(true);
+        godisnjiIzvestajFrame.setBounds(20, 20, 200, 200);
+        godisnjiIzvestajFrame.setResizable(false);
+    }
 }

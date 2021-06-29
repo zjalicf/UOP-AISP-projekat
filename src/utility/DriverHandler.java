@@ -53,7 +53,7 @@ public class DriverHandler {
         for(Korisnik korisnik : vozaci) {
             if (korisnik instanceof Vozac) {
                 Vozac vozac = (Vozac) korisnik;
-                vozac.setLokacija(adrese.getElement((int) (Math.random() * 12)));
+                vozac.setLokacija(adrese.getElement((int) (Math.random() * 9)));
             }
         }
     }
@@ -74,7 +74,6 @@ public class DriverHandler {
         return results.getJSONObject(0).getString("place_id");
     }
 
-    //vraca (vreme, brKarte)
     private static void izracunajVreme(String apiKey, String korisnikAdresa, Lista<Par<Integer, Integer>> osvezeniVozaci, Vozac vozac) throws IOException,
             JSONException {
         String tempLokacija = vozac.getLokacija();

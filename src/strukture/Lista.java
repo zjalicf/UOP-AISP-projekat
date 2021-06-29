@@ -49,6 +49,12 @@ public class Lista<T> implements Iterable<T> {
         return -1;
     }
 
+    /**
+     * Proverava da li element tipa T postoji u listi.
+     *
+     * @param element Element koji se proverava da li postoji.
+     * @return Vraca true ako ima, false ako nema.
+     */
     public boolean contains(T element) {
         return indexOf(element) >= 0;
     }
@@ -82,6 +88,14 @@ public class Lista<T> implements Iterable<T> {
     @Override
     public Iterator<T> iterator() {
         return new ListaIterator<T>(this);
+    }
+
+    public Object[] toArray () {
+        Object[] retArray = new Object[velicina];
+        for (int i = 0; i < velicina; i++) {
+            retArray[i] = getElement(i);
+        }
+        return retArray;
     }
 }
 
