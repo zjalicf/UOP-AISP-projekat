@@ -31,7 +31,7 @@ public class DisplayIzvestajFrame extends JFrame implements ActionListener {
     }
 
     private void setLocationAndSize() {
-        nazadButton.setBounds(50, 210, 110, 24);
+        nazadButton.setBounds(5, 130, 90, 24);
     }
 
     private void addComponentsToContainer() {

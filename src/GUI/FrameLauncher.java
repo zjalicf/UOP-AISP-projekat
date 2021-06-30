@@ -16,14 +16,14 @@ public class FrameLauncher {
     public static void launchListaVoznjiDispecerFrame() {
         ListaVoznjiDispecerFrame listaVoznjiDispecerFrame = new ListaVoznjiDispecerFrame();
         listaVoznjiDispecerFrame.setVisible(true);
-        listaVoznjiDispecerFrame.setBounds(20, 20, 1200, 184);
+        listaVoznjiDispecerFrame.setBounds(20, 20, 1198, 184);
         listaVoznjiDispecerFrame.setResizable(false);
     }
 
     public static void launchListaVoznjiVozacFrame(Korisnik ulogovani) {
         ListaVoznjiVozacFrame listaVoznjiVozacFrame = new ListaVoznjiVozacFrame(ulogovani);
         listaVoznjiVozacFrame.setVisible(true);
-        listaVoznjiVozacFrame.setBounds(20, 20, 1200, 184);
+        listaVoznjiVozacFrame.setBounds(20, 20, 1198, 184);
         listaVoznjiVozacFrame.setResizable(false);
     }
 
@@ -148,35 +148,35 @@ public class FrameLauncher {
     public static void launchIzvestajiFrame() {
         IzvestajiFrame izvestajiFrame = new IzvestajiFrame();
         izvestajiFrame.setVisible(true);
-        izvestajiFrame.setBounds(20, 20, 300, 250);
+        izvestajiFrame.setBounds(20, 20, 100, 250);
         izvestajiFrame.setResizable(false);
     }
 
     public static void launchDisplayIzvestajFrame(String tip, String value) {
         DisplayIzvestajFrame displayIzvestajFrame = new DisplayIzvestajFrame(tip, value);
         displayIzvestajFrame.setVisible(true);
-        displayIzvestajFrame.setBounds(20, 20, 200, 200);
+        displayIzvestajFrame.setBounds(20, 20, 1198, 200);
         displayIzvestajFrame.setResizable(false);
     }
 
     public static void launchGodisnjiIzvestajFrame() {
         GodisnjiIzvestajFrame godisnjiIzvestajFrame = new GodisnjiIzvestajFrame();
         godisnjiIzvestajFrame.setVisible(true);
-        godisnjiIzvestajFrame.setBounds(20, 20, 200, 200);
+        godisnjiIzvestajFrame.setBounds(20, 20, 150, 200);
         godisnjiIzvestajFrame.setResizable(false);
     }
 
     public static void launchMesecniIzvestajFrame() {
         MesecniIzvestajFrame mesecniIzvestajFrame = new MesecniIzvestajFrame();
         mesecniIzvestajFrame.setVisible(true);
-        mesecniIzvestajFrame.setBounds(20, 20, 200, 200);
+        mesecniIzvestajFrame.setBounds(20, 20, 150, 200);
         mesecniIzvestajFrame.setResizable(false);
     }
 
     public static void launchDnevniIzvestajFrame() {
         DnevniIzvestajFrame dnevniIzvestajFrame = new DnevniIzvestajFrame();
         dnevniIzvestajFrame.setVisible(true);
-        dnevniIzvestajFrame.setBounds(20, 20, 200, 200);
+        dnevniIzvestajFrame.setBounds(20, 20, 150, 200);
         dnevniIzvestajFrame.setResizable(false);
     }
 }

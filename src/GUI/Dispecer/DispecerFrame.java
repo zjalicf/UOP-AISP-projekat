@@ -13,7 +13,7 @@ public class DispecerFrame extends JFrame implements ActionListener {
     Container container = getContentPane();
     private final JButton vozaciButton = new JButton("Vozaci");
     private final JButton dispeceriButton = new JButton("Dispeceri");
-    private final JButton potvrdaVoznjeButton = new JButton("Narucene voznje");
+    private final JButton potvrdaVoznjeButton = new JButton("Voznje");
     private JLabel slika;
     private final JButton odjavaButton = new JButton("Odjava");
 

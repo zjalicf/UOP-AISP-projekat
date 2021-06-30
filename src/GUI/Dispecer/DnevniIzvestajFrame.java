@@ -26,10 +26,10 @@ public class DnevniIzvestajFrame extends JFrame implements ActionListener {
     }
 
     public void setLocationAndSize() {
-        datumLabel.setBounds(5,5,100,24);
-        datumField.setBounds(5,36,100,24);
-        prikaziButton.setBounds(5,80,100,24);
-        cancelButton.setBounds(115,80,100,24);
+        datumLabel.setBounds(17,5,100,24);
+        datumField.setBounds(17,36,100,24);
+        prikaziButton.setBounds(17,80,100,24);
+        cancelButton.setBounds(17,120,100,24);
     }
 
     public void addComponentsToContainer() {

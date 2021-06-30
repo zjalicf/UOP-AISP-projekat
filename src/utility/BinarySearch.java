@@ -2,38 +2,40 @@ package utility;
 
 
 import entiteti.Automobil;
-import entiteti.Voznja;
 import entiteti.Korisnik;
+import entiteti.Voznja;
+import strukture.Lista;
 
 import java.util.ArrayList;
 
 public class BinarySearch {
 
-    public Korisnik korisnikBinarySearch(ArrayList<Korisnik> lista, int target) {
-        return korisnikBinarySearch(lista, target, 0, lista.size());
+    public static Korisnik korisnikBinarySearch(Lista<Korisnik> lista, int target) {
+        return korisnikBinarySearch(lista, target, 0, lista.getSize());
     }
 
-    public Korisnik korisnikBinarySearch(ArrayList<Korisnik> lista, int target, int low, int high) {
-        if(low > high) {
-            return null;
-        }
+    public static Korisnik korisnikBinarySearch(Lista<Korisnik> lista, int target, int low, int high) {
+        if(low >= target) {
+            int mid = (low + high) / 2;
 
-        int mid = (low + high) / 2;
+            if (Integer.parseInt(lista.getElement(mid).getIdKorisnika()) == high) {
+                return lista.getElement(mid);
+            }
 
-        if (Integer.parseInt(lista.get(mid).getIdKorisnika()) == target) {
-            return lista.get(mid);
-        } else if (Integer.parseInt(lista.get(mid).getIdKorisnika()) > target) {
-            return korisnikBinarySearch(lista, target, low, mid - 1);
-        } else {
-            return korisnikBinarySearch(lista, target, mid + 1, high);
+            if (Integer.parseInt(lista.getElement(mid).getIdKorisnika()) > high) {
+                return korisnikBinarySearch(lista, target, mid - 1, high);
+            }
+
+            return korisnikBinarySearch(lista, mid + 1, low, high);
         }
+        return null;
     }
 
-    public Automobil automobilBinarySearch(ArrayList<Automobil> lista, int target) {
+    public static Automobil automobilBinarySearch(ArrayList<Automobil> lista, int target) {
         return automobilBinarySearch(lista, target, 0, lista.size());
     }
 
-    public Automobil automobilBinarySearch(ArrayList<Automobil> lista, int target, int low, int high) {
+    public static Automobil automobilBinarySearch(ArrayList<Automobil> lista, int target, int low, int high) {
         if(low > high) {
             return null;
         }
@@ -49,11 +51,11 @@ public class BinarySearch {
         }
     }
 
-    public Voznja voznjaBinarySearch(ArrayList<Voznja> lista, int target) {
+    public static Voznja voznjaBinarySearch(ArrayList<Voznja> lista, int target) {
         return voznjaBinarySearch(lista, target, 0, lista.size());
     }
 
-    public  Voznja voznjaBinarySearch(ArrayList<Voznja> lista, int target, int low, int high) {
+    public static Voznja voznjaBinarySearch(ArrayList<Voznja> lista, int target, int low, int high) {
         if(low > high) {
             return null;
         }

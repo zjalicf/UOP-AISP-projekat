@@ -6,14 +6,16 @@
   <component name="ChangeListManager">
     <list default="true" id="a16849ee-ca85-4d1b-8bac-9a3202963179" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/Dispecer/DispecerFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Dispecer/DispecerFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/Dispecer/DisplayIzvestajFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Dispecer/DisplayIzvestajFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/Dispecer/DnevniIzvestajFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Dispecer/DnevniIzvestajFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/Dispecer/GodisnjiIzvestajFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Dispecer/GodisnjiIzvestajFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/Dispecer/IzvestajiFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Dispecer/IzvestajiFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/Dispecer/ListaKorisnikaFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Dispecer/ListaKorisnikaFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/Dispecer/ListaVoznjiDispecerFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Dispecer/ListaVoznjiDispecerFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/Dispecer/MesecniIzvestajFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Dispecer/MesecniIzvestajFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/FrameLauncher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/FrameLauncher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fileIO/KorisnikIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fileIO/KorisnikIO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fileIO/VoznjaIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fileIO/VoznjaIO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/strukture/Lista.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/strukture/Lista.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fileIO/AutomobilIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fileIO/AutomobilIO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utility/BinarySearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utility/BinarySearch.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,19 +71,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
@@ -103,6 +92,7 @@
       <workItem from="1624791665114" duration="3165000" />
       <workItem from="1624975519006" duration="5011000" />
       <workItem from="1624999193756" duration="4170000" />
+      <workItem from="1625047938634" duration="3772000" />
     </task>
     <servers />
   </component>

@@ -27,11 +27,11 @@ public class IzvestajiFrame extends JFrame implements ActionListener {
     }
 
     public void setLocationAndSize() {
-        godisnjiIzvestaj.setBounds(5,50,70,20);
-        mesecniIzvestaj.setBounds(90,50,70,20);
-        nedeljniIzvestaj.setBounds(175,50,70,24);
-        dnevniIzvestaj.setBounds(260,50,70,24);
-        cancelButton.setBounds(345,50,70,24);
+        godisnjiIzvestaj.setBounds(15,10,90,24);
+        mesecniIzvestaj.setBounds(15,42,90,24);
+        nedeljniIzvestaj.setBounds(15,74,90,24);
+        dnevniIzvestaj.setBounds(15,106,90,24);
+        cancelButton.setBounds(15,172,90,24);
     }
 
     public void addComponentsToContainer() {

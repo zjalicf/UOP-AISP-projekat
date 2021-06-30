@@ -44,6 +44,12 @@ public class AutomobilIO {
         return automobili;
     }
 
+    public static Lista<Automobil> sviAutomobili = AutomobilIO.automobilCitanje();
+
+    public static Lista<Automobil> getAutomobili() {
+        return sviAutomobili;
+    }
+
     public static Lista<String> getIdSvihAutomobila() {
         Lista<String> automobiliId = new Lista<>(2);
         Lista<Automobil> sviAutomobili = automobilCitanje();

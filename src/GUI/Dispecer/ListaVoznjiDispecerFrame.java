@@ -46,7 +46,7 @@ public class ListaVoznjiDispecerFrame extends JFrame implements ActionListener {
         izmeniButton.setBounds(180,110,150,24);
         dodeliButton.setBounds(345,110,150,24);
         izvestajiButton.setBounds(510,110,110,24);
-        nazadButton.setBounds(775,110,110,24);
+        nazadButton.setBounds(1060,110,110,24);
     }
 
     public void addComponentsToContainer() {
@@ -79,20 +79,22 @@ public class ListaVoznjiDispecerFrame extends JFrame implements ActionListener {
         String[] title = new String[] {"Datum" ,"Polazak", "Destinacija", "ID Musterije", "ID Vozaca", "km", "Trajanje", "Status", "ID Voznje",
                 "Ocena"};
         Object[][] sadrzaj = new Object[voznjeZaUpis.getSize()][title.length];
-        for (int i = 0; i < voznjeZaUpis.getSize(); i++) {
-            for (Voznja voznja: voznjeZaUpis) {
-                sadrzaj[i][0] = voznja.getDatumPorudzbine();
-                sadrzaj[i][1] = voznja.getAdresaPolaska();
-                sadrzaj[i][2] = voznja.getAdresaDestinacije();
-                sadrzaj[i][3] = voznja.getIdMusterije();
-                sadrzaj[i][4] = voznja.getIdVozaca();
-                sadrzaj[i][5] = voznja.getPredjenoKm();
-                sadrzaj[i][6] = voznja.getTrajanjeVoznje();
-                sadrzaj[i][7] = voznja.getStatusVoznje();
-                sadrzaj[i][8] = voznja.getIdVoznje();
-                sadrzaj[i][9] = voznja.getOcenaVoznje();
-            }
+        int i = 0;
+        for (Voznja voznja: voznjeZaUpis) {
+            sadrzaj[i][0] = voznja.getDatumPorudzbine();
+            sadrzaj[i][1] = voznja.getAdresaPolaska();
+            sadrzaj[i][2] = voznja.getAdresaDestinacije();
+            sadrzaj[i][3] = voznja.getIdMusterije();
+            sadrzaj[i][4] = voznja.getIdVozaca();
+            sadrzaj[i][5] = voznja.getPredjenoKm();
+            sadrzaj[i][6] = voznja.getTrajanjeVoznje();
+            sadrzaj[i][7] = voznja.getStatusVoznje();
+            sadrzaj[i][8] = voznja.getIdVoznje();
+            sadrzaj[i][9] = voznja.getOcenaVoznje();
+
+            i++;
         }
+
         createTable(title, sadrzaj);
     }
 
@@ -172,6 +174,12 @@ public class ListaVoznjiDispecerFrame extends JFrame implements ActionListener {
                 } catch (JSONException | IOException jsonException) {
                     jsonException.printStackTrace();
                 }
+//POKUSAO BINARY
+//                Korisnik vozac = BinarySearch.korisnikBinarySearch(KorisnikIO.getKorisnici(), Integer.parseInt(idVozaca));
+//                Vozac vozacFixed = (Vozac) vozac;
+//                String idAutomobilaVozaca = vozacFixed.getIdAutomobila();
+//                String imeVozaca = vozacFixed.getIme();
+//                String prezimeVozaca = vozacFixed.getPrezime();
 
                 if (idAutomobilaVozaca.equals("0")) {
                     String output = "Dodeljivanje voznje vozacu " + imeVozaca + " ID [" + idVozaca + "]" + " neuspesno. \nERR: Vozac nema dodeljen " +
