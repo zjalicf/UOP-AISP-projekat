@@ -6,16 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="a16849ee-ca85-4d1b-8bac-9a3202963179" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/Dispecer/DispecerFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Dispecer/DispecerFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/Dispecer/DisplayIzvestajFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Dispecer/DisplayIzvestajFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/Dispecer/DnevniIzvestajFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Dispecer/DnevniIzvestajFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/Dispecer/GodisnjiIzvestajFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Dispecer/GodisnjiIzvestajFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/Dispecer/IzvestajiFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Dispecer/IzvestajiFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/Dispecer/ListaVoznjiDispecerFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Dispecer/ListaVoznjiDispecerFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/Dispecer/MesecniIzvestajFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Dispecer/MesecniIzvestajFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/FrameLauncher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/FrameLauncher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fileIO/AutomobilIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fileIO/AutomobilIO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utility/BinarySearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utility/BinarySearch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/Dispecer/ListaKorisnikaFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Dispecer/ListaKorisnikaFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/txtPodaci/voznje.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/txtPodaci/voznje.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,6 +85,8 @@
       <workItem from="1624975519006" duration="5011000" />
       <workItem from="1624999193756" duration="4170000" />
       <workItem from="1625047938634" duration="3772000" />
+      <workItem from="1625051858819" duration="62000" />
+      <workItem from="1625139934205" duration="447000" />
     </task>
     <servers />
   </component>

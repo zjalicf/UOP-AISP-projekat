@@ -44,7 +44,7 @@ public class ListaKorisnikaFrame extends JFrame implements ActionListener {
         dodajButton.setBounds(150,110,130,24);
         izmeniButton.setBounds(290,110,130,24);
         pretraziButton.setBounds(430,110,130,24);
-        nazadButton.setBounds(570,110,130,24);
+        nazadButton.setBounds(950,110,130,24);
     }
 
     public void addComponentsToContainer() {
@@ -52,7 +52,9 @@ public class ListaKorisnikaFrame extends JFrame implements ActionListener {
         container.add(izbrisiButton);
         container.add(izmeniButton);
         container.add(nazadButton);
-        container.add(pretraziButton);
+        if (tip == 0) {
+            container.add(pretraziButton);
+        }
     }
 
     public void addActionEvent() {
