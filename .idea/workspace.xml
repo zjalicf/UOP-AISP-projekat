@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a16849ee-ca85-4d1b-8bac-9a3202963179" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/Dispecer/ListaKorisnikaFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Dispecer/ListaKorisnikaFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/txtPodaci/voznje.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/txtPodaci/voznje.txt" afterDir="false" />
-    </list>
+    <list default="true" id="a16849ee-ca85-4d1b-8bac-9a3202963179" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -87,6 +83,7 @@
       <workItem from="1625047938634" duration="3772000" />
       <workItem from="1625051858819" duration="62000" />
       <workItem from="1625139934205" duration="447000" />
+      <workItem from="1626312503225" duration="123000" />
     </task>
     <servers />
   </component>
