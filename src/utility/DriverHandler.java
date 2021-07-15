@@ -15,7 +15,7 @@ import java.net.URL;
 public class DriverHandler {
     public static Par<Integer, Integer> osveziVozace(Lista<Korisnik> vozaci, String unesenaAdresa) throws JSONException,
             IOException {
-        String apiKey = "AIzaSyAP1ILAhEyPnYCXt4EDQfnlTr-Dm5riBnw";
+        String apiKey = ""; // enter API key
         Lista<String> adrese = new Lista<>(2);
 
         ucitajAdrese(adrese);
@@ -61,7 +61,7 @@ public class DriverHandler {
     private static String adressToPlaceId(String unesenaAdresa) throws IOException, JSONException {
         String unesenaAdresaFixed = unesenaAdresa.replace(' ', '+') + ",+Novi+Sad,+Serbia";
         URL url = new URL("https://maps.googleapis.com/maps/api/geocode/json?address=" + unesenaAdresaFixed +
-                "&key=" + "AIzaSyAP1ILAhEyPnYCXt4EDQfnlTr-Dm5riBnw");
+                "&key=" + "API_KEY"); // enter API key
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setRequestMethod("GET");
         String line, outputString = "";
